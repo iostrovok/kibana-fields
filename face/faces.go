@@ -1,10 +1,21 @@
 package face
 
+import (
+	"strings"
+)
+
 // Type Field is used for supporting process.* namespace
 type Field string
 
 func (f Field) String() string {
 	return string(f)
+}
+
+// Label presents the name as labels key (no main) in Kibana
+//
+//	"http.request.body.content" => "http_request_body_content"
+func (f Field) Label() string {
+	return strings.Replace(string(f), ".", "_", -1)
 }
 
 const (
