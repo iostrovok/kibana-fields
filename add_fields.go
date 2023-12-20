@@ -6,11 +6,8 @@ const (
 	Environment Field = "environment"
 )
 
-// Result for APM transaction
-type Result string
-
 const (
-	ResultOk      Result = "ok"
-	ResultFailure Result = "failure"
-	ResultSkipped Result = "skipped"
+	ResultOk      string = "ok"
+	ResultFailure string = "failure"
+	ResultSkipped string = "skipped"
 )
