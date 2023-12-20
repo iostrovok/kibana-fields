@@ -5,3 +5,6 @@ mod-action-%:
 	@echo "Done go mod  ${*}"
 
 mod: mod-action-verify mod-action-tidy mod-action-vendor mod-action-download mod-action-verify ## Download all dependencies
+
+test: ## Run all tests
+	go test .

@@ -1,18 +1,19 @@
 package error
 
-import "github.com/iostrovok/kibana-fields/face"
+import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
-	Code       face.Field = "error.code"        // Error code describing the error. type: keyword
-	ID         face.Field = "error.id"          // Unique identifier for the error. type: keyword
-	Message    face.Field = "error.message"     // Error message. type: text
-	StackTrace face.Field = "error.stack_trace" // The stack trace of this error in plain text. type: keyword
-	Type       face.Field = "error.type"        // The type of the error, for example the class name of the exception. type: keyword
+	Code       fields.Field = "error.code"        // Error code describing the error.
+	ID         fields.Field = "error.id"          // Unique identifier for the error.
+	Message    fields.Field = "error.message"     // Error message.
+	StackTrace fields.Field = "error.stack_trace" // The stack trace of this error in plain text.
+	Type       fields.Field = "error.type"        // The type of the error, for example the class name of the exception.
+
 )
 
-// All package constants as list
-var Fields = []face.Field{
+// Fields contains all package constants as list
+var Fields = []fields.Field{
 	Code,
 	ID,
 	Message,
@@ -20,11 +21,13 @@ var Fields = []face.Field{
 	Type,
 }
 
-// Types describes kibana types of fields
-var Types = map[face.Field]face.Type{
-	Code:       face.KeyWord,
-	ID:         face.KeyWord,
-	Message:    face.MatchOnlyText,
-	StackTrace: face.MultiFields,
-	Type:       face.KeyWord,
+// TypesType describes kibana types of fields to check values
+type TypesType struct {
+	Code       fields.KeyWord
+	ID         fields.KeyWord
+	Message    fields.MatchOnlyText
+	StackTrace fields.Wildcard
+	Type       fields.KeyWord
 }
+
+var Types TypesType = TypesType{}
