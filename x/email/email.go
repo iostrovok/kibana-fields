@@ -4,6 +4,7 @@ import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
+	Attachments               fields.Field = "email.attachments"                  // List of objects describing the attachments.
 	AttachmentsFileExtension  fields.Field = "email.attachments.file.extension"   // Attachment file extension.
 	AttachmentsFileHashMd5    fields.Field = "email.attachments.file.hash.md5"    // MD5 hash.
 	AttachmentsFileHashSha1   fields.Field = "email.attachments.file.hash.sha1"   // SHA1 hash.
@@ -34,6 +35,7 @@ const (
 
 // Fields contains all package constants as list
 var Fields = []fields.Field{
+	Attachments,
 	AttachmentsFileExtension,
 	AttachmentsFileHashMd5,
 	AttachmentsFileHashSha1,
@@ -63,6 +65,7 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
+	Attachments               fields.Nested
 	AttachmentsFileExtension  fields.KeyWord
 	AttachmentsFileHashMd5    fields.KeyWord
 	AttachmentsFileHashSha1   fields.KeyWord

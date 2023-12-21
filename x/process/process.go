@@ -38,6 +38,7 @@ const (
 	ElfImports                               fields.Field = "process.elf.imports"                                    // List of imported element names and types.
 	ElfImportsNamesEntropy                   fields.Field = "process.elf.imports_names_entropy"                      // Shannon entropy calculation from the list of imported element names and types.
 	ElfImportsNamesVarEntropy                fields.Field = "process.elf.imports_names_var_entropy"                  // Variance for Shannon entropy calculation from the list of imported element names and types.
+	ElfSections                              fields.Field = "process.elf.sections"                                   // Section information of the ELF file.
 	ElfSectionsChi2                          fields.Field = "process.elf.sections.chi2"                              // Chi-square probability distribution of the section.
 	ElfSectionsEntropy                       fields.Field = "process.elf.sections.entropy"                           // Shannon entropy calculation from the section.
 	ElfSectionsFlags                         fields.Field = "process.elf.sections.flags"                             // ELF Section List flags.
@@ -48,6 +49,7 @@ const (
 	ElfSectionsVarEntropy                    fields.Field = "process.elf.sections.var_entropy"                       // Variance for Shannon entropy calculation from the section.
 	ElfSectionsVirtualAddress                fields.Field = "process.elf.sections.virtual_address"                   // ELF Section List virtual address.
 	ElfSectionsVirtualSize                   fields.Field = "process.elf.sections.virtual_size"                      // ELF Section List virtual size.
+	ElfSegments                              fields.Field = "process.elf.segments"                                   // ELF object segment list.
 	ElfSegmentsSections                      fields.Field = "process.elf.segments.sections"                          // ELF object segment sections.
 	ElfSegmentsType                          fields.Field = "process.elf.segments.type"                              // ELF object segment type.
 	ElfSharedLibraries                       fields.Field = "process.elf.shared_libraries"                           // List of shared libraries used by this ELF object.
@@ -89,6 +91,7 @@ const (
 	EntryLeaderStart                         fields.Field = "process.entry_leader.start"                             // The time the process started.
 	EntryLeaderSupplementalGroupsID          fields.Field = "process.entry_leader.supplemental_groups.id"            // Unique identifier for the group on the system/platform.
 	EntryLeaderSupplementalGroupsName        fields.Field = "process.entry_leader.supplemental_groups.name"          // Name of the group.
+	EntryLeaderTty                           fields.Field = "process.entry_leader.tty"                               // Information about the controlling TTY device.
 	EntryLeaderTtyCharDeviceMajor            fields.Field = "process.entry_leader.tty.char_device.major"             // The TTY character device's major number.
 	EntryLeaderTtyCharDeviceMinor            fields.Field = "process.entry_leader.tty.char_device.minor"             // The TTY character device's minor number.
 	EntryLeaderUserID                        fields.Field = "process.entry_leader.user.id"                           // Unique identifier of the user.
@@ -120,6 +123,7 @@ const (
 	GroupLeaderStart                         fields.Field = "process.group_leader.start"                             // The time the process started.
 	GroupLeaderSupplementalGroupsID          fields.Field = "process.group_leader.supplemental_groups.id"            // Unique identifier for the group on the system/platform.
 	GroupLeaderSupplementalGroupsName        fields.Field = "process.group_leader.supplemental_groups.name"          // Name of the group.
+	GroupLeaderTty                           fields.Field = "process.group_leader.tty"                               // Information about the controlling TTY device.
 	GroupLeaderTtyCharDeviceMajor            fields.Field = "process.group_leader.tty.char_device.major"             // The TTY character device's major number.
 	GroupLeaderTtyCharDeviceMinor            fields.Field = "process.group_leader.tty.char_device.minor"             // The TTY character device's minor number.
 	GroupLeaderUserID                        fields.Field = "process.group_leader.user.id"                           // Unique identifier of the user.
@@ -134,6 +138,8 @@ const (
 	HashSsdeep                               fields.Field = "process.hash.ssdeep"                                    // SSDEEP hash.
 	HashTlsh                                 fields.Field = "process.hash.tlsh"                                      // TLSH hash.
 	Interactive                              fields.Field = "process.interactive"                                    // Whether the process is connected to an interactive shell.
+	Io                                       fields.Field = "process.io"                                             // A chunk of input or output (IO) from a single process.
+	IoBytesSkipped                           fields.Field = "process.io.bytes_skipped"                               // An array of byte offsets and lengths denoting where IO data has been skipped.
 	IoBytesSkippedLength                     fields.Field = "process.io.bytes_skipped.length"                        // The length of bytes skipped.
 	IoBytesSkippedOffset                     fields.Field = "process.io.bytes_skipped.offset"                        // The byte offset into this event's io.text (or io.bytes in the future) where length bytes were skipped.
 	IoMaxBytesPerExceeded                    fields.Field = "process.io.max_bytes_per_process_exceeded"              // If true, the process producing the output has exceeded the max_kilobytes_per_process configuration setting.
@@ -150,6 +156,7 @@ const (
 	MachoImports                             fields.Field = "process.macho.imports"                                  // List of imported element names and types.
 	MachoImportsNamesEntropy                 fields.Field = "process.macho.imports_names_entropy"                    // Shannon entropy calculation from the list of imported element names and types.
 	MachoImportsNamesVarEntropy              fields.Field = "process.macho.imports_names_var_entropy"                // Variance for Shannon entropy calculation from the list of imported element names and types.
+	MachoSections                            fields.Field = "process.macho.sections"                                 // Section information of the Mach-O file.
 	MachoSectionsEntropy                     fields.Field = "process.macho.sections.entropy"                         // Shannon entropy calculation from the section.
 	MachoSectionsName                        fields.Field = "process.macho.sections.name"                            // Mach-O Section List name.
 	MachoSectionsPhysicalSize                fields.Field = "process.macho.sections.physical_size"                   // Mach-O Section List physical size.
@@ -191,6 +198,7 @@ const (
 	ParentElfImports                         fields.Field = "process.parent.elf.imports"                             // List of imported element names and types.
 	ParentElfImportsNamesEntropy             fields.Field = "process.parent.elf.imports_names_entropy"               // Shannon entropy calculation from the list of imported element names and types.
 	ParentElfImportsNamesVarEntropy          fields.Field = "process.parent.elf.imports_names_var_entropy"           // Variance for Shannon entropy calculation from the list of imported element names and types.
+	ParentElfSections                        fields.Field = "process.parent.elf.sections"                            // Section information of the ELF file.
 	ParentElfSectionsChi2                    fields.Field = "process.parent.elf.sections.chi2"                       // Chi-square probability distribution of the section.
 	ParentElfSectionsEntropy                 fields.Field = "process.parent.elf.sections.entropy"                    // Shannon entropy calculation from the section.
 	ParentElfSectionsFlags                   fields.Field = "process.parent.elf.sections.flags"                      // ELF Section List flags.
@@ -201,6 +209,7 @@ const (
 	ParentElfSectionsVarEntropy              fields.Field = "process.parent.elf.sections.var_entropy"                // Variance for Shannon entropy calculation from the section.
 	ParentElfSectionsVirtualAddress          fields.Field = "process.parent.elf.sections.virtual_address"            // ELF Section List virtual address.
 	ParentElfSectionsVirtualSize             fields.Field = "process.parent.elf.sections.virtual_size"               // ELF Section List virtual size.
+	ParentElfSegments                        fields.Field = "process.parent.elf.segments"                            // ELF object segment list.
 	ParentElfSegmentsSections                fields.Field = "process.parent.elf.segments.sections"                   // ELF object segment sections.
 	ParentElfSegmentsType                    fields.Field = "process.parent.elf.segments.type"                       // ELF object segment type.
 	ParentElfSharedLibraries                 fields.Field = "process.parent.elf.shared_libraries"                    // List of shared libraries used by this ELF object.
@@ -232,6 +241,7 @@ const (
 	ParentMachoImports                       fields.Field = "process.parent.macho.imports"                           // List of imported element names and types.
 	ParentMachoImportsNamesEntropy           fields.Field = "process.parent.macho.imports_names_entropy"             // Shannon entropy calculation from the list of imported element names and types.
 	ParentMachoImportsNamesVarEntropy        fields.Field = "process.parent.macho.imports_names_var_entropy"         // Variance for Shannon entropy calculation from the list of imported element names and types.
+	ParentMachoSections                      fields.Field = "process.parent.macho.sections"                          // Section information of the Mach-O file.
 	ParentMachoSectionsEntropy               fields.Field = "process.parent.macho.sections.entropy"                  // Shannon entropy calculation from the section.
 	ParentMachoSectionsName                  fields.Field = "process.parent.macho.sections.name"                     // Mach-O Section List name.
 	ParentMachoSectionsPhysicalSize          fields.Field = "process.parent.macho.sections.physical_size"            // Mach-O Section List physical size.
@@ -256,6 +266,7 @@ const (
 	ParentPeOriginalFileName                 fields.Field = "process.parent.pe.original_file_name"                   // Internal name of the file, provided at compile-time.
 	ParentPePehash                           fields.Field = "process.parent.pe.pehash"                               // A hash of the PE header and data from one or more PE sections.
 	ParentPeProduct                          fields.Field = "process.parent.pe.product"                              // Internal product name of the file, provided at compile-time.
+	ParentPeSections                         fields.Field = "process.parent.pe.sections"                             // Section information of the PE file.
 	ParentPeSectionsEntropy                  fields.Field = "process.parent.pe.sections.entropy"                     // Shannon entropy calculation from the section.
 	ParentPeSectionsName                     fields.Field = "process.parent.pe.sections.name"                        // PE Section List name.
 	ParentPeSectionsPhysicalSize             fields.Field = "process.parent.pe.sections.physical_size"               // PE Section List physical size.
@@ -279,6 +290,7 @@ const (
 	ParentThreadID                           fields.Field = "process.parent.thread.id"                               // Thread ID.
 	ParentThreadName                         fields.Field = "process.parent.thread.name"                             // Thread name.
 	ParentTitle                              fields.Field = "process.parent.title"                                   // Process title.
+	ParentTty                                fields.Field = "process.parent.tty"                                     // Information about the controlling TTY device.
 	ParentTtyCharDeviceMajor                 fields.Field = "process.parent.tty.char_device.major"                   // The TTY character device's major number.
 	ParentTtyCharDeviceMinor                 fields.Field = "process.parent.tty.char_device.minor"                   // The TTY character device's minor number.
 	ParentUptime                             fields.Field = "process.parent.uptime"                                  // Seconds the process has been up.
@@ -303,6 +315,7 @@ const (
 	PeOriginalFileName                       fields.Field = "process.pe.original_file_name"                          // Internal name of the file, provided at compile-time.
 	PePehash                                 fields.Field = "process.pe.pehash"                                      // A hash of the PE header and data from one or more PE sections.
 	PeProduct                                fields.Field = "process.pe.product"                                     // Internal product name of the file, provided at compile-time.
+	PeSections                               fields.Field = "process.pe.sections"                                    // Section information of the PE file.
 	PeSectionsEntropy                        fields.Field = "process.pe.sections.entropy"                            // Shannon entropy calculation from the section.
 	PeSectionsName                           fields.Field = "process.pe.sections.name"                               // PE Section List name.
 	PeSectionsPhysicalSize                   fields.Field = "process.pe.sections.physical_size"                      // PE Section List physical size.
@@ -351,6 +364,7 @@ const (
 	SessionLeaderStart                       fields.Field = "process.session_leader.start"                           // The time the process started.
 	SessionLeaderSupplementalGroupsID        fields.Field = "process.session_leader.supplemental_groups.id"          // Unique identifier for the group on the system/platform.
 	SessionLeaderSupplementalGroupsName      fields.Field = "process.session_leader.supplemental_groups.name"        // Name of the group.
+	SessionLeaderTty                         fields.Field = "process.session_leader.tty"                             // Information about the controlling TTY device.
 	SessionLeaderTtyCharDeviceMajor          fields.Field = "process.session_leader.tty.char_device.major"           // The TTY character device's major number.
 	SessionLeaderTtyCharDeviceMinor          fields.Field = "process.session_leader.tty.char_device.minor"           // The TTY character device's minor number.
 	SessionLeaderUserID                      fields.Field = "process.session_leader.user.id"                         // Unique identifier of the user.
@@ -365,6 +379,7 @@ const (
 	ThreadID                                 fields.Field = "process.thread.id"                                      // Thread ID.
 	ThreadName                               fields.Field = "process.thread.name"                                    // Thread name.
 	Title                                    fields.Field = "process.title"                                          // Process title.
+	Tty                                      fields.Field = "process.tty"                                            // Information about the controlling TTY device.
 	TtyCharDeviceMajor                       fields.Field = "process.tty.char_device.major"                          // The TTY character device's major number.
 	TtyCharDeviceMinor                       fields.Field = "process.tty.char_device.minor"                          // The TTY character device's minor number.
 	TtyColumns                               fields.Field = "process.tty.columns"                                    // The number of character columns per line. e.g terminal width
@@ -413,6 +428,7 @@ var Fields = []fields.Field{
 	ElfImports,
 	ElfImportsNamesEntropy,
 	ElfImportsNamesVarEntropy,
+	ElfSections,
 	ElfSectionsChi2,
 	ElfSectionsEntropy,
 	ElfSectionsFlags,
@@ -423,6 +439,7 @@ var Fields = []fields.Field{
 	ElfSectionsVarEntropy,
 	ElfSectionsVirtualAddress,
 	ElfSectionsVirtualSize,
+	ElfSegments,
 	ElfSegmentsSections,
 	ElfSegmentsType,
 	ElfSharedLibraries,
@@ -464,6 +481,7 @@ var Fields = []fields.Field{
 	EntryLeaderStart,
 	EntryLeaderSupplementalGroupsID,
 	EntryLeaderSupplementalGroupsName,
+	EntryLeaderTty,
 	EntryLeaderTtyCharDeviceMajor,
 	EntryLeaderTtyCharDeviceMinor,
 	EntryLeaderUserID,
@@ -495,6 +513,7 @@ var Fields = []fields.Field{
 	GroupLeaderStart,
 	GroupLeaderSupplementalGroupsID,
 	GroupLeaderSupplementalGroupsName,
+	GroupLeaderTty,
 	GroupLeaderTtyCharDeviceMajor,
 	GroupLeaderTtyCharDeviceMinor,
 	GroupLeaderUserID,
@@ -509,6 +528,8 @@ var Fields = []fields.Field{
 	HashSsdeep,
 	HashTlsh,
 	Interactive,
+	Io,
+	IoBytesSkipped,
 	IoBytesSkippedLength,
 	IoBytesSkippedOffset,
 	IoMaxBytesPerExceeded,
@@ -525,6 +546,7 @@ var Fields = []fields.Field{
 	MachoImports,
 	MachoImportsNamesEntropy,
 	MachoImportsNamesVarEntropy,
+	MachoSections,
 	MachoSectionsEntropy,
 	MachoSectionsName,
 	MachoSectionsPhysicalSize,
@@ -566,6 +588,7 @@ var Fields = []fields.Field{
 	ParentElfImports,
 	ParentElfImportsNamesEntropy,
 	ParentElfImportsNamesVarEntropy,
+	ParentElfSections,
 	ParentElfSectionsChi2,
 	ParentElfSectionsEntropy,
 	ParentElfSectionsFlags,
@@ -576,6 +599,7 @@ var Fields = []fields.Field{
 	ParentElfSectionsVarEntropy,
 	ParentElfSectionsVirtualAddress,
 	ParentElfSectionsVirtualSize,
+	ParentElfSegments,
 	ParentElfSegmentsSections,
 	ParentElfSegmentsType,
 	ParentElfSharedLibraries,
@@ -607,6 +631,7 @@ var Fields = []fields.Field{
 	ParentMachoImports,
 	ParentMachoImportsNamesEntropy,
 	ParentMachoImportsNamesVarEntropy,
+	ParentMachoSections,
 	ParentMachoSectionsEntropy,
 	ParentMachoSectionsName,
 	ParentMachoSectionsPhysicalSize,
@@ -631,6 +656,7 @@ var Fields = []fields.Field{
 	ParentPeOriginalFileName,
 	ParentPePehash,
 	ParentPeProduct,
+	ParentPeSections,
 	ParentPeSectionsEntropy,
 	ParentPeSectionsName,
 	ParentPeSectionsPhysicalSize,
@@ -654,6 +680,7 @@ var Fields = []fields.Field{
 	ParentThreadID,
 	ParentThreadName,
 	ParentTitle,
+	ParentTty,
 	ParentTtyCharDeviceMajor,
 	ParentTtyCharDeviceMinor,
 	ParentUptime,
@@ -678,6 +705,7 @@ var Fields = []fields.Field{
 	PeOriginalFileName,
 	PePehash,
 	PeProduct,
+	PeSections,
 	PeSectionsEntropy,
 	PeSectionsName,
 	PeSectionsPhysicalSize,
@@ -726,6 +754,7 @@ var Fields = []fields.Field{
 	SessionLeaderStart,
 	SessionLeaderSupplementalGroupsID,
 	SessionLeaderSupplementalGroupsName,
+	SessionLeaderTty,
 	SessionLeaderTtyCharDeviceMajor,
 	SessionLeaderTtyCharDeviceMinor,
 	SessionLeaderUserID,
@@ -740,6 +769,7 @@ var Fields = []fields.Field{
 	ThreadID,
 	ThreadName,
 	Title,
+	Tty,
 	TtyCharDeviceMajor,
 	TtyCharDeviceMinor,
 	TtyColumns,
@@ -787,6 +817,7 @@ type TypesType struct {
 	ElfImports                               fields.Flattened
 	ElfImportsNamesEntropy                   fields.Long
 	ElfImportsNamesVarEntropy                fields.Long
+	ElfSections                              fields.Nested
 	ElfSectionsChi2                          fields.Long
 	ElfSectionsEntropy                       fields.Long
 	ElfSectionsFlags                         fields.KeyWord
@@ -797,6 +828,7 @@ type TypesType struct {
 	ElfSectionsVarEntropy                    fields.Long
 	ElfSectionsVirtualAddress                fields.Long
 	ElfSectionsVirtualSize                   fields.Long
+	ElfSegments                              fields.Nested
 	ElfSegmentsSections                      fields.KeyWord
 	ElfSegmentsType                          fields.KeyWord
 	ElfSharedLibraries                       fields.KeyWord
@@ -838,6 +870,7 @@ type TypesType struct {
 	EntryLeaderStart                         fields.Date
 	EntryLeaderSupplementalGroupsID          fields.KeyWord
 	EntryLeaderSupplementalGroupsName        fields.KeyWord
+	EntryLeaderTty                           fields.Object
 	EntryLeaderTtyCharDeviceMajor            fields.Long
 	EntryLeaderTtyCharDeviceMinor            fields.Long
 	EntryLeaderUserID                        fields.KeyWord
@@ -869,6 +902,7 @@ type TypesType struct {
 	GroupLeaderStart                         fields.Date
 	GroupLeaderSupplementalGroupsID          fields.KeyWord
 	GroupLeaderSupplementalGroupsName        fields.KeyWord
+	GroupLeaderTty                           fields.Object
 	GroupLeaderTtyCharDeviceMajor            fields.Long
 	GroupLeaderTtyCharDeviceMinor            fields.Long
 	GroupLeaderUserID                        fields.KeyWord
@@ -883,6 +917,8 @@ type TypesType struct {
 	HashSsdeep                               fields.KeyWord
 	HashTlsh                                 fields.KeyWord
 	Interactive                              fields.Boolean
+	Io                                       fields.Object
+	IoBytesSkipped                           fields.Object
 	IoBytesSkippedLength                     fields.Long
 	IoBytesSkippedOffset                     fields.Long
 	IoMaxBytesPerExceeded                    fields.Boolean
@@ -899,6 +935,7 @@ type TypesType struct {
 	MachoImports                             fields.Flattened
 	MachoImportsNamesEntropy                 fields.Long
 	MachoImportsNamesVarEntropy              fields.Long
+	MachoSections                            fields.Nested
 	MachoSectionsEntropy                     fields.Long
 	MachoSectionsName                        fields.KeyWord
 	MachoSectionsPhysicalSize                fields.Long
@@ -940,6 +977,7 @@ type TypesType struct {
 	ParentElfImports                         fields.Flattened
 	ParentElfImportsNamesEntropy             fields.Long
 	ParentElfImportsNamesVarEntropy          fields.Long
+	ParentElfSections                        fields.Nested
 	ParentElfSectionsChi2                    fields.Long
 	ParentElfSectionsEntropy                 fields.Long
 	ParentElfSectionsFlags                   fields.KeyWord
@@ -950,6 +988,7 @@ type TypesType struct {
 	ParentElfSectionsVarEntropy              fields.Long
 	ParentElfSectionsVirtualAddress          fields.Long
 	ParentElfSectionsVirtualSize             fields.Long
+	ParentElfSegments                        fields.Nested
 	ParentElfSegmentsSections                fields.KeyWord
 	ParentElfSegmentsType                    fields.KeyWord
 	ParentElfSharedLibraries                 fields.KeyWord
@@ -981,6 +1020,7 @@ type TypesType struct {
 	ParentMachoImports                       fields.Flattened
 	ParentMachoImportsNamesEntropy           fields.Long
 	ParentMachoImportsNamesVarEntropy        fields.Long
+	ParentMachoSections                      fields.Nested
 	ParentMachoSectionsEntropy               fields.Long
 	ParentMachoSectionsName                  fields.KeyWord
 	ParentMachoSectionsPhysicalSize          fields.Long
@@ -1005,6 +1045,7 @@ type TypesType struct {
 	ParentPeOriginalFileName                 fields.KeyWord
 	ParentPePehash                           fields.KeyWord
 	ParentPeProduct                          fields.KeyWord
+	ParentPeSections                         fields.Nested
 	ParentPeSectionsEntropy                  fields.Long
 	ParentPeSectionsName                     fields.KeyWord
 	ParentPeSectionsPhysicalSize             fields.Long
@@ -1028,6 +1069,7 @@ type TypesType struct {
 	ParentThreadID                           fields.Long
 	ParentThreadName                         fields.KeyWord
 	ParentTitle                              fields.KeyWord
+	ParentTty                                fields.Object
 	ParentTtyCharDeviceMajor                 fields.Long
 	ParentTtyCharDeviceMinor                 fields.Long
 	ParentUptime                             fields.Long
@@ -1052,6 +1094,7 @@ type TypesType struct {
 	PeOriginalFileName                       fields.KeyWord
 	PePehash                                 fields.KeyWord
 	PeProduct                                fields.KeyWord
+	PeSections                               fields.Nested
 	PeSectionsEntropy                        fields.Long
 	PeSectionsName                           fields.KeyWord
 	PeSectionsPhysicalSize                   fields.Long
@@ -1100,6 +1143,7 @@ type TypesType struct {
 	SessionLeaderStart                       fields.Date
 	SessionLeaderSupplementalGroupsID        fields.KeyWord
 	SessionLeaderSupplementalGroupsName      fields.KeyWord
+	SessionLeaderTty                         fields.Object
 	SessionLeaderTtyCharDeviceMajor          fields.Long
 	SessionLeaderTtyCharDeviceMinor          fields.Long
 	SessionLeaderUserID                      fields.KeyWord
@@ -1114,6 +1158,7 @@ type TypesType struct {
 	ThreadID                                 fields.Long
 	ThreadName                               fields.KeyWord
 	Title                                    fields.KeyWord
+	Tty                                      fields.Object
 	TtyCharDeviceMajor                       fields.Long
 	TtyCharDeviceMinor                       fields.Long
 	TtyColumns                               fields.Long

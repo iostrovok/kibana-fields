@@ -10,6 +10,7 @@ const (
 	Direction     fields.Field = "network.direction"       // Direction of the network traffic.
 	ForwardedIp   fields.Field = "network.forwarded_ip"    // Host IP address when the source IP address is the proxy.
 	IanaNumber    fields.Field = "network.iana_number"     // IANA Protocol Number.
+	Inner         fields.Field = "network.inner"           // Inner VLAN tag information
 	InnerVlanID   fields.Field = "network.inner.vlan.id"   // VLAN ID as reported by the observer.
 	InnerVlanName fields.Field = "network.inner.vlan.name" // Optional VLAN name as reported by the observer.
 	Name          fields.Field = "network.name"            // Name given by operators to sections of their network.
@@ -30,6 +31,7 @@ var Fields = []fields.Field{
 	Direction,
 	ForwardedIp,
 	IanaNumber,
+	Inner,
 	InnerVlanID,
 	InnerVlanName,
 	Name,
@@ -69,6 +71,7 @@ type TypesType struct {
 	Direction     fields.KeyWord
 	ForwardedIp   fields.IP
 	IanaNumber    fields.KeyWord
+	Inner         fields.Object
 	InnerVlanID   fields.KeyWord
 	InnerVlanName fields.KeyWord
 	Name          fields.KeyWord

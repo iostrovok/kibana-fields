@@ -42,6 +42,7 @@ const (
 	ElfImports                    fields.Field = "file.elf.imports"                        // List of imported element names and types.
 	ElfImportsNamesEntropy        fields.Field = "file.elf.imports_names_entropy"          // Shannon entropy calculation from the list of imported element names and types.
 	ElfImportsNamesVarEntropy     fields.Field = "file.elf.imports_names_var_entropy"      // Variance for Shannon entropy calculation from the list of imported element names and types.
+	ElfSections                   fields.Field = "file.elf.sections"                       // Section information of the ELF file.
 	ElfSectionsChi2               fields.Field = "file.elf.sections.chi2"                  // Chi-square probability distribution of the section.
 	ElfSectionsEntropy            fields.Field = "file.elf.sections.entropy"               // Shannon entropy calculation from the section.
 	ElfSectionsFlags              fields.Field = "file.elf.sections.flags"                 // ELF Section List flags.
@@ -52,6 +53,7 @@ const (
 	ElfSectionsVarEntropy         fields.Field = "file.elf.sections.var_entropy"           // Variance for Shannon entropy calculation from the section.
 	ElfSectionsVirtualAddress     fields.Field = "file.elf.sections.virtual_address"       // ELF Section List virtual address.
 	ElfSectionsVirtualSize        fields.Field = "file.elf.sections.virtual_size"          // ELF Section List virtual size.
+	ElfSegments                   fields.Field = "file.elf.segments"                       // ELF object segment list.
 	ElfSegmentsSections           fields.Field = "file.elf.segments.sections"              // ELF object segment sections.
 	ElfSegmentsType               fields.Field = "file.elf.segments.type"                  // ELF object segment type.
 	ElfSharedLibraries            fields.Field = "file.elf.shared_libraries"               // List of shared libraries used by this ELF object.
@@ -77,6 +79,7 @@ const (
 	MachoImports                  fields.Field = "file.macho.imports"                      // List of imported element names and types.
 	MachoImportsNamesEntropy      fields.Field = "file.macho.imports_names_entropy"        // Shannon entropy calculation from the list of imported element names and types.
 	MachoImportsNamesVarEntropy   fields.Field = "file.macho.imports_names_var_entropy"    // Variance for Shannon entropy calculation from the list of imported element names and types.
+	MachoSections                 fields.Field = "file.macho.sections"                     // Section information of the Mach-O file.
 	MachoSectionsEntropy          fields.Field = "file.macho.sections.entropy"             // Shannon entropy calculation from the section.
 	MachoSectionsName             fields.Field = "file.macho.sections.name"                // Mach-O Section List name.
 	MachoSectionsPhysicalSize     fields.Field = "file.macho.sections.physical_size"       // Mach-O Section List physical size.
@@ -105,6 +108,7 @@ const (
 	PeOriginalName                fields.Field = "file.pe.original_file_name"              // Internal name of the file, provided at compile-time.
 	PePehash                      fields.Field = "file.pe.pehash"                          // A hash of the PE header and data from one or more PE sections.
 	PeProduct                     fields.Field = "file.pe.product"                         // Internal product name of the file, provided at compile-time.
+	PeSections                    fields.Field = "file.pe.sections"                        // Section information of the PE file.
 	PeSectionsEntropy             fields.Field = "file.pe.sections.entropy"                // Shannon entropy calculation from the section.
 	PeSectionsName                fields.Field = "file.pe.sections.name"                   // PE Section List name.
 	PeSectionsPhysicalSize        fields.Field = "file.pe.sections.physical_size"          // PE Section List physical size.
@@ -182,6 +186,7 @@ var Fields = []fields.Field{
 	ElfImports,
 	ElfImportsNamesEntropy,
 	ElfImportsNamesVarEntropy,
+	ElfSections,
 	ElfSectionsChi2,
 	ElfSectionsEntropy,
 	ElfSectionsFlags,
@@ -192,6 +197,7 @@ var Fields = []fields.Field{
 	ElfSectionsVarEntropy,
 	ElfSectionsVirtualAddress,
 	ElfSectionsVirtualSize,
+	ElfSegments,
 	ElfSegmentsSections,
 	ElfSegmentsType,
 	ElfSharedLibraries,
@@ -217,6 +223,7 @@ var Fields = []fields.Field{
 	MachoImports,
 	MachoImportsNamesEntropy,
 	MachoImportsNamesVarEntropy,
+	MachoSections,
 	MachoSectionsEntropy,
 	MachoSectionsName,
 	MachoSectionsPhysicalSize,
@@ -245,6 +252,7 @@ var Fields = []fields.Field{
 	PeOriginalName,
 	PePehash,
 	PeProduct,
+	PeSections,
 	PeSectionsEntropy,
 	PeSectionsName,
 	PeSectionsPhysicalSize,
@@ -321,6 +329,7 @@ type TypesType struct {
 	ElfImports                    fields.Flattened
 	ElfImportsNamesEntropy        fields.Long
 	ElfImportsNamesVarEntropy     fields.Long
+	ElfSections                   fields.Nested
 	ElfSectionsChi2               fields.Long
 	ElfSectionsEntropy            fields.Long
 	ElfSectionsFlags              fields.KeyWord
@@ -331,6 +340,7 @@ type TypesType struct {
 	ElfSectionsVarEntropy         fields.Long
 	ElfSectionsVirtualAddress     fields.Long
 	ElfSectionsVirtualSize        fields.Long
+	ElfSegments                   fields.Nested
 	ElfSegmentsSections           fields.KeyWord
 	ElfSegmentsType               fields.KeyWord
 	ElfSharedLibraries            fields.KeyWord
@@ -356,6 +366,7 @@ type TypesType struct {
 	MachoImports                  fields.Flattened
 	MachoImportsNamesEntropy      fields.Long
 	MachoImportsNamesVarEntropy   fields.Long
+	MachoSections                 fields.Nested
 	MachoSectionsEntropy          fields.Long
 	MachoSectionsName             fields.KeyWord
 	MachoSectionsPhysicalSize     fields.Long
@@ -384,6 +395,7 @@ type TypesType struct {
 	PeOriginalName                fields.KeyWord
 	PePehash                      fields.KeyWord
 	PeProduct                     fields.KeyWord
+	PeSections                    fields.Nested
 	PeSectionsEntropy             fields.Long
 	PeSectionsName                fields.KeyWord
 	PeSectionsPhysicalSize        fields.Long

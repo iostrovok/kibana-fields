@@ -4,6 +4,8 @@ import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
+	Enrichments                                           fields.Field = "threat.enrichments"                                                 // List of objects containing indicators enriching the event.
+	EnrichmentsIndicator                                  fields.Field = "threat.enrichments.indicator"                                       // Object containing indicators enriching the event.
 	EnrichmentsIndicatorAsNumber                          fields.Field = "threat.enrichments.indicator.as.number"                             // Unique number allocated to the autonomous system.
 	EnrichmentsIndicatorAsOrganizationName                fields.Field = "threat.enrichments.indicator.as.organization.name"                  // Organization name.
 	EnrichmentsIndicatorConfidence                        fields.Field = "threat.enrichments.indicator.confidence"                            // Indicator confidence rating
@@ -47,6 +49,7 @@ const (
 	EnrichmentsIndicatorFileElfImports                    fields.Field = "threat.enrichments.indicator.file.elf.imports"                      // List of imported element names and types.
 	EnrichmentsIndicatorFileElfImportsNamesEntropy        fields.Field = "threat.enrichments.indicator.file.elf.imports_names_entropy"        // Shannon entropy calculation from the list of imported element names and types.
 	EnrichmentsIndicatorFileElfImportsNamesVarEntropy     fields.Field = "threat.enrichments.indicator.file.elf.imports_names_var_entropy"    // Variance for Shannon entropy calculation from the list of imported element names and types.
+	EnrichmentsIndicatorFileElfSections                   fields.Field = "threat.enrichments.indicator.file.elf.sections"                     // Section information of the ELF file.
 	EnrichmentsIndicatorFileElfSectionsChi2               fields.Field = "threat.enrichments.indicator.file.elf.sections.chi2"                // Chi-square probability distribution of the section.
 	EnrichmentsIndicatorFileElfSectionsEntropy            fields.Field = "threat.enrichments.indicator.file.elf.sections.entropy"             // Shannon entropy calculation from the section.
 	EnrichmentsIndicatorFileElfSectionsFlags              fields.Field = "threat.enrichments.indicator.file.elf.sections.flags"               // ELF Section List flags.
@@ -57,6 +60,7 @@ const (
 	EnrichmentsIndicatorFileElfSectionsVarEntropy         fields.Field = "threat.enrichments.indicator.file.elf.sections.var_entropy"         // Variance for Shannon entropy calculation from the section.
 	EnrichmentsIndicatorFileElfSectionsVirtualAddress     fields.Field = "threat.enrichments.indicator.file.elf.sections.virtual_address"     // ELF Section List virtual address.
 	EnrichmentsIndicatorFileElfSectionsVirtualSize        fields.Field = "threat.enrichments.indicator.file.elf.sections.virtual_size"        // ELF Section List virtual size.
+	EnrichmentsIndicatorFileElfSegments                   fields.Field = "threat.enrichments.indicator.file.elf.segments"                     // ELF object segment list.
 	EnrichmentsIndicatorFileElfSegmentsSections           fields.Field = "threat.enrichments.indicator.file.elf.segments.sections"            // ELF object segment sections.
 	EnrichmentsIndicatorFileElfSegmentsType               fields.Field = "threat.enrichments.indicator.file.elf.segments.type"                // ELF object segment type.
 	EnrichmentsIndicatorFileElfSharedLibraries            fields.Field = "threat.enrichments.indicator.file.elf.shared_libraries"             // List of shared libraries used by this ELF object.
@@ -96,6 +100,7 @@ const (
 	EnrichmentsIndicatorFilePeOriginalFileName            fields.Field = "threat.enrichments.indicator.file.pe.original_file_name"            // Internal name of the file, provided at compile-time.
 	EnrichmentsIndicatorFilePePehash                      fields.Field = "threat.enrichments.indicator.file.pe.pehash"                        // A hash of the PE header and data from one or more PE sections.
 	EnrichmentsIndicatorFilePeProduct                     fields.Field = "threat.enrichments.indicator.file.pe.product"                       // Internal product name of the file, provided at compile-time.
+	EnrichmentsIndicatorFilePeSections                    fields.Field = "threat.enrichments.indicator.file.pe.sections"                      // Section information of the PE file.
 	EnrichmentsIndicatorFilePeSectionsEntropy             fields.Field = "threat.enrichments.indicator.file.pe.sections.entropy"              // Shannon entropy calculation from the section.
 	EnrichmentsIndicatorFilePeSectionsName                fields.Field = "threat.enrichments.indicator.file.pe.sections.name"                 // PE Section List name.
 	EnrichmentsIndicatorFilePeSectionsPhysicalSize        fields.Field = "threat.enrichments.indicator.file.pe.sections.physical_size"        // PE Section List physical size.
@@ -256,6 +261,7 @@ const (
 	IndicatorFileElfImports                               fields.Field = "threat.indicator.file.elf.imports"                                  // List of imported element names and types.
 	IndicatorFileElfImportsNamesEntropy                   fields.Field = "threat.indicator.file.elf.imports_names_entropy"                    // Shannon entropy calculation from the list of imported element names and types.
 	IndicatorFileElfImportsNamesVarEntropy                fields.Field = "threat.indicator.file.elf.imports_names_var_entropy"                // Variance for Shannon entropy calculation from the list of imported element names and types.
+	IndicatorFileElfSections                              fields.Field = "threat.indicator.file.elf.sections"                                 // Section information of the ELF file.
 	IndicatorFileElfSectionsChi2                          fields.Field = "threat.indicator.file.elf.sections.chi2"                            // Chi-square probability distribution of the section.
 	IndicatorFileElfSectionsEntropy                       fields.Field = "threat.indicator.file.elf.sections.entropy"                         // Shannon entropy calculation from the section.
 	IndicatorFileElfSectionsFlags                         fields.Field = "threat.indicator.file.elf.sections.flags"                           // ELF Section List flags.
@@ -266,6 +272,7 @@ const (
 	IndicatorFileElfSectionsVarEntropy                    fields.Field = "threat.indicator.file.elf.sections.var_entropy"                     // Variance for Shannon entropy calculation from the section.
 	IndicatorFileElfSectionsVirtualAddress                fields.Field = "threat.indicator.file.elf.sections.virtual_address"                 // ELF Section List virtual address.
 	IndicatorFileElfSectionsVirtualSize                   fields.Field = "threat.indicator.file.elf.sections.virtual_size"                    // ELF Section List virtual size.
+	IndicatorFileElfSegments                              fields.Field = "threat.indicator.file.elf.segments"                                 // ELF object segment list.
 	IndicatorFileElfSegmentsSections                      fields.Field = "threat.indicator.file.elf.segments.sections"                        // ELF object segment sections.
 	IndicatorFileElfSegmentsType                          fields.Field = "threat.indicator.file.elf.segments.type"                            // ELF object segment type.
 	IndicatorFileElfSharedLibraries                       fields.Field = "threat.indicator.file.elf.shared_libraries"                         // List of shared libraries used by this ELF object.
@@ -305,6 +312,7 @@ const (
 	IndicatorFilePeOriginalFileName                       fields.Field = "threat.indicator.file.pe.original_file_name"                        // Internal name of the file, provided at compile-time.
 	IndicatorFilePePehash                                 fields.Field = "threat.indicator.file.pe.pehash"                                    // A hash of the PE header and data from one or more PE sections.
 	IndicatorFilePeProduct                                fields.Field = "threat.indicator.file.pe.product"                                   // Internal product name of the file, provided at compile-time.
+	IndicatorFilePeSections                               fields.Field = "threat.indicator.file.pe.sections"                                  // Section information of the PE file.
 	IndicatorFilePeSectionsEntropy                        fields.Field = "threat.indicator.file.pe.sections.entropy"                          // Shannon entropy calculation from the section.
 	IndicatorFilePeSectionsName                           fields.Field = "threat.indicator.file.pe.sections.name"                             // PE Section List name.
 	IndicatorFilePeSectionsPhysicalSize                   fields.Field = "threat.indicator.file.pe.sections.physical_size"                    // PE Section List physical size.
@@ -427,6 +435,8 @@ const (
 
 // Fields contains all package constants as list
 var Fields = []fields.Field{
+	Enrichments,
+	EnrichmentsIndicator,
 	EnrichmentsIndicatorAsNumber,
 	EnrichmentsIndicatorAsOrganizationName,
 	EnrichmentsIndicatorConfidence,
@@ -470,6 +480,7 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFileElfImports,
 	EnrichmentsIndicatorFileElfImportsNamesEntropy,
 	EnrichmentsIndicatorFileElfImportsNamesVarEntropy,
+	EnrichmentsIndicatorFileElfSections,
 	EnrichmentsIndicatorFileElfSectionsChi2,
 	EnrichmentsIndicatorFileElfSectionsEntropy,
 	EnrichmentsIndicatorFileElfSectionsFlags,
@@ -480,6 +491,7 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFileElfSectionsVarEntropy,
 	EnrichmentsIndicatorFileElfSectionsVirtualAddress,
 	EnrichmentsIndicatorFileElfSectionsVirtualSize,
+	EnrichmentsIndicatorFileElfSegments,
 	EnrichmentsIndicatorFileElfSegmentsSections,
 	EnrichmentsIndicatorFileElfSegmentsType,
 	EnrichmentsIndicatorFileElfSharedLibraries,
@@ -519,6 +531,7 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFilePeOriginalFileName,
 	EnrichmentsIndicatorFilePePehash,
 	EnrichmentsIndicatorFilePeProduct,
+	EnrichmentsIndicatorFilePeSections,
 	EnrichmentsIndicatorFilePeSectionsEntropy,
 	EnrichmentsIndicatorFilePeSectionsName,
 	EnrichmentsIndicatorFilePeSectionsPhysicalSize,
@@ -679,6 +692,7 @@ var Fields = []fields.Field{
 	IndicatorFileElfImports,
 	IndicatorFileElfImportsNamesEntropy,
 	IndicatorFileElfImportsNamesVarEntropy,
+	IndicatorFileElfSections,
 	IndicatorFileElfSectionsChi2,
 	IndicatorFileElfSectionsEntropy,
 	IndicatorFileElfSectionsFlags,
@@ -689,6 +703,7 @@ var Fields = []fields.Field{
 	IndicatorFileElfSectionsVarEntropy,
 	IndicatorFileElfSectionsVirtualAddress,
 	IndicatorFileElfSectionsVirtualSize,
+	IndicatorFileElfSegments,
 	IndicatorFileElfSegmentsSections,
 	IndicatorFileElfSegmentsType,
 	IndicatorFileElfSharedLibraries,
@@ -728,6 +743,7 @@ var Fields = []fields.Field{
 	IndicatorFilePeOriginalFileName,
 	IndicatorFilePePehash,
 	IndicatorFilePeProduct,
+	IndicatorFilePeSections,
 	IndicatorFilePeSectionsEntropy,
 	IndicatorFilePeSectionsName,
 	IndicatorFilePeSectionsPhysicalSize,
@@ -1033,6 +1049,8 @@ var SoftwareTypeExpectedValues SoftwareTypeExpectedType = SoftwareTypeExpectedTy
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
+	Enrichments                                           fields.Nested
+	EnrichmentsIndicator                                  fields.Object
 	EnrichmentsIndicatorAsNumber                          fields.Long
 	EnrichmentsIndicatorAsOrganizationName                fields.KeyWord
 	EnrichmentsIndicatorConfidence                        fields.KeyWord
@@ -1076,6 +1094,7 @@ type TypesType struct {
 	EnrichmentsIndicatorFileElfImports                    fields.Flattened
 	EnrichmentsIndicatorFileElfImportsNamesEntropy        fields.Long
 	EnrichmentsIndicatorFileElfImportsNamesVarEntropy     fields.Long
+	EnrichmentsIndicatorFileElfSections                   fields.Nested
 	EnrichmentsIndicatorFileElfSectionsChi2               fields.Long
 	EnrichmentsIndicatorFileElfSectionsEntropy            fields.Long
 	EnrichmentsIndicatorFileElfSectionsFlags              fields.KeyWord
@@ -1086,6 +1105,7 @@ type TypesType struct {
 	EnrichmentsIndicatorFileElfSectionsVarEntropy         fields.Long
 	EnrichmentsIndicatorFileElfSectionsVirtualAddress     fields.Long
 	EnrichmentsIndicatorFileElfSectionsVirtualSize        fields.Long
+	EnrichmentsIndicatorFileElfSegments                   fields.Nested
 	EnrichmentsIndicatorFileElfSegmentsSections           fields.KeyWord
 	EnrichmentsIndicatorFileElfSegmentsType               fields.KeyWord
 	EnrichmentsIndicatorFileElfSharedLibraries            fields.KeyWord
@@ -1125,6 +1145,7 @@ type TypesType struct {
 	EnrichmentsIndicatorFilePeOriginalFileName            fields.KeyWord
 	EnrichmentsIndicatorFilePePehash                      fields.KeyWord
 	EnrichmentsIndicatorFilePeProduct                     fields.KeyWord
+	EnrichmentsIndicatorFilePeSections                    fields.Nested
 	EnrichmentsIndicatorFilePeSectionsEntropy             fields.Long
 	EnrichmentsIndicatorFilePeSectionsName                fields.KeyWord
 	EnrichmentsIndicatorFilePeSectionsPhysicalSize        fields.Long
@@ -1285,6 +1306,7 @@ type TypesType struct {
 	IndicatorFileElfImports                               fields.Flattened
 	IndicatorFileElfImportsNamesEntropy                   fields.Long
 	IndicatorFileElfImportsNamesVarEntropy                fields.Long
+	IndicatorFileElfSections                              fields.Nested
 	IndicatorFileElfSectionsChi2                          fields.Long
 	IndicatorFileElfSectionsEntropy                       fields.Long
 	IndicatorFileElfSectionsFlags                         fields.KeyWord
@@ -1295,6 +1317,7 @@ type TypesType struct {
 	IndicatorFileElfSectionsVarEntropy                    fields.Long
 	IndicatorFileElfSectionsVirtualAddress                fields.Long
 	IndicatorFileElfSectionsVirtualSize                   fields.Long
+	IndicatorFileElfSegments                              fields.Nested
 	IndicatorFileElfSegmentsSections                      fields.KeyWord
 	IndicatorFileElfSegmentsType                          fields.KeyWord
 	IndicatorFileElfSharedLibraries                       fields.KeyWord
@@ -1334,6 +1357,7 @@ type TypesType struct {
 	IndicatorFilePeOriginalFileName                       fields.KeyWord
 	IndicatorFilePePehash                                 fields.KeyWord
 	IndicatorFilePeProduct                                fields.KeyWord
+	IndicatorFilePeSections                               fields.Nested
 	IndicatorFilePeSectionsEntropy                        fields.Long
 	IndicatorFilePeSectionsName                           fields.KeyWord
 	IndicatorFilePeSectionsPhysicalSize                   fields.Long

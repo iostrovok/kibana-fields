@@ -39,6 +39,7 @@ const (
 	PeOriginalFileName           fields.Field = "dll.pe.original_file_name"           // Internal name of the file, provided at compile-time.
 	PePehash                     fields.Field = "dll.pe.pehash"                       // A hash of the PE header and data from one or more PE sections.
 	PeProduct                    fields.Field = "dll.pe.product"                      // Internal product name of the file, provided at compile-time.
+	PeSections                   fields.Field = "dll.pe.sections"                     // Section information of the PE file.
 	PeSectionsEntropy            fields.Field = "dll.pe.sections.entropy"             // Shannon entropy calculation from the section.
 	PeSectionsName               fields.Field = "dll.pe.sections.name"                // PE Section List name.
 	PeSectionsPhysicalSize       fields.Field = "dll.pe.sections.physical_size"       // PE Section List physical size.
@@ -84,6 +85,7 @@ var Fields = []fields.Field{
 	PeOriginalFileName,
 	PePehash,
 	PeProduct,
+	PeSections,
 	PeSectionsEntropy,
 	PeSectionsName,
 	PeSectionsPhysicalSize,
@@ -128,6 +130,7 @@ type TypesType struct {
 	PeOriginalFileName           fields.KeyWord
 	PePehash                     fields.KeyWord
 	PeProduct                    fields.KeyWord
+	PeSections                   fields.Nested
 	PeSectionsEntropy            fields.Long
 	PeSectionsName               fields.KeyWord
 	PeSectionsPhysicalSize       fields.Long

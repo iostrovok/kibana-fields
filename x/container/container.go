@@ -11,6 +11,7 @@ const (
 	ImageHashAll              fields.Field = "container.image.hash.all"              // An array of digests of the image the container was built on.
 	ImageName                 fields.Field = "container.image.name"                  // Name of the image the container was built on.
 	ImageTag                  fields.Field = "container.image.tag"                   // Container image tags.
+	Labels                    fields.Field = "container.labels"                      // Image labels.
 	MemoryUsage               fields.Field = "container.memory.usage"                // Percent memory used, between 0 and 1.
 	Name                      fields.Field = "container.name"                        // Container name.
 	NetworkEgressBytes        fields.Field = "container.network.egress.bytes"        // The number of bytes sent on all network interfaces.
@@ -29,6 +30,7 @@ var Fields = []fields.Field{
 	ImageHashAll,
 	ImageName,
 	ImageTag,
+	Labels,
 	MemoryUsage,
 	Name,
 	NetworkEgressBytes,
@@ -46,6 +48,7 @@ type TypesType struct {
 	ImageHashAll              fields.KeyWord
 	ImageName                 fields.KeyWord
 	ImageTag                  fields.KeyWord
+	Labels                    fields.Object
 	MemoryUsage               fields.Float
 	Name                      fields.KeyWord
 	NetworkEgressBytes        fields.Long

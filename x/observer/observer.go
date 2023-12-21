@@ -4,6 +4,7 @@ import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
+	Egress                fields.Field = "observer.egress"                  // Object field for egress information
 	EgressInterfaceAlias  fields.Field = "observer.egress.interface.alias"  // Interface alias
 	EgressInterfaceID     fields.Field = "observer.egress.interface.id"     // Interface ID
 	EgressInterfaceName   fields.Field = "observer.egress.interface.name"   // Interface name
@@ -22,6 +23,7 @@ const (
 	GeoRegionName         fields.Field = "observer.geo.region_name"         // Region name.
 	GeoTimezone           fields.Field = "observer.geo.timezone"            // The time zone of the location, such as IANA time zone name.
 	Hostname              fields.Field = "observer.hostname"                // Hostname of the observer.
+	Ingress               fields.Field = "observer.ingress"                 // Object field for ingress information
 	IngressInterfaceAlias fields.Field = "observer.ingress.interface.alias" // Interface alias
 	IngressInterfaceID    fields.Field = "observer.ingress.interface.id"    // Interface ID
 	IngressInterfaceName  fields.Field = "observer.ingress.interface.name"  // Interface name
@@ -48,6 +50,7 @@ const (
 
 // Fields contains all package constants as list
 var Fields = []fields.Field{
+	Egress,
 	EgressInterfaceAlias,
 	EgressInterfaceID,
 	EgressInterfaceName,
@@ -66,6 +69,7 @@ var Fields = []fields.Field{
 	GeoRegionName,
 	GeoTimezone,
 	Hostname,
+	Ingress,
 	IngressInterfaceAlias,
 	IngressInterfaceID,
 	IngressInterfaceName,
@@ -109,6 +113,7 @@ var OsTypeExpectedValues OsTypeExpectedType = OsTypeExpectedType{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
+	Egress                fields.Object
 	EgressInterfaceAlias  fields.KeyWord
 	EgressInterfaceID     fields.KeyWord
 	EgressInterfaceName   fields.KeyWord
@@ -127,6 +132,7 @@ type TypesType struct {
 	GeoRegionName         fields.KeyWord
 	GeoTimezone           fields.KeyWord
 	Hostname              fields.KeyWord
+	Ingress               fields.Object
 	IngressInterfaceAlias fields.KeyWord
 	IngressInterfaceID    fields.KeyWord
 	IngressInterfaceName  fields.KeyWord

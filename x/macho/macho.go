@@ -13,6 +13,7 @@ const (
 	Imports                  fields.Field = "macho.imports"                      // List of imported element names and types.
 	ImportsNamesEntropy      fields.Field = "macho.imports_names_entropy"        // Shannon entropy calculation from the list of imported element names and types.
 	ImportsNamesVarEntropy   fields.Field = "macho.imports_names_var_entropy"    // Variance for Shannon entropy calculation from the list of imported element names and types.
+	Sections                 fields.Field = "macho.sections"                     // Section information of the Mach-O file.
 	SectionsEntropy          fields.Field = "macho.sections.entropy"             // Shannon entropy calculation from the section.
 	SectionsName             fields.Field = "macho.sections.name"                // Mach-O Section List name.
 	SectionsPhysicalSize     fields.Field = "macho.sections.physical_size"       // Mach-O Section List physical size.
@@ -33,6 +34,7 @@ var Fields = []fields.Field{
 	Imports,
 	ImportsNamesEntropy,
 	ImportsNamesVarEntropy,
+	Sections,
 	SectionsEntropy,
 	SectionsName,
 	SectionsPhysicalSize,
@@ -52,6 +54,7 @@ type TypesType struct {
 	Imports                  fields.Flattened
 	ImportsNamesEntropy      fields.Long
 	ImportsNamesVarEntropy   fields.Long
+	Sections                 fields.Nested
 	SectionsEntropy          fields.Long
 	SectionsName             fields.KeyWord
 	SectionsPhysicalSize     fields.Long
