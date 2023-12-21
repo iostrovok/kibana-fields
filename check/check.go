@@ -56,6 +56,7 @@ import (
 	"github.com/iostrovok/kibana-fields/x/user"
 	"github.com/iostrovok/kibana-fields/x/user_agent"
 	"github.com/iostrovok/kibana-fields/x/vlan"
+	"github.com/iostrovok/kibana-fields/x/volume"
 	"github.com/iostrovok/kibana-fields/x/vulnerability"
 	"github.com/iostrovok/kibana-fields/x/x509"
 )
@@ -118,6 +119,7 @@ func init() {
 	AllFields = append(AllFields, user.Fields...)
 	AllFields = append(AllFields, user_agent.Fields...)
 	AllFields = append(AllFields, vlan.Fields...)
+	AllFields = append(AllFields, volume.Fields...)
 	AllFields = append(AllFields, vulnerability.Fields...)
 	AllFields = append(AllFields, x509.Fields...)
 
