@@ -10,6 +10,7 @@ const (
 	OriginFileLine       fields.Field = "log.origin.file.line"       // The line number of the file which originated the log event.
 	OriginFileName       fields.Field = "log.origin.file.name"       // The code file which originated the log event.
 	OriginFunction       fields.Field = "log.origin.function"        // The function which originated the log event.
+	Syslog               fields.Field = "log.syslog"                 // Syslog metadata
 	SyslogAppname        fields.Field = "log.syslog.appname"         // The device or application that originated the Syslog message.
 	SyslogFacilityCode   fields.Field = "log.syslog.facility.code"   // Syslog numeric facility of the event.
 	SyslogFacilityName   fields.Field = "log.syslog.facility.name"   // Syslog text-based facility of the event.
@@ -32,6 +33,7 @@ var Fields = []fields.Field{
 	OriginFileLine,
 	OriginFileName,
 	OriginFunction,
+	Syslog,
 	SyslogAppname,
 	SyslogFacilityCode,
 	SyslogFacilityName,
@@ -53,6 +55,7 @@ type TypesType struct {
 	OriginFileLine       fields.Long
 	OriginFileName       fields.KeyWord
 	OriginFunction       fields.KeyWord
+	Syslog               fields.Object
 	SyslogAppname        fields.KeyWord
 	SyslogFacilityCode   fields.Long
 	SyslogFacilityName   fields.KeyWord

@@ -4,6 +4,7 @@ import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
+	Answers                  fields.Field = "dns.answers"                    // Array of DNS answers.
 	AnswersClass             fields.Field = "dns.answers.class"              // The class of DNS data contained in this resource record.
 	AnswersData              fields.Field = "dns.answers.data"               // The data describing the resource.
 	AnswersName              fields.Field = "dns.answers.name"               // The domain name to which this resource record pertains.
@@ -26,6 +27,7 @@ const (
 
 // Fields contains all package constants as list
 var Fields = []fields.Field{
+	Answers,
 	AnswersClass,
 	AnswersData,
 	AnswersName,
@@ -67,6 +69,7 @@ var HeaderFlagsExpectedValues HeaderFlagsExpectedType = HeaderFlagsExpectedType{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
+	Answers                  fields.Object
 	AnswersClass             fields.KeyWord
 	AnswersData              fields.KeyWord
 	AnswersName              fields.KeyWord

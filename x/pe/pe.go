@@ -21,6 +21,7 @@ const (
 	OriginalFileName         fields.Field = "pe.original_file_name"           // Internal name of the file, provided at compile-time.
 	Pehash                   fields.Field = "pe.pehash"                       // A hash of the PE header and data from one or more PE sections.
 	Product                  fields.Field = "pe.product"                      // Internal product name of the file, provided at compile-time.
+	Sections                 fields.Field = "pe.sections"                     // Section information of the PE file.
 	SectionsEntropy          fields.Field = "pe.sections.entropy"             // Shannon entropy calculation from the section.
 	SectionsName             fields.Field = "pe.sections.name"                // PE Section List name.
 	SectionsPhysicalSize     fields.Field = "pe.sections.physical_size"       // PE Section List physical size.
@@ -48,6 +49,7 @@ var Fields = []fields.Field{
 	OriginalFileName,
 	Pehash,
 	Product,
+	Sections,
 	SectionsEntropy,
 	SectionsName,
 	SectionsPhysicalSize,
@@ -74,6 +76,7 @@ type TypesType struct {
 	OriginalFileName         fields.KeyWord
 	Pehash                   fields.KeyWord
 	Product                  fields.KeyWord
+	Sections                 fields.Nested
 	SectionsEntropy          fields.Long
 	SectionsName             fields.KeyWord
 	SectionsPhysicalSize     fields.Long

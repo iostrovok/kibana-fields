@@ -26,6 +26,7 @@ const (
 	Imports                  fields.Field = "elf.imports"                      // List of imported element names and types.
 	ImportsNamesEntropy      fields.Field = "elf.imports_names_entropy"        // Shannon entropy calculation from the list of imported element names and types.
 	ImportsNamesVarEntropy   fields.Field = "elf.imports_names_var_entropy"    // Variance for Shannon entropy calculation from the list of imported element names and types.
+	Sections                 fields.Field = "elf.sections"                     // Section information of the ELF file.
 	SectionsChi2             fields.Field = "elf.sections.chi2"                // Chi-square probability distribution of the section.
 	SectionsEntropy          fields.Field = "elf.sections.entropy"             // Shannon entropy calculation from the section.
 	SectionsFlags            fields.Field = "elf.sections.flags"               // ELF Section List flags.
@@ -36,6 +37,7 @@ const (
 	SectionsVarEntropy       fields.Field = "elf.sections.var_entropy"         // Variance for Shannon entropy calculation from the section.
 	SectionsVirtualAddress   fields.Field = "elf.sections.virtual_address"     // ELF Section List virtual address.
 	SectionsVirtualSize      fields.Field = "elf.sections.virtual_size"        // ELF Section List virtual size.
+	Segments                 fields.Field = "elf.segments"                     // ELF object segment list.
 	SegmentsSections         fields.Field = "elf.segments.sections"            // ELF object segment sections.
 	SegmentsType             fields.Field = "elf.segments.type"                // ELF object segment type.
 	SharedLibraries          fields.Field = "elf.shared_libraries"             // List of shared libraries used by this ELF object.
@@ -67,6 +69,7 @@ var Fields = []fields.Field{
 	Imports,
 	ImportsNamesEntropy,
 	ImportsNamesVarEntropy,
+	Sections,
 	SectionsChi2,
 	SectionsEntropy,
 	SectionsFlags,
@@ -77,6 +80,7 @@ var Fields = []fields.Field{
 	SectionsVarEntropy,
 	SectionsVirtualAddress,
 	SectionsVirtualSize,
+	Segments,
 	SegmentsSections,
 	SegmentsType,
 	SharedLibraries,
@@ -107,6 +111,7 @@ type TypesType struct {
 	Imports                  fields.Flattened
 	ImportsNamesEntropy      fields.Long
 	ImportsNamesVarEntropy   fields.Long
+	Sections                 fields.Nested
 	SectionsChi2             fields.Long
 	SectionsEntropy          fields.Long
 	SectionsFlags            fields.KeyWord
@@ -117,6 +122,7 @@ type TypesType struct {
 	SectionsVarEntropy       fields.Long
 	SectionsVirtualAddress   fields.Long
 	SectionsVirtualSize      fields.Long
+	Segments                 fields.Nested
 	SegmentsSections         fields.KeyWord
 	SegmentsType             fields.KeyWord
 	SharedLibraries          fields.KeyWord
