@@ -52,6 +52,7 @@ import (
 	_ "github.com/iostrovok/kibana-fields/x/user"
 	_ "github.com/iostrovok/kibana-fields/x/user_agent"
 	_ "github.com/iostrovok/kibana-fields/x/vlan"
+	_ "github.com/iostrovok/kibana-fields/x/volume"
 	_ "github.com/iostrovok/kibana-fields/x/vulnerability"
 	_ "github.com/iostrovok/kibana-fields/x/x509"
 )
