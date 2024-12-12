@@ -8,6 +8,7 @@ const (
 	Attributes                    fields.Field = "file.attributes"                         // Array of file attributes.
 	CodeSignatureDigestAlgorithm  fields.Field = "file.code_signature.digest_algorithm"    // Hashing algorithm used to sign the process.
 	CodeSignatureExists           fields.Field = "file.code_signature.exists"              // Boolean to capture if a signature is present.
+	CodeSignatureFlags            fields.Field = "file.code_signature.flags"               // Code signing flags of the process
 	CodeSignatureSigningID        fields.Field = "file.code_signature.signing_id"          // The identifier used to sign the process.
 	CodeSignatureStatus           fields.Field = "file.code_signature.status"              // Additional information about the certificate status.
 	CodeSignatureSubjectName      fields.Field = "file.code_signature.subject_name"        // Subject name of the code signer
@@ -62,6 +63,7 @@ const (
 	ForkName                      fields.Field = "file.fork_name"                          // A fork is additional data associated with a filesystem object.
 	Gid                           fields.Field = "file.gid"                                // Primary group ID (GID) of the file.
 	Group                         fields.Field = "file.group"                              // Primary group name of the file.
+	HashCdhash                    fields.Field = "file.hash.cdhash"                        // The Code Directory (CD) hash of an executable.
 	HashMd5                       fields.Field = "file.hash.md5"                           // MD5 hash.
 	HashSha1                      fields.Field = "file.hash.sha1"                          // SHA1 hash.
 	HashSha256                    fields.Field = "file.hash.sha256"                        // SHA256 hash.
@@ -152,6 +154,7 @@ var Fields = []fields.Field{
 	Attributes,
 	CodeSignatureDigestAlgorithm,
 	CodeSignatureExists,
+	CodeSignatureFlags,
 	CodeSignatureSigningID,
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
@@ -206,6 +209,7 @@ var Fields = []fields.Field{
 	ForkName,
 	Gid,
 	Group,
+	HashCdhash,
 	HashMd5,
 	HashSha1,
 	HashSha256,
@@ -295,6 +299,7 @@ type TypesType struct {
 	Attributes                    fields.KeyWord
 	CodeSignatureDigestAlgorithm  fields.KeyWord
 	CodeSignatureExists           fields.Boolean
+	CodeSignatureFlags            fields.KeyWord
 	CodeSignatureSigningID        fields.KeyWord
 	CodeSignatureStatus           fields.KeyWord
 	CodeSignatureSubjectName      fields.KeyWord
@@ -349,6 +354,7 @@ type TypesType struct {
 	ForkName                      fields.KeyWord
 	Gid                           fields.KeyWord
 	Group                         fields.KeyWord
+	HashCdhash                    fields.KeyWord
 	HashMd5                       fields.KeyWord
 	HashSha1                      fields.KeyWord
 	HashSha256                    fields.KeyWord

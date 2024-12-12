@@ -8,6 +8,7 @@ const (
 	Manufacturer    fields.Field = "device.manufacturer"     // The vendor name of the device manufacturer.
 	ModelIdentifier fields.Field = "device.model.identifier" // The machine readable identifier of the device model.
 	ModelName       fields.Field = "device.model.name"       // The human readable marketing name of the device model.
+	SerialNumber    fields.Field = "device.serial_number"    // Serial Number of the device
 
 )
 
@@ -17,6 +18,7 @@ var Fields = []fields.Field{
 	Manufacturer,
 	ModelIdentifier,
 	ModelName,
+	SerialNumber,
 }
 
 // TypesType describes kibana types of fields to check values
@@ -25,6 +27,7 @@ type TypesType struct {
 	Manufacturer    fields.KeyWord
 	ModelIdentifier fields.KeyWord
 	ModelName       fields.KeyWord
+	SerialNumber    fields.KeyWord
 }
 
 var Types TypesType = TypesType{}

@@ -6,6 +6,7 @@ import "github.com/iostrovok/kibana-fields"
 const (
 	Attachments               fields.Field = "email.attachments"                  // List of objects describing the attachments.
 	AttachmentsFileExtension  fields.Field = "email.attachments.file.extension"   // Attachment file extension.
+	AttachmentsFileHashCdhash fields.Field = "email.attachments.file.hash.cdhash" // The Code Directory (CD) hash of an executable.
 	AttachmentsFileHashMd5    fields.Field = "email.attachments.file.hash.md5"    // MD5 hash.
 	AttachmentsFileHashSha1   fields.Field = "email.attachments.file.hash.sha1"   // SHA1 hash.
 	AttachmentsFileHashSha256 fields.Field = "email.attachments.file.hash.sha256" // SHA256 hash.
@@ -37,6 +38,7 @@ const (
 var Fields = []fields.Field{
 	Attachments,
 	AttachmentsFileExtension,
+	AttachmentsFileHashCdhash,
 	AttachmentsFileHashMd5,
 	AttachmentsFileHashSha1,
 	AttachmentsFileHashSha256,
@@ -67,6 +69,7 @@ var Fields = []fields.Field{
 type TypesType struct {
 	Attachments               fields.Nested
 	AttachmentsFileExtension  fields.KeyWord
+	AttachmentsFileHashCdhash fields.KeyWord
 	AttachmentsFileHashMd5    fields.KeyWord
 	AttachmentsFileHashSha1   fields.KeyWord
 	AttachmentsFileHashSha256 fields.KeyWord

@@ -56,6 +56,7 @@ import (
 	"github.com/iostrovok/kibana-fields/x/user"
 	"github.com/iostrovok/kibana-fields/x/user_agent"
 	"github.com/iostrovok/kibana-fields/x/vlan"
+	"github.com/iostrovok/kibana-fields/x/volume"
 	"github.com/iostrovok/kibana-fields/x/vulnerability"
 	"github.com/iostrovok/kibana-fields/x/x509"
 )
@@ -118,24 +119,9 @@ func init() {
 	AllFields = append(AllFields, user.Fields...)
 	AllFields = append(AllFields, user_agent.Fields...)
 	AllFields = append(AllFields, vlan.Fields...)
+	AllFields = append(AllFields, volume.Fields...)
 	AllFields = append(AllFields, vulnerability.Fields...)
 	AllFields = append(AllFields, x509.Fields...)
-
-	AllFields = append(AllFields, agent.Fields...)
-	AllFields = append(AllFields, base.Fields...)
-	AllFields = append(AllFields, client.Fields...)
-	AllFields = append(AllFields, cloud.Fields...)
-	AllFields = append(AllFields, error.Fields...)
-	AllFields = append(AllFields, event.Fields...)
-	AllFields = append(AllFields, file.Fields...)
-	AllFields = append(AllFields, hash.Fields...)
-	AllFields = append(AllFields, http.Fields...)
-	AllFields = append(AllFields, log.Fields...)
-	AllFields = append(AllFields, service.Fields...)
-	AllFields = append(AllFields, tracing.Fields...)
-	AllFields = append(AllFields, url.Fields...)
-	AllFields = append(AllFields, user.Fields...)
-	AllFields = append(AllFields, user_agent.Fields...)
 
 	Check = make(map[string]bool, 0)
 	for _, v := range AllFields {
