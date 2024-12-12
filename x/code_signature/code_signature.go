@@ -6,6 +6,7 @@ import "github.com/iostrovok/kibana-fields"
 const (
 	CodeSignatureDigestAlgorithm fields.Field = "code_signature.digest_algorithm" // Hashing algorithm used to sign the process.
 	CodeSignatureExists          fields.Field = "code_signature.exists"           // Boolean to capture if a signature is present.
+	CodeSignatureFlags           fields.Field = "code_signature.flags"            // Code signing flags of the process
 	CodeSignatureSigningID       fields.Field = "code_signature.signing_id"       // The identifier used to sign the process.
 	CodeSignatureStatus          fields.Field = "code_signature.status"           // Additional information about the certificate status.
 	CodeSignatureSubjectName     fields.Field = "code_signature.subject_name"     // Subject name of the code signer
@@ -20,6 +21,7 @@ const (
 var Fields = []fields.Field{
 	CodeSignatureDigestAlgorithm,
 	CodeSignatureExists,
+	CodeSignatureFlags,
 	CodeSignatureSigningID,
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
@@ -33,6 +35,7 @@ var Fields = []fields.Field{
 type TypesType struct {
 	CodeSignatureDigestAlgorithm fields.KeyWord
 	CodeSignatureExists          fields.Boolean
+	CodeSignatureFlags           fields.KeyWord
 	CodeSignatureSigningID       fields.KeyWord
 	CodeSignatureStatus          fields.KeyWord
 	CodeSignatureSubjectName     fields.KeyWord

@@ -6,6 +6,7 @@ import "github.com/iostrovok/kibana-fields"
 const (
 	CodeSignatureDigestAlgorithm fields.Field = "dll.code_signature.digest_algorithm" // Hashing algorithm used to sign the process.
 	CodeSignatureExists          fields.Field = "dll.code_signature.exists"           // Boolean to capture if a signature is present.
+	CodeSignatureFlags           fields.Field = "dll.code_signature.flags"            // Code signing flags of the process
 	CodeSignatureSigningID       fields.Field = "dll.code_signature.signing_id"       // The identifier used to sign the process.
 	CodeSignatureStatus          fields.Field = "dll.code_signature.status"           // Additional information about the certificate status.
 	CodeSignatureSubjectName     fields.Field = "dll.code_signature.subject_name"     // Subject name of the code signer
@@ -13,6 +14,7 @@ const (
 	CodeSignatureTimestamp       fields.Field = "dll.code_signature.timestamp"        // When the signature was generated and signed.
 	CodeSignatureTrusted         fields.Field = "dll.code_signature.trusted"          // Stores the trust status of the certificate chain.
 	CodeSignatureValid           fields.Field = "dll.code_signature.valid"            // Boolean to capture if the digital signature is verified against the binary content.
+	HashCdhash                   fields.Field = "dll.hash.cdhash"                     // The Code Directory (CD) hash of an executable.
 	HashMd5                      fields.Field = "dll.hash.md5"                        // MD5 hash.
 	HashSha1                     fields.Field = "dll.hash.sha1"                       // SHA1 hash.
 	HashSha256                   fields.Field = "dll.hash.sha256"                     // SHA256 hash.
@@ -52,6 +54,7 @@ const (
 var Fields = []fields.Field{
 	CodeSignatureDigestAlgorithm,
 	CodeSignatureExists,
+	CodeSignatureFlags,
 	CodeSignatureSigningID,
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
@@ -59,6 +62,7 @@ var Fields = []fields.Field{
 	CodeSignatureTimestamp,
 	CodeSignatureTrusted,
 	CodeSignatureValid,
+	HashCdhash,
 	HashMd5,
 	HashSha1,
 	HashSha256,
@@ -97,6 +101,7 @@ var Fields = []fields.Field{
 type TypesType struct {
 	CodeSignatureDigestAlgorithm fields.KeyWord
 	CodeSignatureExists          fields.Boolean
+	CodeSignatureFlags           fields.KeyWord
 	CodeSignatureSigningID       fields.KeyWord
 	CodeSignatureStatus          fields.KeyWord
 	CodeSignatureSubjectName     fields.KeyWord
@@ -104,6 +109,7 @@ type TypesType struct {
 	CodeSignatureTimestamp       fields.Date
 	CodeSignatureTrusted         fields.Boolean
 	CodeSignatureValid           fields.Boolean
+	HashCdhash                   fields.KeyWord
 	HashMd5                      fields.KeyWord
 	HashSha1                     fields.KeyWord
 	HashSha256                   fields.KeyWord

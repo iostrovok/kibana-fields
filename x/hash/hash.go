@@ -4,6 +4,7 @@ import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
+	Cdhash fields.Field = "hash.cdhash" // The Code Directory (CD) hash of an executable.
 	Md5    fields.Field = "hash.md5"    // MD5 hash.
 	Sha1   fields.Field = "hash.sha1"   // SHA1 hash.
 	Sha256 fields.Field = "hash.sha256" // SHA256 hash.
@@ -16,6 +17,7 @@ const (
 
 // Fields contains all package constants as list
 var Fields = []fields.Field{
+	Cdhash,
 	Md5,
 	Sha1,
 	Sha256,
@@ -27,6 +29,7 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
+	Cdhash fields.KeyWord
 	Md5    fields.KeyWord
 	Sha1   fields.KeyWord
 	Sha256 fields.KeyWord

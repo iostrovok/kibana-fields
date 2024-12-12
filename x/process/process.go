@@ -8,6 +8,7 @@ const (
 	ArgsCount                                fields.Field = "process.args_count"                                     // Length of the process.args array.
 	CodeSignatureDigestAlgorithm             fields.Field = "process.code_signature.digest_algorithm"                // Hashing algorithm used to sign the process.
 	CodeSignatureExists                      fields.Field = "process.code_signature.exists"                          // Boolean to capture if a signature is present.
+	CodeSignatureFlags                       fields.Field = "process.code_signature.flags"                           // Code signing flags of the process
 	CodeSignatureSigningID                   fields.Field = "process.code_signature.signing_id"                      // The identifier used to sign the process.
 	CodeSignatureStatus                      fields.Field = "process.code_signature.status"                          // Additional information about the certificate status.
 	CodeSignatureSubjectName                 fields.Field = "process.code_signature.subject_name"                    // Subject name of the code signer
@@ -101,6 +102,7 @@ const (
 	EnvVars                                  fields.Field = "process.env_vars"                                       // Array of environment variable bindings.
 	Executable                               fields.Field = "process.executable"                                     // Absolute path to the process executable.
 	ExitCode                                 fields.Field = "process.exit_code"                                      // The exit code of the process.
+	GroupID                                  fields.Field = "process.group.id"                                       // Unique identifier for the group on the system/platform.
 	GroupLeaderArgs                          fields.Field = "process.group_leader.args"                              // Array of process arguments.
 	GroupLeaderArgsCount                     fields.Field = "process.group_leader.args_count"                        // Length of the process.args array.
 	GroupLeaderCommandLine                   fields.Field = "process.group_leader.command_line"                      // Full command line that started the process.
@@ -130,6 +132,8 @@ const (
 	GroupLeaderUserName                      fields.Field = "process.group_leader.user.name"                         // Short name or login of the user.
 	GroupLeaderVpid                          fields.Field = "process.group_leader.vpid"                              // Virtual process id.
 	GroupLeaderWorkingDirectory              fields.Field = "process.group_leader.working_directory"                 // The working directory of the process.
+	GroupName                                fields.Field = "process.group.name"                                     // Name of the group.
+	HashCdhash                               fields.Field = "process.hash.cdhash"                                    // The Code Directory (CD) hash of an executable.
 	HashMd5                                  fields.Field = "process.hash.md5"                                       // MD5 hash.
 	HashSha1                                 fields.Field = "process.hash.sha1"                                      // SHA1 hash.
 	HashSha256                               fields.Field = "process.hash.sha256"                                    // SHA256 hash.
@@ -168,6 +172,7 @@ const (
 	ParentArgsCount                          fields.Field = "process.parent.args_count"                              // Length of the process.args array.
 	ParentCodeSignatureDigestAlgorithm       fields.Field = "process.parent.code_signature.digest_algorithm"         // Hashing algorithm used to sign the process.
 	ParentCodeSignatureExists                fields.Field = "process.parent.code_signature.exists"                   // Boolean to capture if a signature is present.
+	ParentCodeSignatureFlags                 fields.Field = "process.parent.code_signature.flags"                    // Code signing flags of the process
 	ParentCodeSignatureSigningID             fields.Field = "process.parent.code_signature.signing_id"               // The identifier used to sign the process.
 	ParentCodeSignatureStatus                fields.Field = "process.parent.code_signature.status"                   // Additional information about the certificate status.
 	ParentCodeSignatureSubjectName           fields.Field = "process.parent.code_signature.subject_name"             // Subject name of the code signer
@@ -224,6 +229,7 @@ const (
 	ParentGroupLeaderStart                   fields.Field = "process.parent.group_leader.start"                      // The time the process started.
 	ParentGroupLeaderVpid                    fields.Field = "process.parent.group_leader.vpid"                       // Virtual process id.
 	ParentGroupName                          fields.Field = "process.parent.group.name"                              // Name of the group.
+	ParentHashCdhash                         fields.Field = "process.parent.hash.cdhash"                             // The Code Directory (CD) hash of an executable.
 	ParentHashMd5                            fields.Field = "process.parent.hash.md5"                                // MD5 hash.
 	ParentHashSha1                           fields.Field = "process.parent.hash.sha1"                               // SHA1 hash.
 	ParentHashSha256                         fields.Field = "process.parent.hash.sha256"                             // SHA256 hash.
@@ -398,6 +404,7 @@ var Fields = []fields.Field{
 	ArgsCount,
 	CodeSignatureDigestAlgorithm,
 	CodeSignatureExists,
+	CodeSignatureFlags,
 	CodeSignatureSigningID,
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
@@ -491,6 +498,7 @@ var Fields = []fields.Field{
 	EnvVars,
 	Executable,
 	ExitCode,
+	GroupID,
 	GroupLeaderArgs,
 	GroupLeaderArgsCount,
 	GroupLeaderCommandLine,
@@ -520,6 +528,8 @@ var Fields = []fields.Field{
 	GroupLeaderUserName,
 	GroupLeaderVpid,
 	GroupLeaderWorkingDirectory,
+	GroupName,
+	HashCdhash,
 	HashMd5,
 	HashSha1,
 	HashSha256,
@@ -558,6 +568,7 @@ var Fields = []fields.Field{
 	ParentArgsCount,
 	ParentCodeSignatureDigestAlgorithm,
 	ParentCodeSignatureExists,
+	ParentCodeSignatureFlags,
 	ParentCodeSignatureSigningID,
 	ParentCodeSignatureStatus,
 	ParentCodeSignatureSubjectName,
@@ -614,6 +625,7 @@ var Fields = []fields.Field{
 	ParentGroupLeaderStart,
 	ParentGroupLeaderVpid,
 	ParentGroupName,
+	ParentHashCdhash,
 	ParentHashMd5,
 	ParentHashSha1,
 	ParentHashSha256,
@@ -787,6 +799,7 @@ type TypesType struct {
 	ArgsCount                                fields.Long
 	CodeSignatureDigestAlgorithm             fields.KeyWord
 	CodeSignatureExists                      fields.Boolean
+	CodeSignatureFlags                       fields.KeyWord
 	CodeSignatureSigningID                   fields.KeyWord
 	CodeSignatureStatus                      fields.KeyWord
 	CodeSignatureSubjectName                 fields.KeyWord
@@ -880,6 +893,7 @@ type TypesType struct {
 	EnvVars                                  fields.KeyWord
 	Executable                               fields.KeyWord
 	ExitCode                                 fields.Long
+	GroupID                                  fields.KeyWord
 	GroupLeaderArgs                          fields.KeyWord
 	GroupLeaderArgsCount                     fields.Long
 	GroupLeaderCommandLine                   fields.Wildcard
@@ -909,6 +923,8 @@ type TypesType struct {
 	GroupLeaderUserName                      fields.KeyWord
 	GroupLeaderVpid                          fields.Long
 	GroupLeaderWorkingDirectory              fields.KeyWord
+	GroupName                                fields.KeyWord
+	HashCdhash                               fields.KeyWord
 	HashMd5                                  fields.KeyWord
 	HashSha1                                 fields.KeyWord
 	HashSha256                               fields.KeyWord
@@ -947,6 +963,7 @@ type TypesType struct {
 	ParentArgsCount                          fields.Long
 	ParentCodeSignatureDigestAlgorithm       fields.KeyWord
 	ParentCodeSignatureExists                fields.Boolean
+	ParentCodeSignatureFlags                 fields.KeyWord
 	ParentCodeSignatureSigningID             fields.KeyWord
 	ParentCodeSignatureStatus                fields.KeyWord
 	ParentCodeSignatureSubjectName           fields.KeyWord
@@ -1003,6 +1020,7 @@ type TypesType struct {
 	ParentGroupLeaderStart                   fields.Date
 	ParentGroupLeaderVpid                    fields.Long
 	ParentGroupName                          fields.KeyWord
+	ParentHashCdhash                         fields.KeyWord
 	ParentHashMd5                            fields.KeyWord
 	ParentHashSha1                           fields.KeyWord
 	ParentHashSha256                         fields.KeyWord

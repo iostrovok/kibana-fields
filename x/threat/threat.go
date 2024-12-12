@@ -15,6 +15,7 @@ const (
 	EnrichmentsIndicatorFileAttributes                    fields.Field = "threat.enrichments.indicator.file.attributes"                       // Array of file attributes.
 	EnrichmentsIndicatorFileCodeSignatureDigestAlgorithm  fields.Field = "threat.enrichments.indicator.file.code_signature.digest_algorithm"  // Hashing algorithm used to sign the process.
 	EnrichmentsIndicatorFileCodeSignatureExists           fields.Field = "threat.enrichments.indicator.file.code_signature.exists"            // Boolean to capture if a signature is present.
+	EnrichmentsIndicatorFileCodeSignatureFlags            fields.Field = "threat.enrichments.indicator.file.code_signature.flags"             // Code signing flags of the process
 	EnrichmentsIndicatorFileCodeSignatureSigningID        fields.Field = "threat.enrichments.indicator.file.code_signature.signing_id"        // The identifier used to sign the process.
 	EnrichmentsIndicatorFileCodeSignatureStatus           fields.Field = "threat.enrichments.indicator.file.code_signature.status"            // Additional information about the certificate status.
 	EnrichmentsIndicatorFileCodeSignatureSubjectName      fields.Field = "threat.enrichments.indicator.file.code_signature.subject_name"      // Subject name of the code signer
@@ -69,6 +70,7 @@ const (
 	EnrichmentsIndicatorFileForkName                      fields.Field = "threat.enrichments.indicator.file.fork_name"                        // A fork is additional data associated with a filesystem object.
 	EnrichmentsIndicatorFileGid                           fields.Field = "threat.enrichments.indicator.file.gid"                              // Primary group ID (GID) of the file.
 	EnrichmentsIndicatorFileGroup                         fields.Field = "threat.enrichments.indicator.file.group"                            // Primary group name of the file.
+	EnrichmentsIndicatorFileHashCdhash                    fields.Field = "threat.enrichments.indicator.file.hash.cdhash"                      // The Code Directory (CD) hash of an executable.
 	EnrichmentsIndicatorFileHashMd5                       fields.Field = "threat.enrichments.indicator.file.hash.md5"                         // MD5 hash.
 	EnrichmentsIndicatorFileHashSha1                      fields.Field = "threat.enrichments.indicator.file.hash.sha1"                        // SHA1 hash.
 	EnrichmentsIndicatorFileHashSha256                    fields.Field = "threat.enrichments.indicator.file.hash.sha256"                      // SHA256 hash.
@@ -227,6 +229,7 @@ const (
 	IndicatorFileAttributes                               fields.Field = "threat.indicator.file.attributes"                                   // Array of file attributes.
 	IndicatorFileCodeSignatureDigestAlgorithm             fields.Field = "threat.indicator.file.code_signature.digest_algorithm"              // Hashing algorithm used to sign the process.
 	IndicatorFileCodeSignatureExists                      fields.Field = "threat.indicator.file.code_signature.exists"                        // Boolean to capture if a signature is present.
+	IndicatorFileCodeSignatureFlags                       fields.Field = "threat.indicator.file.code_signature.flags"                         // Code signing flags of the process
 	IndicatorFileCodeSignatureSigningID                   fields.Field = "threat.indicator.file.code_signature.signing_id"                    // The identifier used to sign the process.
 	IndicatorFileCodeSignatureStatus                      fields.Field = "threat.indicator.file.code_signature.status"                        // Additional information about the certificate status.
 	IndicatorFileCodeSignatureSubjectName                 fields.Field = "threat.indicator.file.code_signature.subject_name"                  // Subject name of the code signer
@@ -281,6 +284,7 @@ const (
 	IndicatorFileForkName                                 fields.Field = "threat.indicator.file.fork_name"                                    // A fork is additional data associated with a filesystem object.
 	IndicatorFileGid                                      fields.Field = "threat.indicator.file.gid"                                          // Primary group ID (GID) of the file.
 	IndicatorFileGroup                                    fields.Field = "threat.indicator.file.group"                                        // Primary group name of the file.
+	IndicatorFileHashCdhash                               fields.Field = "threat.indicator.file.hash.cdhash"                                  // The Code Directory (CD) hash of an executable.
 	IndicatorFileHashMd5                                  fields.Field = "threat.indicator.file.hash.md5"                                     // MD5 hash.
 	IndicatorFileHashSha1                                 fields.Field = "threat.indicator.file.hash.sha1"                                    // SHA1 hash.
 	IndicatorFileHashSha256                               fields.Field = "threat.indicator.file.hash.sha256"                                  // SHA256 hash.
@@ -358,6 +362,7 @@ const (
 	IndicatorGeoRegionIsoCode                             fields.Field = "threat.indicator.geo.region_iso_code"                               // Region ISO code.
 	IndicatorGeoRegionName                                fields.Field = "threat.indicator.geo.region_name"                                   // Region name.
 	IndicatorGeoTimezone                                  fields.Field = "threat.indicator.geo.timezone"                                      // The time zone of the location, such as IANA time zone name.
+	IndicatorID                                           fields.Field = "threat.indicator.id"                                                // ID of the indicator
 	IndicatorIp                                           fields.Field = "threat.indicator.ip"                                                // Indicator IP address
 	IndicatorLastSeen                                     fields.Field = "threat.indicator.last_seen"                                         // Date/time indicator was last reported.
 	IndicatorMarkingTlp                                   fields.Field = "threat.indicator.marking.tlp"                                       // Indicator TLP marking
@@ -446,6 +451,7 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFileAttributes,
 	EnrichmentsIndicatorFileCodeSignatureDigestAlgorithm,
 	EnrichmentsIndicatorFileCodeSignatureExists,
+	EnrichmentsIndicatorFileCodeSignatureFlags,
 	EnrichmentsIndicatorFileCodeSignatureSigningID,
 	EnrichmentsIndicatorFileCodeSignatureStatus,
 	EnrichmentsIndicatorFileCodeSignatureSubjectName,
@@ -500,6 +506,7 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFileForkName,
 	EnrichmentsIndicatorFileGid,
 	EnrichmentsIndicatorFileGroup,
+	EnrichmentsIndicatorFileHashCdhash,
 	EnrichmentsIndicatorFileHashMd5,
 	EnrichmentsIndicatorFileHashSha1,
 	EnrichmentsIndicatorFileHashSha256,
@@ -658,6 +665,7 @@ var Fields = []fields.Field{
 	IndicatorFileAttributes,
 	IndicatorFileCodeSignatureDigestAlgorithm,
 	IndicatorFileCodeSignatureExists,
+	IndicatorFileCodeSignatureFlags,
 	IndicatorFileCodeSignatureSigningID,
 	IndicatorFileCodeSignatureStatus,
 	IndicatorFileCodeSignatureSubjectName,
@@ -712,6 +720,7 @@ var Fields = []fields.Field{
 	IndicatorFileForkName,
 	IndicatorFileGid,
 	IndicatorFileGroup,
+	IndicatorFileHashCdhash,
 	IndicatorFileHashMd5,
 	IndicatorFileHashSha1,
 	IndicatorFileHashSha256,
@@ -789,6 +798,7 @@ var Fields = []fields.Field{
 	IndicatorGeoRegionIsoCode,
 	IndicatorGeoRegionName,
 	IndicatorGeoTimezone,
+	IndicatorID,
 	IndicatorIp,
 	IndicatorLastSeen,
 	IndicatorMarkingTlp,
@@ -1060,6 +1070,7 @@ type TypesType struct {
 	EnrichmentsIndicatorFileAttributes                    fields.KeyWord
 	EnrichmentsIndicatorFileCodeSignatureDigestAlgorithm  fields.KeyWord
 	EnrichmentsIndicatorFileCodeSignatureExists           fields.Boolean
+	EnrichmentsIndicatorFileCodeSignatureFlags            fields.KeyWord
 	EnrichmentsIndicatorFileCodeSignatureSigningID        fields.KeyWord
 	EnrichmentsIndicatorFileCodeSignatureStatus           fields.KeyWord
 	EnrichmentsIndicatorFileCodeSignatureSubjectName      fields.KeyWord
@@ -1114,6 +1125,7 @@ type TypesType struct {
 	EnrichmentsIndicatorFileForkName                      fields.KeyWord
 	EnrichmentsIndicatorFileGid                           fields.KeyWord
 	EnrichmentsIndicatorFileGroup                         fields.KeyWord
+	EnrichmentsIndicatorFileHashCdhash                    fields.KeyWord
 	EnrichmentsIndicatorFileHashMd5                       fields.KeyWord
 	EnrichmentsIndicatorFileHashSha1                      fields.KeyWord
 	EnrichmentsIndicatorFileHashSha256                    fields.KeyWord
@@ -1272,6 +1284,7 @@ type TypesType struct {
 	IndicatorFileAttributes                               fields.KeyWord
 	IndicatorFileCodeSignatureDigestAlgorithm             fields.KeyWord
 	IndicatorFileCodeSignatureExists                      fields.Boolean
+	IndicatorFileCodeSignatureFlags                       fields.KeyWord
 	IndicatorFileCodeSignatureSigningID                   fields.KeyWord
 	IndicatorFileCodeSignatureStatus                      fields.KeyWord
 	IndicatorFileCodeSignatureSubjectName                 fields.KeyWord
@@ -1326,6 +1339,7 @@ type TypesType struct {
 	IndicatorFileForkName                                 fields.KeyWord
 	IndicatorFileGid                                      fields.KeyWord
 	IndicatorFileGroup                                    fields.KeyWord
+	IndicatorFileHashCdhash                               fields.KeyWord
 	IndicatorFileHashMd5                                  fields.KeyWord
 	IndicatorFileHashSha1                                 fields.KeyWord
 	IndicatorFileHashSha256                               fields.KeyWord
@@ -1403,6 +1417,7 @@ type TypesType struct {
 	IndicatorGeoRegionIsoCode                             fields.KeyWord
 	IndicatorGeoRegionName                                fields.KeyWord
 	IndicatorGeoTimezone                                  fields.KeyWord
+	IndicatorID                                           fields.KeyWord
 	IndicatorIp                                           fields.IP
 	IndicatorLastSeen                                     fields.Date
 	IndicatorMarkingTlp                                   fields.KeyWord
