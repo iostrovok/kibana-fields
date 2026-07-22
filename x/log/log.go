@@ -49,24 +49,24 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	FilePath             fields.KeyWord
-	Level                fields.KeyWord
-	Logger               fields.KeyWord
+	FilePath             fields.Keyword
+	Level                fields.Keyword
+	Logger               fields.Keyword
 	OriginFileLine       fields.Long
-	OriginFileName       fields.KeyWord
-	OriginFunction       fields.KeyWord
+	OriginFileName       fields.Keyword
+	OriginFunction       fields.Keyword
 	Syslog               fields.Object
-	SyslogAppname        fields.KeyWord
+	SyslogAppname        fields.Keyword
 	SyslogFacilityCode   fields.Long
-	SyslogFacilityName   fields.KeyWord
-	SyslogHostname       fields.KeyWord
-	SyslogMsgid          fields.KeyWord
+	SyslogFacilityName   fields.Keyword
+	SyslogHostname       fields.Keyword
+	SyslogMsgid          fields.Keyword
 	SyslogPriority       fields.Long
-	SyslogProcid         fields.KeyWord
+	SyslogProcid         fields.Keyword
 	SyslogSeverityCode   fields.Long
-	SyslogSeverityName   fields.KeyWord
+	SyslogSeverityName   fields.Keyword
 	SyslogStructuredData fields.Flattened
-	SyslogVersion        fields.KeyWord
+	SyslogVersion        fields.Keyword
 }
 
 var Types TypesType = TypesType{}

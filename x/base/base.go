@@ -23,7 +23,7 @@ var Fields = []fields.Field{
 type TypesType struct {
 	Labels    fields.Object
 	Message   fields.MatchOnlyText
-	Tags      fields.KeyWord
+	Tags      fields.Keyword
 	Timestamp fields.Date
 }
 

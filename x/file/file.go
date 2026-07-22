@@ -92,6 +92,8 @@ const (
 	Mode                          fields.Field = "file.mode"                               // Mode of the file in octal representation.
 	Mtime                         fields.Field = "file.mtime"                              // Last time the file content was modified.
 	Name                          fields.Field = "file.name"                               // Name of the file including the extension, without the directory.
+	OriginReferrerUrl             fields.Field = "file.origin_referrer_url"                // The URL of the webpage that linked to the file.
+	OriginUrl                     fields.Field = "file.origin_url"                         // The URL where the file is hosted.
 	Owner                         fields.Field = "file.owner"                              // File owner's username.
 	Path                          fields.Field = "file.path"                               // Full path to the file, including the file name.
 	PeArchitecture                fields.Field = "file.pe.architecture"                    // CPU architecture target for the file.
@@ -238,6 +240,8 @@ var Fields = []fields.Field{
 	Mode,
 	Mtime,
 	Name,
+	OriginReferrerUrl,
+	OriginUrl,
 	Owner,
 	Path,
 	PeArchitecture,
@@ -296,146 +300,148 @@ var Fields = []fields.Field{
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
 	Accessed                      fields.Date
-	Attributes                    fields.KeyWord
-	CodeSignatureDigestAlgorithm  fields.KeyWord
+	Attributes                    fields.Keyword
+	CodeSignatureDigestAlgorithm  fields.Keyword
 	CodeSignatureExists           fields.Boolean
-	CodeSignatureFlags            fields.KeyWord
-	CodeSignatureSigningID        fields.KeyWord
-	CodeSignatureStatus           fields.KeyWord
-	CodeSignatureSubjectName      fields.KeyWord
-	CodeSignatureTeamID           fields.KeyWord
+	CodeSignatureFlags            fields.Keyword
+	CodeSignatureSigningID        fields.Keyword
+	CodeSignatureStatus           fields.Keyword
+	CodeSignatureSubjectName      fields.Keyword
+	CodeSignatureTeamID           fields.Keyword
 	CodeSignatureTimestamp        fields.Date
 	CodeSignatureTrusted          fields.Boolean
 	CodeSignatureValid            fields.Boolean
 	Created                       fields.Date
 	Ctime                         fields.Date
-	Device                        fields.KeyWord
-	Directory                     fields.KeyWord
-	DriveLetter                   fields.KeyWord
-	ElfArchitecture               fields.KeyWord
-	ElfByteOrder                  fields.KeyWord
-	ElfCpuType                    fields.KeyWord
+	Device                        fields.Keyword
+	Directory                     fields.Keyword
+	DriveLetter                   fields.Keyword
+	ElfArchitecture               fields.Keyword
+	ElfByteOrder                  fields.Keyword
+	ElfCpuType                    fields.Keyword
 	ElfCreationDate               fields.Date
 	ElfExports                    fields.Flattened
-	ElfGoImportHash               fields.KeyWord
+	ElfGoImportHash               fields.Keyword
 	ElfGoImports                  fields.Flattened
 	ElfGoImportsNamesEntropy      fields.Long
 	ElfGoImportsNamesVarEntropy   fields.Long
 	ElfGoStripped                 fields.Boolean
-	ElfHeaderAbiVersion           fields.KeyWord
-	ElfHeaderClass                fields.KeyWord
-	ElfHeaderData                 fields.KeyWord
+	ElfHeaderAbiVersion           fields.Keyword
+	ElfHeaderClass                fields.Keyword
+	ElfHeaderData                 fields.Keyword
 	ElfHeaderEntrypoint           fields.Long
-	ElfHeaderObjectVersion        fields.KeyWord
-	ElfHeaderOsAbi                fields.KeyWord
-	ElfHeaderType                 fields.KeyWord
-	ElfHeaderVersion              fields.KeyWord
-	ElfImportHash                 fields.KeyWord
+	ElfHeaderObjectVersion        fields.Keyword
+	ElfHeaderOsAbi                fields.Keyword
+	ElfHeaderType                 fields.Keyword
+	ElfHeaderVersion              fields.Keyword
+	ElfImportHash                 fields.Keyword
 	ElfImports                    fields.Flattened
 	ElfImportsNamesEntropy        fields.Long
 	ElfImportsNamesVarEntropy     fields.Long
 	ElfSections                   fields.Nested
 	ElfSectionsChi2               fields.Long
 	ElfSectionsEntropy            fields.Long
-	ElfSectionsFlags              fields.KeyWord
-	ElfSectionsName               fields.KeyWord
-	ElfSectionsPhysicalOffset     fields.KeyWord
+	ElfSectionsFlags              fields.Keyword
+	ElfSectionsName               fields.Keyword
+	ElfSectionsPhysicalOffset     fields.Keyword
 	ElfSectionsPhysicalSize       fields.Long
-	ElfSectionsType               fields.KeyWord
+	ElfSectionsType               fields.Keyword
 	ElfSectionsVarEntropy         fields.Long
 	ElfSectionsVirtualAddress     fields.Long
 	ElfSectionsVirtualSize        fields.Long
 	ElfSegments                   fields.Nested
-	ElfSegmentsSections           fields.KeyWord
-	ElfSegmentsType               fields.KeyWord
-	ElfSharedLibraries            fields.KeyWord
-	ElfTelfhash                   fields.KeyWord
-	Extension                     fields.KeyWord
-	ForkName                      fields.KeyWord
-	Gid                           fields.KeyWord
-	Group                         fields.KeyWord
-	HashCdhash                    fields.KeyWord
-	HashMd5                       fields.KeyWord
-	HashSha1                      fields.KeyWord
-	HashSha256                    fields.KeyWord
-	HashSha384                    fields.KeyWord
-	HashSha512                    fields.KeyWord
-	HashSsdeep                    fields.KeyWord
-	HashTlsh                      fields.KeyWord
-	Inode                         fields.KeyWord
-	MachoGoImportHash             fields.KeyWord
+	ElfSegmentsSections           fields.Keyword
+	ElfSegmentsType               fields.Keyword
+	ElfSharedLibraries            fields.Keyword
+	ElfTelfhash                   fields.Keyword
+	Extension                     fields.Keyword
+	ForkName                      fields.Keyword
+	Gid                           fields.Keyword
+	Group                         fields.Keyword
+	HashCdhash                    fields.Keyword
+	HashMd5                       fields.Keyword
+	HashSha1                      fields.Keyword
+	HashSha256                    fields.Keyword
+	HashSha384                    fields.Keyword
+	HashSha512                    fields.Keyword
+	HashSsdeep                    fields.Keyword
+	HashTlsh                      fields.Keyword
+	Inode                         fields.Keyword
+	MachoGoImportHash             fields.Keyword
 	MachoGoImports                fields.Flattened
 	MachoGoImportsNamesEntropy    fields.Long
 	MachoGoImportsNamesVarEntropy fields.Long
 	MachoGoStripped               fields.Boolean
-	MachoImportHash               fields.KeyWord
+	MachoImportHash               fields.Keyword
 	MachoImports                  fields.Flattened
 	MachoImportsNamesEntropy      fields.Long
 	MachoImportsNamesVarEntropy   fields.Long
 	MachoSections                 fields.Nested
 	MachoSectionsEntropy          fields.Long
-	MachoSectionsName             fields.KeyWord
+	MachoSectionsName             fields.Keyword
 	MachoSectionsPhysicalSize     fields.Long
 	MachoSectionsVarEntropy       fields.Long
 	MachoSectionsVirtualSize      fields.Long
-	MachoSymhash                  fields.KeyWord
-	MimeType                      fields.KeyWord
-	Mode                          fields.KeyWord
+	MachoSymhash                  fields.Keyword
+	MimeType                      fields.Keyword
+	Mode                          fields.Keyword
 	Mtime                         fields.Date
-	Name                          fields.KeyWord
-	Owner                         fields.KeyWord
-	Path                          fields.KeyWord
-	PeArchitecture                fields.KeyWord
-	PeCompany                     fields.KeyWord
-	PeDescription                 fields.KeyWord
-	PeGoImportHash                fields.KeyWord
+	Name                          fields.Keyword
+	OriginReferrerUrl             fields.Keyword
+	OriginUrl                     fields.Keyword
+	Owner                         fields.Keyword
+	Path                          fields.Keyword
+	PeArchitecture                fields.Keyword
+	PeCompany                     fields.Keyword
+	PeDescription                 fields.Keyword
+	PeGoImportHash                fields.Keyword
 	PeGoImports                   fields.Flattened
 	PeGoImportsNamesEntropy       fields.Long
 	PeGoImportsNamesVarEntropy    fields.Long
 	PeGoStripped                  fields.Boolean
-	PeImphash                     fields.KeyWord
-	PeImportHash                  fields.KeyWord
+	PeImphash                     fields.Keyword
+	PeImportHash                  fields.Keyword
 	PeImports                     fields.Flattened
 	PeImportsNamesEntropy         fields.Long
 	PeImportsNamesVarEntropy      fields.Long
-	PeOriginalName                fields.KeyWord
-	PePehash                      fields.KeyWord
-	PeProduct                     fields.KeyWord
+	PeOriginalName                fields.Keyword
+	PePehash                      fields.Keyword
+	PeProduct                     fields.Keyword
 	PeSections                    fields.Nested
 	PeSectionsEntropy             fields.Long
-	PeSectionsName                fields.KeyWord
+	PeSectionsName                fields.Keyword
 	PeSectionsPhysicalSize        fields.Long
 	PeSectionsVarEntropy          fields.Long
 	PeSectionsVirtualSize         fields.Long
-	PeVersion                     fields.KeyWord
+	PeVersion                     fields.Keyword
 	Size                          fields.Long
-	TargetPath                    fields.KeyWord
-	Type                          fields.KeyWord
-	Uid                           fields.KeyWord
-	X509AlternativeNames          fields.KeyWord
-	X509IssuerCommonName          fields.KeyWord
-	X509IssuerCountry             fields.KeyWord
-	X509IssuerDistinguishedName   fields.KeyWord
-	X509IssuerLocality            fields.KeyWord
-	X509IssuerOrganization        fields.KeyWord
-	X509IssuerOrganizationalUnit  fields.KeyWord
-	X509IssuerStateOrProvince     fields.KeyWord
+	TargetPath                    fields.Keyword
+	Type                          fields.Keyword
+	Uid                           fields.Keyword
+	X509AlternativeNames          fields.Keyword
+	X509IssuerCommonName          fields.Keyword
+	X509IssuerCountry             fields.Keyword
+	X509IssuerDistinguishedName   fields.Keyword
+	X509IssuerLocality            fields.Keyword
+	X509IssuerOrganization        fields.Keyword
+	X509IssuerOrganizationalUnit  fields.Keyword
+	X509IssuerStateOrProvince     fields.Keyword
 	X509NotAfter                  fields.Date
 	X509NotBefore                 fields.Date
-	X509PublicKeyAlgorithm        fields.KeyWord
-	X509PublicKeyCurve            fields.KeyWord
+	X509PublicKeyAlgorithm        fields.Keyword
+	X509PublicKeyCurve            fields.Keyword
 	X509PublicKeyExponent         fields.Long
 	X509PublicKeySize             fields.Long
-	X509SerialNumber              fields.KeyWord
-	X509SignatureAlgorithm        fields.KeyWord
-	X509SubjectCommonName         fields.KeyWord
-	X509SubjectCountry            fields.KeyWord
-	X509SubjectDistinguishedName  fields.KeyWord
-	X509SubjectLocality           fields.KeyWord
-	X509SubjectOrganization       fields.KeyWord
-	X509SubjectOrganizationalUnit fields.KeyWord
-	X509SubjectStateOrProvince    fields.KeyWord
-	X509VersionNumber             fields.KeyWord
+	X509SerialNumber              fields.Keyword
+	X509SignatureAlgorithm        fields.Keyword
+	X509SubjectCommonName         fields.Keyword
+	X509SubjectCountry            fields.Keyword
+	X509SubjectDistinguishedName  fields.Keyword
+	X509SubjectLocality           fields.Keyword
+	X509SubjectOrganization       fields.Keyword
+	X509SubjectOrganizationalUnit fields.Keyword
+	X509SubjectStateOrProvince    fields.Keyword
+	X509VersionNumber             fields.Keyword
 }
 
 var Types TypesType = TypesType{}

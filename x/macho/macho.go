@@ -45,22 +45,22 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	GoImportHash             fields.KeyWord
+	GoImportHash             fields.Keyword
 	GoImports                fields.Flattened
 	GoImportsNamesEntropy    fields.Long
 	GoImportsNamesVarEntropy fields.Long
 	GoStripped               fields.Boolean
-	ImportHash               fields.KeyWord
+	ImportHash               fields.Keyword
 	Imports                  fields.Flattened
 	ImportsNamesEntropy      fields.Long
 	ImportsNamesVarEntropy   fields.Long
 	Sections                 fields.Nested
 	SectionsEntropy          fields.Long
-	SectionsName             fields.KeyWord
+	SectionsName             fields.Keyword
 	SectionsPhysicalSize     fields.Long
 	SectionsVarEntropy       fields.Long
 	SectionsVirtualSize      fields.Long
-	Symhash                  fields.KeyWord
+	Symhash                  fields.Keyword
 }
 
 var Types TypesType = TypesType{}

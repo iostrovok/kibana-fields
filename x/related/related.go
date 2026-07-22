@@ -21,10 +21,10 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Hash  fields.KeyWord
-	Hosts fields.KeyWord
+	Hash  fields.Keyword
+	Hosts fields.Keyword
 	Ip    fields.IP
-	User  fields.KeyWord
+	User  fields.Keyword
 }
 
 var Types TypesType = TypesType{}

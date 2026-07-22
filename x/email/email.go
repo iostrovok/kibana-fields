@@ -68,32 +68,32 @@ var Fields = []fields.Field{
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
 	Attachments               fields.Nested
-	AttachmentsFileExtension  fields.KeyWord
-	AttachmentsFileHashCdhash fields.KeyWord
-	AttachmentsFileHashMd5    fields.KeyWord
-	AttachmentsFileHashSha1   fields.KeyWord
-	AttachmentsFileHashSha256 fields.KeyWord
-	AttachmentsFileHashSha384 fields.KeyWord
-	AttachmentsFileHashSha512 fields.KeyWord
-	AttachmentsFileHashSsdeep fields.KeyWord
-	AttachmentsFileHashTlsh   fields.KeyWord
-	AttachmentsFileMimeType   fields.KeyWord
-	AttachmentsFileName       fields.KeyWord
+	AttachmentsFileExtension  fields.Keyword
+	AttachmentsFileHashCdhash fields.Keyword
+	AttachmentsFileHashMd5    fields.Keyword
+	AttachmentsFileHashSha1   fields.Keyword
+	AttachmentsFileHashSha256 fields.Keyword
+	AttachmentsFileHashSha384 fields.Keyword
+	AttachmentsFileHashSha512 fields.Keyword
+	AttachmentsFileHashSsdeep fields.Keyword
+	AttachmentsFileHashTlsh   fields.Keyword
+	AttachmentsFileMimeType   fields.Keyword
+	AttachmentsFileName       fields.Keyword
 	AttachmentsFileSize       fields.Long
-	BccAddress                fields.KeyWord
-	CcAddress                 fields.KeyWord
-	ContentType               fields.KeyWord
+	BccAddress                fields.Keyword
+	CcAddress                 fields.Keyword
+	ContentType               fields.Keyword
 	DeliveryTimestamp         fields.Date
-	Direction                 fields.KeyWord
-	FromAddress               fields.KeyWord
-	LocalID                   fields.KeyWord
+	Direction                 fields.Keyword
+	FromAddress               fields.Keyword
+	LocalID                   fields.Keyword
 	MessageID                 fields.Wildcard
 	OriginationTimestamp      fields.Date
-	ReplyToAddress            fields.KeyWord
-	SenderAddress             fields.KeyWord
-	Subject                   fields.KeyWord
-	ToAddress                 fields.KeyWord
-	XMailer                   fields.KeyWord
+	ReplyToAddress            fields.Keyword
+	SenderAddress             fields.Keyword
+	Subject                   fields.Keyword
+	ToAddress                 fields.Keyword
+	XMailer                   fields.Keyword
 }
 
 var Types TypesType = TypesType{}

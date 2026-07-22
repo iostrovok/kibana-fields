@@ -41,19 +41,19 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	CpuUsage                  fields.Float
+	CpuUsage                  fields.ScaledFloat
 	DiskReadBytes             fields.Long
 	DiskWriteBytes            fields.Long
-	ID                        fields.KeyWord
-	ImageHashAll              fields.KeyWord
-	ImageName                 fields.KeyWord
-	ImageTag                  fields.KeyWord
+	ID                        fields.Keyword
+	ImageHashAll              fields.Keyword
+	ImageName                 fields.Keyword
+	ImageTag                  fields.Keyword
 	Labels                    fields.Object
-	MemoryUsage               fields.Float
-	Name                      fields.KeyWord
+	MemoryUsage               fields.ScaledFloat
+	Name                      fields.Keyword
 	NetworkEgressBytes        fields.Long
 	NetworkIngressBytes       fields.Long
-	Runtime                   fields.KeyWord
+	Runtime                   fields.Keyword
 	SecurityContextPrivileged fields.Boolean
 }
 

@@ -105,52 +105,52 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	ChangesDomain           fields.KeyWord
-	ChangesEmail            fields.KeyWord
-	ChangesFullName         fields.KeyWord
-	ChangesGroupDomain      fields.KeyWord
-	ChangesGroupID          fields.KeyWord
-	ChangesGroupName        fields.KeyWord
-	ChangesHash             fields.KeyWord
-	ChangesID               fields.KeyWord
-	ChangesName             fields.KeyWord
-	ChangesRoles            fields.KeyWord
-	Domain                  fields.KeyWord
-	EffectiveDomain         fields.KeyWord
-	EffectiveEmail          fields.KeyWord
-	EffectiveFullName       fields.KeyWord
-	EffectiveGroupDomain    fields.KeyWord
-	EffectiveGroupID        fields.KeyWord
-	EffectiveGroupName      fields.KeyWord
-	EffectiveHash           fields.KeyWord
-	EffectiveID             fields.KeyWord
-	EffectiveName           fields.KeyWord
-	EffectiveRoles          fields.KeyWord
-	Email                   fields.KeyWord
-	FullName                fields.KeyWord
-	GroupDomain             fields.KeyWord
-	GroupID                 fields.KeyWord
-	GroupName               fields.KeyWord
-	Hash                    fields.KeyWord
-	ID                      fields.KeyWord
-	Name                    fields.KeyWord
-	RiskCalculatedLevel     fields.KeyWord
+	ChangesDomain           fields.Keyword
+	ChangesEmail            fields.Keyword
+	ChangesFullName         fields.Keyword
+	ChangesGroupDomain      fields.Keyword
+	ChangesGroupID          fields.Keyword
+	ChangesGroupName        fields.Keyword
+	ChangesHash             fields.Keyword
+	ChangesID               fields.Keyword
+	ChangesName             fields.Keyword
+	ChangesRoles            fields.Keyword
+	Domain                  fields.Keyword
+	EffectiveDomain         fields.Keyword
+	EffectiveEmail          fields.Keyword
+	EffectiveFullName       fields.Keyword
+	EffectiveGroupDomain    fields.Keyword
+	EffectiveGroupID        fields.Keyword
+	EffectiveGroupName      fields.Keyword
+	EffectiveHash           fields.Keyword
+	EffectiveID             fields.Keyword
+	EffectiveName           fields.Keyword
+	EffectiveRoles          fields.Keyword
+	Email                   fields.Keyword
+	FullName                fields.Keyword
+	GroupDomain             fields.Keyword
+	GroupID                 fields.Keyword
+	GroupName               fields.Keyword
+	Hash                    fields.Keyword
+	ID                      fields.Keyword
+	Name                    fields.Keyword
+	RiskCalculatedLevel     fields.Keyword
 	RiskCalculatedScore     fields.Float
 	RiskCalculatedScoreNorm fields.Float
-	RiskStaticLevel         fields.KeyWord
+	RiskStaticLevel         fields.Keyword
 	RiskStaticScore         fields.Float
 	RiskStaticScoreNorm     fields.Float
-	Roles                   fields.KeyWord
-	TargetDomain            fields.KeyWord
-	TargetEmail             fields.KeyWord
-	TargetFullName          fields.KeyWord
-	TargetGroupDomain       fields.KeyWord
-	TargetGroupID           fields.KeyWord
-	TargetGroupName         fields.KeyWord
-	TargetHash              fields.KeyWord
-	TargetID                fields.KeyWord
-	TargetName              fields.KeyWord
-	TargetRoles             fields.KeyWord
+	Roles                   fields.Keyword
+	TargetDomain            fields.Keyword
+	TargetEmail             fields.Keyword
+	TargetFullName          fields.Keyword
+	TargetGroupDomain       fields.Keyword
+	TargetGroupID           fields.Keyword
+	TargetGroupName         fields.Keyword
+	TargetHash              fields.Keyword
+	TargetID                fields.Keyword
+	TargetName              fields.Keyword
+	TargetRoles             fields.Keyword
 }
 
 var Types TypesType = TypesType{}

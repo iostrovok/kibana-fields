@@ -79,39 +79,39 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Address           fields.KeyWord
-	Environment       fields.KeyWord
-	EphemeralID       fields.KeyWord
-	ID                fields.KeyWord
-	Name              fields.KeyWord
-	NodeName          fields.KeyWord
-	NodeRole          fields.KeyWord
-	NodeRoles         fields.KeyWord
-	OriginAddress     fields.KeyWord
-	OriginEnvironment fields.KeyWord
-	OriginEphemeralID fields.KeyWord
-	OriginID          fields.KeyWord
-	OriginName        fields.KeyWord
-	OriginNodeName    fields.KeyWord
-	OriginNodeRole    fields.KeyWord
-	OriginNodeRoles   fields.KeyWord
-	OriginState       fields.KeyWord
-	OriginType        fields.KeyWord
-	OriginVersion     fields.KeyWord
-	State             fields.KeyWord
-	TargetAddress     fields.KeyWord
-	TargetEnvironment fields.KeyWord
-	TargetEphemeralID fields.KeyWord
-	TargetID          fields.KeyWord
-	TargetName        fields.KeyWord
-	TargetNodeName    fields.KeyWord
-	TargetNodeRole    fields.KeyWord
-	TargetNodeRoles   fields.KeyWord
-	TargetState       fields.KeyWord
-	TargetType        fields.KeyWord
-	TargetVersion     fields.KeyWord
-	Type              fields.KeyWord
-	Version           fields.KeyWord
+	Address           fields.Keyword
+	Environment       fields.Keyword
+	EphemeralID       fields.Keyword
+	ID                fields.Keyword
+	Name              fields.Keyword
+	NodeName          fields.Keyword
+	NodeRole          fields.Keyword
+	NodeRoles         fields.Keyword
+	OriginAddress     fields.Keyword
+	OriginEnvironment fields.Keyword
+	OriginEphemeralID fields.Keyword
+	OriginID          fields.Keyword
+	OriginName        fields.Keyword
+	OriginNodeName    fields.Keyword
+	OriginNodeRole    fields.Keyword
+	OriginNodeRoles   fields.Keyword
+	OriginState       fields.Keyword
+	OriginType        fields.Keyword
+	OriginVersion     fields.Keyword
+	State             fields.Keyword
+	TargetAddress     fields.Keyword
+	TargetEnvironment fields.Keyword
+	TargetEphemeralID fields.Keyword
+	TargetID          fields.Keyword
+	TargetName        fields.Keyword
+	TargetNodeName    fields.Keyword
+	TargetNodeRole    fields.Keyword
+	TargetNodeRoles   fields.Keyword
+	TargetState       fields.Keyword
+	TargetType        fields.Keyword
+	TargetVersion     fields.Keyword
+	Type              fields.Keyword
+	Version           fields.Keyword
 }
 
 var Types TypesType = TypesType{}

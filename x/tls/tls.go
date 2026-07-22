@@ -167,83 +167,83 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Cipher                              fields.KeyWord
-	ClientCertificate                   fields.KeyWord
-	ClientCertificateChain              fields.KeyWord
-	ClientHashMd5                       fields.KeyWord
-	ClientHashSha1                      fields.KeyWord
-	ClientHashSha256                    fields.KeyWord
-	ClientIssuer                        fields.KeyWord
-	ClientJa3                           fields.KeyWord
+	Cipher                              fields.Keyword
+	ClientCertificate                   fields.Keyword
+	ClientCertificateChain              fields.Keyword
+	ClientHashMd5                       fields.Keyword
+	ClientHashSha1                      fields.Keyword
+	ClientHashSha256                    fields.Keyword
+	ClientIssuer                        fields.Keyword
+	ClientJa3                           fields.Keyword
 	ClientNotAfter                      fields.Date
 	ClientNotBefore                     fields.Date
-	ClientServerName                    fields.KeyWord
-	ClientSubject                       fields.KeyWord
-	ClientSupportedCiphers              fields.KeyWord
-	ClientX509AlternativeNames          fields.KeyWord
-	ClientX509IssuerCommonName          fields.KeyWord
-	ClientX509IssuerCountry             fields.KeyWord
-	ClientX509IssuerDistinguishedName   fields.KeyWord
-	ClientX509IssuerLocality            fields.KeyWord
-	ClientX509IssuerOrganization        fields.KeyWord
-	ClientX509IssuerOrganizationalUnit  fields.KeyWord
-	ClientX509IssuerStateOrProvince     fields.KeyWord
+	ClientServerName                    fields.Keyword
+	ClientSubject                       fields.Keyword
+	ClientSupportedCiphers              fields.Keyword
+	ClientX509AlternativeNames          fields.Keyword
+	ClientX509IssuerCommonName          fields.Keyword
+	ClientX509IssuerCountry             fields.Keyword
+	ClientX509IssuerDistinguishedName   fields.Keyword
+	ClientX509IssuerLocality            fields.Keyword
+	ClientX509IssuerOrganization        fields.Keyword
+	ClientX509IssuerOrganizationalUnit  fields.Keyword
+	ClientX509IssuerStateOrProvince     fields.Keyword
 	ClientX509NotAfter                  fields.Date
 	ClientX509NotBefore                 fields.Date
-	ClientX509PublicKeyAlgorithm        fields.KeyWord
-	ClientX509PublicKeyCurve            fields.KeyWord
+	ClientX509PublicKeyAlgorithm        fields.Keyword
+	ClientX509PublicKeyCurve            fields.Keyword
 	ClientX509PublicKeyExponent         fields.Long
 	ClientX509PublicKeySize             fields.Long
-	ClientX509SerialNumber              fields.KeyWord
-	ClientX509SignatureAlgorithm        fields.KeyWord
-	ClientX509SubjectCommonName         fields.KeyWord
-	ClientX509SubjectCountry            fields.KeyWord
-	ClientX509SubjectDistinguishedName  fields.KeyWord
-	ClientX509SubjectLocality           fields.KeyWord
-	ClientX509SubjectOrganization       fields.KeyWord
-	ClientX509SubjectOrganizationalUnit fields.KeyWord
-	ClientX509SubjectStateOrProvince    fields.KeyWord
-	ClientX509VersionNumber             fields.KeyWord
-	Curve                               fields.KeyWord
+	ClientX509SerialNumber              fields.Keyword
+	ClientX509SignatureAlgorithm        fields.Keyword
+	ClientX509SubjectCommonName         fields.Keyword
+	ClientX509SubjectCountry            fields.Keyword
+	ClientX509SubjectDistinguishedName  fields.Keyword
+	ClientX509SubjectLocality           fields.Keyword
+	ClientX509SubjectOrganization       fields.Keyword
+	ClientX509SubjectOrganizationalUnit fields.Keyword
+	ClientX509SubjectStateOrProvince    fields.Keyword
+	ClientX509VersionNumber             fields.Keyword
+	Curve                               fields.Keyword
 	Established                         fields.Boolean
-	NextProtocol                        fields.KeyWord
+	NextProtocol                        fields.Keyword
 	Resumed                             fields.Boolean
-	ServerCertificate                   fields.KeyWord
-	ServerCertificateChain              fields.KeyWord
-	ServerHashMd5                       fields.KeyWord
-	ServerHashSha1                      fields.KeyWord
-	ServerHashSha256                    fields.KeyWord
-	ServerIssuer                        fields.KeyWord
-	ServerJa3s                          fields.KeyWord
+	ServerCertificate                   fields.Keyword
+	ServerCertificateChain              fields.Keyword
+	ServerHashMd5                       fields.Keyword
+	ServerHashSha1                      fields.Keyword
+	ServerHashSha256                    fields.Keyword
+	ServerIssuer                        fields.Keyword
+	ServerJa3s                          fields.Keyword
 	ServerNotAfter                      fields.Date
 	ServerNotBefore                     fields.Date
-	ServerSubject                       fields.KeyWord
-	ServerX509AlternativeNames          fields.KeyWord
-	ServerX509IssuerCommonName          fields.KeyWord
-	ServerX509IssuerCountry             fields.KeyWord
-	ServerX509IssuerDistinguishedName   fields.KeyWord
-	ServerX509IssuerLocality            fields.KeyWord
-	ServerX509IssuerOrganization        fields.KeyWord
-	ServerX509IssuerOrganizationalUnit  fields.KeyWord
-	ServerX509IssuerStateOrProvince     fields.KeyWord
+	ServerSubject                       fields.Keyword
+	ServerX509AlternativeNames          fields.Keyword
+	ServerX509IssuerCommonName          fields.Keyword
+	ServerX509IssuerCountry             fields.Keyword
+	ServerX509IssuerDistinguishedName   fields.Keyword
+	ServerX509IssuerLocality            fields.Keyword
+	ServerX509IssuerOrganization        fields.Keyword
+	ServerX509IssuerOrganizationalUnit  fields.Keyword
+	ServerX509IssuerStateOrProvince     fields.Keyword
 	ServerX509NotAfter                  fields.Date
 	ServerX509NotBefore                 fields.Date
-	ServerX509PublicKeyAlgorithm        fields.KeyWord
-	ServerX509PublicKeyCurve            fields.KeyWord
+	ServerX509PublicKeyAlgorithm        fields.Keyword
+	ServerX509PublicKeyCurve            fields.Keyword
 	ServerX509PublicKeyExponent         fields.Long
 	ServerX509PublicKeySize             fields.Long
-	ServerX509SerialNumber              fields.KeyWord
-	ServerX509SignatureAlgorithm        fields.KeyWord
-	ServerX509SubjectCommonName         fields.KeyWord
-	ServerX509SubjectCountry            fields.KeyWord
-	ServerX509SubjectDistinguishedName  fields.KeyWord
-	ServerX509SubjectLocality           fields.KeyWord
-	ServerX509SubjectOrganization       fields.KeyWord
-	ServerX509SubjectOrganizationalUnit fields.KeyWord
-	ServerX509SubjectStateOrProvince    fields.KeyWord
-	ServerX509VersionNumber             fields.KeyWord
-	Version                             fields.KeyWord
-	VersionProtocol                     fields.KeyWord
+	ServerX509SerialNumber              fields.Keyword
+	ServerX509SignatureAlgorithm        fields.Keyword
+	ServerX509SubjectCommonName         fields.Keyword
+	ServerX509SubjectCountry            fields.Keyword
+	ServerX509SubjectDistinguishedName  fields.Keyword
+	ServerX509SubjectLocality           fields.Keyword
+	ServerX509SubjectOrganization       fields.Keyword
+	ServerX509SubjectOrganizationalUnit fields.Keyword
+	ServerX509SubjectStateOrProvince    fields.Keyword
+	ServerX509VersionNumber             fields.Keyword
+	Version                             fields.Keyword
+	VersionProtocol                     fields.Keyword
 }
 
 var Types TypesType = TypesType{}

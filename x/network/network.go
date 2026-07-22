@@ -65,22 +65,22 @@ var DirectionExpectedValues DirectionExpectedType = DirectionExpectedType{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Application   fields.KeyWord
+	Application   fields.Keyword
 	Bytes         fields.Long
-	CommunityID   fields.KeyWord
-	Direction     fields.KeyWord
+	CommunityID   fields.Keyword
+	Direction     fields.Keyword
 	ForwardedIp   fields.IP
-	IanaNumber    fields.KeyWord
+	IanaNumber    fields.Keyword
 	Inner         fields.Object
-	InnerVlanID   fields.KeyWord
-	InnerVlanName fields.KeyWord
-	Name          fields.KeyWord
+	InnerVlanID   fields.Keyword
+	InnerVlanName fields.Keyword
+	Name          fields.Keyword
 	Packets       fields.Long
-	Protocol      fields.KeyWord
-	Transport     fields.KeyWord
-	Type          fields.KeyWord
-	VlanID        fields.KeyWord
-	VlanName      fields.KeyWord
+	Protocol      fields.Keyword
+	Transport     fields.Keyword
+	Type          fields.Keyword
+	VlanID        fields.Keyword
+	VlanName      fields.Keyword
 }
 
 var Types TypesType = TypesType{}

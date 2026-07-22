@@ -18,7 +18,7 @@ var Fields = []fields.Field{
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
 	Number           fields.Long
-	OrganizationName fields.KeyWord
+	OrganizationName fields.Keyword
 }
 
 var Types TypesType = TypesType{}

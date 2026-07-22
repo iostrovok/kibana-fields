@@ -70,23 +70,23 @@ var HeaderFlagsExpectedValues HeaderFlagsExpectedType = HeaderFlagsExpectedType{
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
 	Answers                  fields.Object
-	AnswersClass             fields.KeyWord
-	AnswersData              fields.KeyWord
-	AnswersName              fields.KeyWord
+	AnswersClass             fields.Keyword
+	AnswersData              fields.Keyword
+	AnswersName              fields.Keyword
 	AnswersTtl               fields.Long
-	AnswersType              fields.KeyWord
-	HeaderFlags              fields.KeyWord
-	ID                       fields.KeyWord
-	OpCode                   fields.KeyWord
-	QuestionClass            fields.KeyWord
-	QuestionName             fields.KeyWord
-	QuestionRegisteredDomain fields.KeyWord
-	QuestionSubdomain        fields.KeyWord
-	QuestionTopLevelDomain   fields.KeyWord
-	QuestionType             fields.KeyWord
+	AnswersType              fields.Keyword
+	HeaderFlags              fields.Keyword
+	ID                       fields.Keyword
+	OpCode                   fields.Keyword
+	QuestionClass            fields.Keyword
+	QuestionName             fields.Keyword
+	QuestionRegisteredDomain fields.Keyword
+	QuestionSubdomain        fields.Keyword
+	QuestionTopLevelDomain   fields.Keyword
+	QuestionType             fields.Keyword
 	ResolvedIp               fields.IP
-	ResponseCode             fields.KeyWord
-	Type                     fields.KeyWord
+	ResponseCode             fields.Keyword
+	Type                     fields.Keyword
 }
 
 var Types TypesType = TypesType{}

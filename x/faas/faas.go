@@ -44,12 +44,12 @@ var TriggerTypeExpectedValues TriggerTypeExpectedType = TriggerTypeExpectedType{
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
 	Coldstart        fields.Boolean
-	Execution        fields.KeyWord
-	ID               fields.KeyWord
-	Name             fields.KeyWord
-	TriggerRequestID fields.KeyWord
-	TriggerType      fields.KeyWord
-	Version          fields.KeyWord
+	Execution        fields.Keyword
+	ID               fields.Keyword
+	Name             fields.Keyword
+	TriggerRequestID fields.Keyword
+	TriggerType      fields.Keyword
+	Version          fields.Keyword
 }
 
 var Types TypesType = TypesType{}

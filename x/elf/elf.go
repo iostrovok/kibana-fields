@@ -89,44 +89,44 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Architecture             fields.KeyWord
-	ByteOrder                fields.KeyWord
-	CpuType                  fields.KeyWord
+	Architecture             fields.Keyword
+	ByteOrder                fields.Keyword
+	CpuType                  fields.Keyword
 	CreationDate             fields.Date
 	Exports                  fields.Flattened
-	GoImportHash             fields.KeyWord
+	GoImportHash             fields.Keyword
 	GoImports                fields.Flattened
 	GoImportsNamesEntropy    fields.Long
 	GoImportsNamesVarEntropy fields.Long
 	GoStripped               fields.Boolean
-	HeaderAbiVersion         fields.KeyWord
-	HeaderClass              fields.KeyWord
-	HeaderData               fields.KeyWord
+	HeaderAbiVersion         fields.Keyword
+	HeaderClass              fields.Keyword
+	HeaderData               fields.Keyword
 	HeaderEntrypoint         fields.Long
-	HeaderObjectVersion      fields.KeyWord
-	HeaderOsAbi              fields.KeyWord
-	HeaderType               fields.KeyWord
-	HeaderVersion            fields.KeyWord
-	ImportHash               fields.KeyWord
+	HeaderObjectVersion      fields.Keyword
+	HeaderOsAbi              fields.Keyword
+	HeaderType               fields.Keyword
+	HeaderVersion            fields.Keyword
+	ImportHash               fields.Keyword
 	Imports                  fields.Flattened
 	ImportsNamesEntropy      fields.Long
 	ImportsNamesVarEntropy   fields.Long
 	Sections                 fields.Nested
 	SectionsChi2             fields.Long
 	SectionsEntropy          fields.Long
-	SectionsFlags            fields.KeyWord
-	SectionsName             fields.KeyWord
-	SectionsPhysicalOffset   fields.KeyWord
+	SectionsFlags            fields.Keyword
+	SectionsName             fields.Keyword
+	SectionsPhysicalOffset   fields.Keyword
 	SectionsPhysicalSize     fields.Long
-	SectionsType             fields.KeyWord
+	SectionsType             fields.Keyword
 	SectionsVarEntropy       fields.Long
 	SectionsVirtualAddress   fields.Long
 	SectionsVirtualSize      fields.Long
 	Segments                 fields.Nested
-	SegmentsSections         fields.KeyWord
-	SegmentsType             fields.KeyWord
-	SharedLibraries          fields.KeyWord
-	Telfhash                 fields.KeyWord
+	SegmentsSections         fields.Keyword
+	SegmentsType             fields.Keyword
+	SharedLibraries          fields.Keyword
+	Telfhash                 fields.Keyword
 }
 
 var Types TypesType = TypesType{}

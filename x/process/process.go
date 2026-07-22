@@ -278,7 +278,6 @@ const (
 	ParentPeSectionsPhysicalSize             fields.Field = "process.parent.pe.sections.physical_size"               // PE Section List physical size.
 	ParentPeSectionsVarEntropy               fields.Field = "process.parent.pe.sections.var_entropy"                 // Variance for Shannon entropy calculation from the section.
 	ParentPeSectionsVirtualSize              fields.Field = "process.parent.pe.sections.virtual_size"                // PE Section List virtual size. This is always the same as `physical_size`.
-	ParentPgid                               fields.Field = "process.parent.pgid"                                    // Deprecated identifier of the group of processes the process belongs to.
 	ParentPid                                fields.Field = "process.parent.pid"                                     // Process id.
 	ParentRealGroupID                        fields.Field = "process.parent.real_group.id"                           // Unique identifier for the group on the system/platform.
 	ParentRealGroupName                      fields.Field = "process.parent.real_group.name"                         // Name of the group.
@@ -327,7 +326,6 @@ const (
 	PeSectionsPhysicalSize                   fields.Field = "process.pe.sections.physical_size"                      // PE Section List physical size.
 	PeSectionsVarEntropy                     fields.Field = "process.pe.sections.var_entropy"                        // Variance for Shannon entropy calculation from the section.
 	PeSectionsVirtualSize                    fields.Field = "process.pe.sections.virtual_size"                       // PE Section List virtual size. This is always the same as `physical_size`.
-	Pgid                                     fields.Field = "process.pgid"                                           // Deprecated identifier of the group of processes the process belongs to.
 	Pid                                      fields.Field = "process.pid"                                            // Process id.
 	PreviousArgs                             fields.Field = "process.previous.args"                                  // Array of process arguments.
 	PreviousArgsCount                        fields.Field = "process.previous.args_count"                            // Length of the process.args array.
@@ -674,7 +672,6 @@ var Fields = []fields.Field{
 	ParentPeSectionsPhysicalSize,
 	ParentPeSectionsVarEntropy,
 	ParentPeSectionsVirtualSize,
-	ParentPgid,
 	ParentPid,
 	ParentRealGroupID,
 	ParentRealGroupName,
@@ -723,7 +720,6 @@ var Fields = []fields.Field{
 	PeSectionsPhysicalSize,
 	PeSectionsVarEntropy,
 	PeSectionsVirtualSize,
-	Pgid,
 	Pid,
 	PreviousArgs,
 	PreviousArgsCount,
@@ -795,143 +791,143 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Args                                     fields.KeyWord
+	Args                                     fields.Keyword
 	ArgsCount                                fields.Long
-	CodeSignatureDigestAlgorithm             fields.KeyWord
+	CodeSignatureDigestAlgorithm             fields.Keyword
 	CodeSignatureExists                      fields.Boolean
-	CodeSignatureFlags                       fields.KeyWord
-	CodeSignatureSigningID                   fields.KeyWord
-	CodeSignatureStatus                      fields.KeyWord
-	CodeSignatureSubjectName                 fields.KeyWord
-	CodeSignatureTeamID                      fields.KeyWord
+	CodeSignatureFlags                       fields.Keyword
+	CodeSignatureSigningID                   fields.Keyword
+	CodeSignatureStatus                      fields.Keyword
+	CodeSignatureSubjectName                 fields.Keyword
+	CodeSignatureTeamID                      fields.Keyword
 	CodeSignatureTimestamp                   fields.Date
 	CodeSignatureTrusted                     fields.Boolean
 	CodeSignatureValid                       fields.Boolean
 	CommandLine                              fields.Wildcard
-	ElfArchitecture                          fields.KeyWord
-	ElfByteOrder                             fields.KeyWord
-	ElfCpuType                               fields.KeyWord
+	ElfArchitecture                          fields.Keyword
+	ElfByteOrder                             fields.Keyword
+	ElfCpuType                               fields.Keyword
 	ElfCreationDate                          fields.Date
 	ElfExports                               fields.Flattened
-	ElfGoImportHash                          fields.KeyWord
+	ElfGoImportHash                          fields.Keyword
 	ElfGoImports                             fields.Flattened
 	ElfGoImportsNamesEntropy                 fields.Long
 	ElfGoImportsNamesVarEntropy              fields.Long
 	ElfGoStripped                            fields.Boolean
-	ElfHeaderAbiVersion                      fields.KeyWord
-	ElfHeaderClass                           fields.KeyWord
-	ElfHeaderData                            fields.KeyWord
+	ElfHeaderAbiVersion                      fields.Keyword
+	ElfHeaderClass                           fields.Keyword
+	ElfHeaderData                            fields.Keyword
 	ElfHeaderEntrypoint                      fields.Long
-	ElfHeaderObjectVersion                   fields.KeyWord
-	ElfHeaderOsAbi                           fields.KeyWord
-	ElfHeaderType                            fields.KeyWord
-	ElfHeaderVersion                         fields.KeyWord
-	ElfImportHash                            fields.KeyWord
+	ElfHeaderObjectVersion                   fields.Keyword
+	ElfHeaderOsAbi                           fields.Keyword
+	ElfHeaderType                            fields.Keyword
+	ElfHeaderVersion                         fields.Keyword
+	ElfImportHash                            fields.Keyword
 	ElfImports                               fields.Flattened
 	ElfImportsNamesEntropy                   fields.Long
 	ElfImportsNamesVarEntropy                fields.Long
 	ElfSections                              fields.Nested
 	ElfSectionsChi2                          fields.Long
 	ElfSectionsEntropy                       fields.Long
-	ElfSectionsFlags                         fields.KeyWord
-	ElfSectionsName                          fields.KeyWord
-	ElfSectionsPhysicalOffset                fields.KeyWord
+	ElfSectionsFlags                         fields.Keyword
+	ElfSectionsName                          fields.Keyword
+	ElfSectionsPhysicalOffset                fields.Keyword
 	ElfSectionsPhysicalSize                  fields.Long
-	ElfSectionsType                          fields.KeyWord
+	ElfSectionsType                          fields.Keyword
 	ElfSectionsVarEntropy                    fields.Long
 	ElfSectionsVirtualAddress                fields.Long
 	ElfSectionsVirtualSize                   fields.Long
 	ElfSegments                              fields.Nested
-	ElfSegmentsSections                      fields.KeyWord
-	ElfSegmentsType                          fields.KeyWord
-	ElfSharedLibraries                       fields.KeyWord
-	ElfTelfhash                              fields.KeyWord
+	ElfSegmentsSections                      fields.Keyword
+	ElfSegmentsType                          fields.Keyword
+	ElfSharedLibraries                       fields.Keyword
+	ElfTelfhash                              fields.Keyword
 	End                                      fields.Date
-	EntityID                                 fields.KeyWord
-	EntryLeaderArgs                          fields.KeyWord
+	EntityID                                 fields.Keyword
+	EntryLeaderArgs                          fields.Keyword
 	EntryLeaderArgsCount                     fields.Long
-	EntryLeaderAttestedGroupsName            fields.KeyWord
-	EntryLeaderAttestedUserID                fields.KeyWord
-	EntryLeaderAttestedUserName              fields.KeyWord
+	EntryLeaderAttestedGroupsName            fields.Keyword
+	EntryLeaderAttestedUserID                fields.Keyword
+	EntryLeaderAttestedUserName              fields.Keyword
 	EntryLeaderCommandLine                   fields.Wildcard
-	EntryLeaderEntityID                      fields.KeyWord
+	EntryLeaderEntityID                      fields.Keyword
 	EntryLeaderEntryMetaSourceIp             fields.IP
-	EntryLeaderEntryMetaType                 fields.KeyWord
-	EntryLeaderExecutable                    fields.KeyWord
-	EntryLeaderGroupID                       fields.KeyWord
-	EntryLeaderGroupName                     fields.KeyWord
+	EntryLeaderEntryMetaType                 fields.Keyword
+	EntryLeaderExecutable                    fields.Keyword
+	EntryLeaderGroupID                       fields.Keyword
+	EntryLeaderGroupName                     fields.Keyword
 	EntryLeaderInteractive                   fields.Boolean
-	EntryLeaderName                          fields.KeyWord
-	EntryLeaderParentEntityID                fields.KeyWord
+	EntryLeaderName                          fields.Keyword
+	EntryLeaderParentEntityID                fields.Keyword
 	EntryLeaderParentPid                     fields.Long
-	EntryLeaderParentSessionLeaderEntityID   fields.KeyWord
+	EntryLeaderParentSessionLeaderEntityID   fields.Keyword
 	EntryLeaderParentSessionLeaderPid        fields.Long
 	EntryLeaderParentSessionLeaderStart      fields.Date
 	EntryLeaderParentSessionLeaderVpid       fields.Long
 	EntryLeaderParentStart                   fields.Date
 	EntryLeaderParentVpid                    fields.Long
 	EntryLeaderPid                           fields.Long
-	EntryLeaderRealGroupID                   fields.KeyWord
-	EntryLeaderRealGroupName                 fields.KeyWord
-	EntryLeaderRealUserID                    fields.KeyWord
-	EntryLeaderRealUserName                  fields.KeyWord
+	EntryLeaderRealGroupID                   fields.Keyword
+	EntryLeaderRealGroupName                 fields.Keyword
+	EntryLeaderRealUserID                    fields.Keyword
+	EntryLeaderRealUserName                  fields.Keyword
 	EntryLeaderSameAs                        fields.Boolean
-	EntryLeaderSavedGroupID                  fields.KeyWord
-	EntryLeaderSavedGroupName                fields.KeyWord
-	EntryLeaderSavedUserID                   fields.KeyWord
-	EntryLeaderSavedUserName                 fields.KeyWord
+	EntryLeaderSavedGroupID                  fields.Keyword
+	EntryLeaderSavedGroupName                fields.Keyword
+	EntryLeaderSavedUserID                   fields.Keyword
+	EntryLeaderSavedUserName                 fields.Keyword
 	EntryLeaderStart                         fields.Date
-	EntryLeaderSupplementalGroupsID          fields.KeyWord
-	EntryLeaderSupplementalGroupsName        fields.KeyWord
+	EntryLeaderSupplementalGroupsID          fields.Keyword
+	EntryLeaderSupplementalGroupsName        fields.Keyword
 	EntryLeaderTty                           fields.Object
 	EntryLeaderTtyCharDeviceMajor            fields.Long
 	EntryLeaderTtyCharDeviceMinor            fields.Long
-	EntryLeaderUserID                        fields.KeyWord
-	EntryLeaderUserName                      fields.KeyWord
+	EntryLeaderUserID                        fields.Keyword
+	EntryLeaderUserName                      fields.Keyword
 	EntryLeaderVpid                          fields.Long
-	EntryLeaderWorkingDirectory              fields.KeyWord
-	EnvVars                                  fields.KeyWord
-	Executable                               fields.KeyWord
+	EntryLeaderWorkingDirectory              fields.Keyword
+	EnvVars                                  fields.Keyword
+	Executable                               fields.Keyword
 	ExitCode                                 fields.Long
-	GroupID                                  fields.KeyWord
-	GroupLeaderArgs                          fields.KeyWord
+	GroupID                                  fields.Keyword
+	GroupLeaderArgs                          fields.Keyword
 	GroupLeaderArgsCount                     fields.Long
 	GroupLeaderCommandLine                   fields.Wildcard
-	GroupLeaderEntityID                      fields.KeyWord
-	GroupLeaderExecutable                    fields.KeyWord
-	GroupLeaderGroupID                       fields.KeyWord
-	GroupLeaderGroupName                     fields.KeyWord
+	GroupLeaderEntityID                      fields.Keyword
+	GroupLeaderExecutable                    fields.Keyword
+	GroupLeaderGroupID                       fields.Keyword
+	GroupLeaderGroupName                     fields.Keyword
 	GroupLeaderInteractive                   fields.Boolean
-	GroupLeaderName                          fields.KeyWord
+	GroupLeaderName                          fields.Keyword
 	GroupLeaderPid                           fields.Long
-	GroupLeaderRealGroupID                   fields.KeyWord
-	GroupLeaderRealGroupName                 fields.KeyWord
-	GroupLeaderRealUserID                    fields.KeyWord
-	GroupLeaderRealUserName                  fields.KeyWord
+	GroupLeaderRealGroupID                   fields.Keyword
+	GroupLeaderRealGroupName                 fields.Keyword
+	GroupLeaderRealUserID                    fields.Keyword
+	GroupLeaderRealUserName                  fields.Keyword
 	GroupLeaderSameAs                        fields.Boolean
-	GroupLeaderSavedGroupID                  fields.KeyWord
-	GroupLeaderSavedGroupName                fields.KeyWord
-	GroupLeaderSavedUserID                   fields.KeyWord
-	GroupLeaderSavedUserName                 fields.KeyWord
+	GroupLeaderSavedGroupID                  fields.Keyword
+	GroupLeaderSavedGroupName                fields.Keyword
+	GroupLeaderSavedUserID                   fields.Keyword
+	GroupLeaderSavedUserName                 fields.Keyword
 	GroupLeaderStart                         fields.Date
-	GroupLeaderSupplementalGroupsID          fields.KeyWord
-	GroupLeaderSupplementalGroupsName        fields.KeyWord
+	GroupLeaderSupplementalGroupsID          fields.Keyword
+	GroupLeaderSupplementalGroupsName        fields.Keyword
 	GroupLeaderTty                           fields.Object
 	GroupLeaderTtyCharDeviceMajor            fields.Long
 	GroupLeaderTtyCharDeviceMinor            fields.Long
-	GroupLeaderUserID                        fields.KeyWord
-	GroupLeaderUserName                      fields.KeyWord
+	GroupLeaderUserID                        fields.Keyword
+	GroupLeaderUserName                      fields.Keyword
 	GroupLeaderVpid                          fields.Long
-	GroupLeaderWorkingDirectory              fields.KeyWord
-	GroupName                                fields.KeyWord
-	HashCdhash                               fields.KeyWord
-	HashMd5                                  fields.KeyWord
-	HashSha1                                 fields.KeyWord
-	HashSha256                               fields.KeyWord
-	HashSha384                               fields.KeyWord
-	HashSha512                               fields.KeyWord
-	HashSsdeep                               fields.KeyWord
-	HashTlsh                                 fields.KeyWord
+	GroupLeaderWorkingDirectory              fields.Keyword
+	GroupName                                fields.Keyword
+	HashCdhash                               fields.Keyword
+	HashMd5                                  fields.Keyword
+	HashSha1                                 fields.Keyword
+	HashSha256                               fields.Keyword
+	HashSha384                               fields.Keyword
+	HashSha512                               fields.Keyword
+	HashSsdeep                               fields.Keyword
+	HashTlsh                                 fields.Keyword
 	Interactive                              fields.Boolean
 	Io                                       fields.Object
 	IoBytesSkipped                           fields.Object
@@ -941,251 +937,249 @@ type TypesType struct {
 	IoText                                   fields.Wildcard
 	IoTotalBytesCaptured                     fields.Long
 	IoTotalBytesSkipped                      fields.Long
-	IoType                                   fields.KeyWord
-	MachoGoImportHash                        fields.KeyWord
+	IoType                                   fields.Keyword
+	MachoGoImportHash                        fields.Keyword
 	MachoGoImports                           fields.Flattened
 	MachoGoImportsNamesEntropy               fields.Long
 	MachoGoImportsNamesVarEntropy            fields.Long
 	MachoGoStripped                          fields.Boolean
-	MachoImportHash                          fields.KeyWord
+	MachoImportHash                          fields.Keyword
 	MachoImports                             fields.Flattened
 	MachoImportsNamesEntropy                 fields.Long
 	MachoImportsNamesVarEntropy              fields.Long
 	MachoSections                            fields.Nested
 	MachoSectionsEntropy                     fields.Long
-	MachoSectionsName                        fields.KeyWord
+	MachoSectionsName                        fields.Keyword
 	MachoSectionsPhysicalSize                fields.Long
 	MachoSectionsVarEntropy                  fields.Long
 	MachoSectionsVirtualSize                 fields.Long
-	MachoSymhash                             fields.KeyWord
-	Name                                     fields.KeyWord
-	ParentArgs                               fields.KeyWord
+	MachoSymhash                             fields.Keyword
+	Name                                     fields.Keyword
+	ParentArgs                               fields.Keyword
 	ParentArgsCount                          fields.Long
-	ParentCodeSignatureDigestAlgorithm       fields.KeyWord
+	ParentCodeSignatureDigestAlgorithm       fields.Keyword
 	ParentCodeSignatureExists                fields.Boolean
-	ParentCodeSignatureFlags                 fields.KeyWord
-	ParentCodeSignatureSigningID             fields.KeyWord
-	ParentCodeSignatureStatus                fields.KeyWord
-	ParentCodeSignatureSubjectName           fields.KeyWord
-	ParentCodeSignatureTeamID                fields.KeyWord
+	ParentCodeSignatureFlags                 fields.Keyword
+	ParentCodeSignatureSigningID             fields.Keyword
+	ParentCodeSignatureStatus                fields.Keyword
+	ParentCodeSignatureSubjectName           fields.Keyword
+	ParentCodeSignatureTeamID                fields.Keyword
 	ParentCodeSignatureTimestamp             fields.Date
 	ParentCodeSignatureTrusted               fields.Boolean
 	ParentCodeSignatureValid                 fields.Boolean
 	ParentCommandLine                        fields.Wildcard
-	ParentElfArchitecture                    fields.KeyWord
-	ParentElfByteOrder                       fields.KeyWord
-	ParentElfCpuType                         fields.KeyWord
+	ParentElfArchitecture                    fields.Keyword
+	ParentElfByteOrder                       fields.Keyword
+	ParentElfCpuType                         fields.Keyword
 	ParentElfCreationDate                    fields.Date
 	ParentElfExports                         fields.Flattened
-	ParentElfGoImportHash                    fields.KeyWord
+	ParentElfGoImportHash                    fields.Keyword
 	ParentElfGoImports                       fields.Flattened
 	ParentElfGoImportsNamesEntropy           fields.Long
 	ParentElfGoImportsNamesVarEntropy        fields.Long
 	ParentElfGoStripped                      fields.Boolean
-	ParentElfHeaderAbiVersion                fields.KeyWord
-	ParentElfHeaderClass                     fields.KeyWord
-	ParentElfHeaderData                      fields.KeyWord
+	ParentElfHeaderAbiVersion                fields.Keyword
+	ParentElfHeaderClass                     fields.Keyword
+	ParentElfHeaderData                      fields.Keyword
 	ParentElfHeaderEntrypoint                fields.Long
-	ParentElfHeaderObjectVersion             fields.KeyWord
-	ParentElfHeaderOsAbi                     fields.KeyWord
-	ParentElfHeaderType                      fields.KeyWord
-	ParentElfHeaderVersion                   fields.KeyWord
-	ParentElfImportHash                      fields.KeyWord
+	ParentElfHeaderObjectVersion             fields.Keyword
+	ParentElfHeaderOsAbi                     fields.Keyword
+	ParentElfHeaderType                      fields.Keyword
+	ParentElfHeaderVersion                   fields.Keyword
+	ParentElfImportHash                      fields.Keyword
 	ParentElfImports                         fields.Flattened
 	ParentElfImportsNamesEntropy             fields.Long
 	ParentElfImportsNamesVarEntropy          fields.Long
 	ParentElfSections                        fields.Nested
 	ParentElfSectionsChi2                    fields.Long
 	ParentElfSectionsEntropy                 fields.Long
-	ParentElfSectionsFlags                   fields.KeyWord
-	ParentElfSectionsName                    fields.KeyWord
-	ParentElfSectionsPhysicalOffset          fields.KeyWord
+	ParentElfSectionsFlags                   fields.Keyword
+	ParentElfSectionsName                    fields.Keyword
+	ParentElfSectionsPhysicalOffset          fields.Keyword
 	ParentElfSectionsPhysicalSize            fields.Long
-	ParentElfSectionsType                    fields.KeyWord
+	ParentElfSectionsType                    fields.Keyword
 	ParentElfSectionsVarEntropy              fields.Long
 	ParentElfSectionsVirtualAddress          fields.Long
 	ParentElfSectionsVirtualSize             fields.Long
 	ParentElfSegments                        fields.Nested
-	ParentElfSegmentsSections                fields.KeyWord
-	ParentElfSegmentsType                    fields.KeyWord
-	ParentElfSharedLibraries                 fields.KeyWord
-	ParentElfTelfhash                        fields.KeyWord
+	ParentElfSegmentsSections                fields.Keyword
+	ParentElfSegmentsType                    fields.Keyword
+	ParentElfSharedLibraries                 fields.Keyword
+	ParentElfTelfhash                        fields.Keyword
 	ParentEnd                                fields.Date
-	ParentEntityID                           fields.KeyWord
-	ParentExecutable                         fields.KeyWord
+	ParentEntityID                           fields.Keyword
+	ParentExecutable                         fields.Keyword
 	ParentExitCode                           fields.Long
-	ParentGroupID                            fields.KeyWord
-	ParentGroupLeaderEntityID                fields.KeyWord
+	ParentGroupID                            fields.Keyword
+	ParentGroupLeaderEntityID                fields.Keyword
 	ParentGroupLeaderPid                     fields.Long
 	ParentGroupLeaderStart                   fields.Date
 	ParentGroupLeaderVpid                    fields.Long
-	ParentGroupName                          fields.KeyWord
-	ParentHashCdhash                         fields.KeyWord
-	ParentHashMd5                            fields.KeyWord
-	ParentHashSha1                           fields.KeyWord
-	ParentHashSha256                         fields.KeyWord
-	ParentHashSha384                         fields.KeyWord
-	ParentHashSha512                         fields.KeyWord
-	ParentHashSsdeep                         fields.KeyWord
-	ParentHashTlsh                           fields.KeyWord
+	ParentGroupName                          fields.Keyword
+	ParentHashCdhash                         fields.Keyword
+	ParentHashMd5                            fields.Keyword
+	ParentHashSha1                           fields.Keyword
+	ParentHashSha256                         fields.Keyword
+	ParentHashSha384                         fields.Keyword
+	ParentHashSha512                         fields.Keyword
+	ParentHashSsdeep                         fields.Keyword
+	ParentHashTlsh                           fields.Keyword
 	ParentInteractive                        fields.Boolean
-	ParentMachoGoImportHash                  fields.KeyWord
+	ParentMachoGoImportHash                  fields.Keyword
 	ParentMachoGoImports                     fields.Flattened
 	ParentMachoGoImportsNamesEntropy         fields.Long
 	ParentMachoGoImportsNamesVarEntropy      fields.Long
 	ParentMachoGoStripped                    fields.Boolean
-	ParentMachoImportHash                    fields.KeyWord
+	ParentMachoImportHash                    fields.Keyword
 	ParentMachoImports                       fields.Flattened
 	ParentMachoImportsNamesEntropy           fields.Long
 	ParentMachoImportsNamesVarEntropy        fields.Long
 	ParentMachoSections                      fields.Nested
 	ParentMachoSectionsEntropy               fields.Long
-	ParentMachoSectionsName                  fields.KeyWord
+	ParentMachoSectionsName                  fields.Keyword
 	ParentMachoSectionsPhysicalSize          fields.Long
 	ParentMachoSectionsVarEntropy            fields.Long
 	ParentMachoSectionsVirtualSize           fields.Long
-	ParentMachoSymhash                       fields.KeyWord
-	ParentName                               fields.KeyWord
-	ParentPeArchitecture                     fields.KeyWord
-	ParentPeCompany                          fields.KeyWord
-	ParentPeDescription                      fields.KeyWord
-	ParentPeFileVersion                      fields.KeyWord
-	ParentPeGoImportHash                     fields.KeyWord
+	ParentMachoSymhash                       fields.Keyword
+	ParentName                               fields.Keyword
+	ParentPeArchitecture                     fields.Keyword
+	ParentPeCompany                          fields.Keyword
+	ParentPeDescription                      fields.Keyword
+	ParentPeFileVersion                      fields.Keyword
+	ParentPeGoImportHash                     fields.Keyword
 	ParentPeGoImports                        fields.Flattened
 	ParentPeGoImportsNamesEntropy            fields.Long
 	ParentPeGoImportsNamesVarEntropy         fields.Long
 	ParentPeGoStripped                       fields.Boolean
-	ParentPeImphash                          fields.KeyWord
-	ParentPeImportHash                       fields.KeyWord
+	ParentPeImphash                          fields.Keyword
+	ParentPeImportHash                       fields.Keyword
 	ParentPeImports                          fields.Flattened
 	ParentPeImportsNamesEntropy              fields.Long
 	ParentPeImportsNamesVarEntropy           fields.Long
-	ParentPeOriginalFileName                 fields.KeyWord
-	ParentPePehash                           fields.KeyWord
-	ParentPeProduct                          fields.KeyWord
+	ParentPeOriginalFileName                 fields.Keyword
+	ParentPePehash                           fields.Keyword
+	ParentPeProduct                          fields.Keyword
 	ParentPeSections                         fields.Nested
 	ParentPeSectionsEntropy                  fields.Long
-	ParentPeSectionsName                     fields.KeyWord
+	ParentPeSectionsName                     fields.Keyword
 	ParentPeSectionsPhysicalSize             fields.Long
 	ParentPeSectionsVarEntropy               fields.Long
 	ParentPeSectionsVirtualSize              fields.Long
-	ParentPgid                               fields.Long
 	ParentPid                                fields.Long
-	ParentRealGroupID                        fields.KeyWord
-	ParentRealGroupName                      fields.KeyWord
-	ParentRealUserID                         fields.KeyWord
-	ParentRealUserName                       fields.KeyWord
-	ParentSavedGroupID                       fields.KeyWord
-	ParentSavedGroupName                     fields.KeyWord
-	ParentSavedUserID                        fields.KeyWord
-	ParentSavedUserName                      fields.KeyWord
+	ParentRealGroupID                        fields.Keyword
+	ParentRealGroupName                      fields.Keyword
+	ParentRealUserID                         fields.Keyword
+	ParentRealUserName                       fields.Keyword
+	ParentSavedGroupID                       fields.Keyword
+	ParentSavedGroupName                     fields.Keyword
+	ParentSavedUserID                        fields.Keyword
+	ParentSavedUserName                      fields.Keyword
 	ParentStart                              fields.Date
-	ParentSupplementalGroupsID               fields.KeyWord
-	ParentSupplementalGroupsName             fields.KeyWord
-	ParentThreadCapabilitiesEffective        fields.KeyWord
-	ParentThreadCapabilitiesPermitted        fields.KeyWord
+	ParentSupplementalGroupsID               fields.Keyword
+	ParentSupplementalGroupsName             fields.Keyword
+	ParentThreadCapabilitiesEffective        fields.Keyword
+	ParentThreadCapabilitiesPermitted        fields.Keyword
 	ParentThreadID                           fields.Long
-	ParentThreadName                         fields.KeyWord
-	ParentTitle                              fields.KeyWord
+	ParentThreadName                         fields.Keyword
+	ParentTitle                              fields.Keyword
 	ParentTty                                fields.Object
 	ParentTtyCharDeviceMajor                 fields.Long
 	ParentTtyCharDeviceMinor                 fields.Long
 	ParentUptime                             fields.Long
-	ParentUserID                             fields.KeyWord
-	ParentUserName                           fields.KeyWord
+	ParentUserID                             fields.Keyword
+	ParentUserName                           fields.Keyword
 	ParentVpid                               fields.Long
-	ParentWorkingDirectory                   fields.KeyWord
-	PeArchitecture                           fields.KeyWord
-	PeCompany                                fields.KeyWord
-	PeDescription                            fields.KeyWord
-	PeFileVersion                            fields.KeyWord
-	PeGoImportHash                           fields.KeyWord
+	ParentWorkingDirectory                   fields.Keyword
+	PeArchitecture                           fields.Keyword
+	PeCompany                                fields.Keyword
+	PeDescription                            fields.Keyword
+	PeFileVersion                            fields.Keyword
+	PeGoImportHash                           fields.Keyword
 	PeGoImports                              fields.Flattened
 	PeGoImportsNamesEntropy                  fields.Long
 	PeGoImportsNamesVarEntropy               fields.Long
 	PeGoStripped                             fields.Boolean
-	PeImphash                                fields.KeyWord
-	PeImportHash                             fields.KeyWord
+	PeImphash                                fields.Keyword
+	PeImportHash                             fields.Keyword
 	PeImports                                fields.Flattened
 	PeImportsNamesEntropy                    fields.Long
 	PeImportsNamesVarEntropy                 fields.Long
-	PeOriginalFileName                       fields.KeyWord
-	PePehash                                 fields.KeyWord
-	PeProduct                                fields.KeyWord
+	PeOriginalFileName                       fields.Keyword
+	PePehash                                 fields.Keyword
+	PeProduct                                fields.Keyword
 	PeSections                               fields.Nested
 	PeSectionsEntropy                        fields.Long
-	PeSectionsName                           fields.KeyWord
+	PeSectionsName                           fields.Keyword
 	PeSectionsPhysicalSize                   fields.Long
 	PeSectionsVarEntropy                     fields.Long
 	PeSectionsVirtualSize                    fields.Long
-	Pgid                                     fields.Long
 	Pid                                      fields.Long
-	PreviousArgs                             fields.KeyWord
+	PreviousArgs                             fields.Keyword
 	PreviousArgsCount                        fields.Long
-	PreviousExecutable                       fields.KeyWord
-	RealGroupID                              fields.KeyWord
-	RealGroupName                            fields.KeyWord
-	RealUserID                               fields.KeyWord
-	RealUserName                             fields.KeyWord
-	SavedGroupID                             fields.KeyWord
-	SavedGroupName                           fields.KeyWord
-	SavedUserID                              fields.KeyWord
-	SavedUserName                            fields.KeyWord
-	SessionLeaderArgs                        fields.KeyWord
+	PreviousExecutable                       fields.Keyword
+	RealGroupID                              fields.Keyword
+	RealGroupName                            fields.Keyword
+	RealUserID                               fields.Keyword
+	RealUserName                             fields.Keyword
+	SavedGroupID                             fields.Keyword
+	SavedGroupName                           fields.Keyword
+	SavedUserID                              fields.Keyword
+	SavedUserName                            fields.Keyword
+	SessionLeaderArgs                        fields.Keyword
 	SessionLeaderArgsCount                   fields.Long
 	SessionLeaderCommandLine                 fields.Wildcard
-	SessionLeaderEntityID                    fields.KeyWord
-	SessionLeaderExecutable                  fields.KeyWord
-	SessionLeaderGroupID                     fields.KeyWord
-	SessionLeaderGroupName                   fields.KeyWord
+	SessionLeaderEntityID                    fields.Keyword
+	SessionLeaderExecutable                  fields.Keyword
+	SessionLeaderGroupID                     fields.Keyword
+	SessionLeaderGroupName                   fields.Keyword
 	SessionLeaderInteractive                 fields.Boolean
-	SessionLeaderName                        fields.KeyWord
-	SessionLeaderParentEntityID              fields.KeyWord
+	SessionLeaderName                        fields.Keyword
+	SessionLeaderParentEntityID              fields.Keyword
 	SessionLeaderParentPid                   fields.Long
-	SessionLeaderParentSessionLeaderEntityID fields.KeyWord
+	SessionLeaderParentSessionLeaderEntityID fields.Keyword
 	SessionLeaderParentSessionLeaderPid      fields.Long
 	SessionLeaderParentSessionLeaderStart    fields.Date
 	SessionLeaderParentSessionLeaderVpid     fields.Long
 	SessionLeaderParentStart                 fields.Date
 	SessionLeaderParentVpid                  fields.Long
 	SessionLeaderPid                         fields.Long
-	SessionLeaderRealGroupID                 fields.KeyWord
-	SessionLeaderRealGroupName               fields.KeyWord
-	SessionLeaderRealUserID                  fields.KeyWord
-	SessionLeaderRealUserName                fields.KeyWord
+	SessionLeaderRealGroupID                 fields.Keyword
+	SessionLeaderRealGroupName               fields.Keyword
+	SessionLeaderRealUserID                  fields.Keyword
+	SessionLeaderRealUserName                fields.Keyword
 	SessionLeaderSameAs                      fields.Boolean
-	SessionLeaderSavedGroupID                fields.KeyWord
-	SessionLeaderSavedGroupName              fields.KeyWord
-	SessionLeaderSavedUserID                 fields.KeyWord
-	SessionLeaderSavedUserName               fields.KeyWord
+	SessionLeaderSavedGroupID                fields.Keyword
+	SessionLeaderSavedGroupName              fields.Keyword
+	SessionLeaderSavedUserID                 fields.Keyword
+	SessionLeaderSavedUserName               fields.Keyword
 	SessionLeaderStart                       fields.Date
-	SessionLeaderSupplementalGroupsID        fields.KeyWord
-	SessionLeaderSupplementalGroupsName      fields.KeyWord
+	SessionLeaderSupplementalGroupsID        fields.Keyword
+	SessionLeaderSupplementalGroupsName      fields.Keyword
 	SessionLeaderTty                         fields.Object
 	SessionLeaderTtyCharDeviceMajor          fields.Long
 	SessionLeaderTtyCharDeviceMinor          fields.Long
-	SessionLeaderUserID                      fields.KeyWord
-	SessionLeaderUserName                    fields.KeyWord
+	SessionLeaderUserID                      fields.Keyword
+	SessionLeaderUserName                    fields.Keyword
 	SessionLeaderVpid                        fields.Long
-	SessionLeaderWorkingDirectory            fields.KeyWord
+	SessionLeaderWorkingDirectory            fields.Keyword
 	Start                                    fields.Date
-	SupplementalGroupsID                     fields.KeyWord
-	SupplementalGroupsName                   fields.KeyWord
-	ThreadCapabilitiesEffective              fields.KeyWord
-	ThreadCapabilitiesPermitted              fields.KeyWord
+	SupplementalGroupsID                     fields.Keyword
+	SupplementalGroupsName                   fields.Keyword
+	ThreadCapabilitiesEffective              fields.Keyword
+	ThreadCapabilitiesPermitted              fields.Keyword
 	ThreadID                                 fields.Long
-	ThreadName                               fields.KeyWord
-	Title                                    fields.KeyWord
+	ThreadName                               fields.Keyword
+	Title                                    fields.Keyword
 	Tty                                      fields.Object
 	TtyCharDeviceMajor                       fields.Long
 	TtyCharDeviceMinor                       fields.Long
 	TtyColumns                               fields.Long
 	TtyRows                                  fields.Long
 	Uptime                                   fields.Long
-	UserID                                   fields.KeyWord
-	UserName                                 fields.KeyWord
+	UserID                                   fields.Keyword
+	UserName                                 fields.Keyword
 	Vpid                                     fields.Long
-	WorkingDirectory                         fields.KeyWord
+	WorkingDirectory                         fields.Keyword
 }
 
 var Types TypesType = TypesType{}

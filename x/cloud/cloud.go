@@ -79,39 +79,39 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	AccountID              fields.KeyWord
-	AccountName            fields.KeyWord
-	AvailabilityZone       fields.KeyWord
-	InstanceID             fields.KeyWord
-	InstanceName           fields.KeyWord
-	MachineType            fields.KeyWord
-	OriginAccountID        fields.KeyWord
-	OriginAccountName      fields.KeyWord
-	OriginAvailabilityZone fields.KeyWord
-	OriginInstanceID       fields.KeyWord
-	OriginInstanceName     fields.KeyWord
-	OriginMachineType      fields.KeyWord
-	OriginProjectID        fields.KeyWord
-	OriginProjectName      fields.KeyWord
-	OriginProvider         fields.KeyWord
-	OriginRegion           fields.KeyWord
-	OriginServiceName      fields.KeyWord
-	ProjectID              fields.KeyWord
-	ProjectName            fields.KeyWord
-	Provider               fields.KeyWord
-	Region                 fields.KeyWord
-	ServiceName            fields.KeyWord
-	TargetAccountID        fields.KeyWord
-	TargetAccountName      fields.KeyWord
-	TargetAvailabilityZone fields.KeyWord
-	TargetInstanceID       fields.KeyWord
-	TargetInstanceName     fields.KeyWord
-	TargetMachineType      fields.KeyWord
-	TargetProjectID        fields.KeyWord
-	TargetProjectName      fields.KeyWord
-	TargetProvider         fields.KeyWord
-	TargetRegion           fields.KeyWord
-	TargetServiceName      fields.KeyWord
+	AccountID              fields.Keyword
+	AccountName            fields.Keyword
+	AvailabilityZone       fields.Keyword
+	InstanceID             fields.Keyword
+	InstanceName           fields.Keyword
+	MachineType            fields.Keyword
+	OriginAccountID        fields.Keyword
+	OriginAccountName      fields.Keyword
+	OriginAvailabilityZone fields.Keyword
+	OriginInstanceID       fields.Keyword
+	OriginInstanceName     fields.Keyword
+	OriginMachineType      fields.Keyword
+	OriginProjectID        fields.Keyword
+	OriginProjectName      fields.Keyword
+	OriginProvider         fields.Keyword
+	OriginRegion           fields.Keyword
+	OriginServiceName      fields.Keyword
+	ProjectID              fields.Keyword
+	ProjectName            fields.Keyword
+	Provider               fields.Keyword
+	Region                 fields.Keyword
+	ServiceName            fields.Keyword
+	TargetAccountID        fields.Keyword
+	TargetAccountName      fields.Keyword
+	TargetAvailabilityZone fields.Keyword
+	TargetInstanceID       fields.Keyword
+	TargetInstanceName     fields.Keyword
+	TargetMachineType      fields.Keyword
+	TargetProjectID        fields.Keyword
+	TargetProjectName      fields.Keyword
+	TargetProvider         fields.Keyword
+	TargetRegion           fields.Keyword
+	TargetServiceName      fields.Keyword
 }
 
 var Types TypesType = TypesType{}

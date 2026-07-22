@@ -61,30 +61,30 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	AlternativeNames          fields.KeyWord
-	IssuerCommonName          fields.KeyWord
-	IssuerCountry             fields.KeyWord
-	IssuerDistinguishedName   fields.KeyWord
-	IssuerLocality            fields.KeyWord
-	IssuerOrganization        fields.KeyWord
-	IssuerOrganizationalUnit  fields.KeyWord
-	IssuerStateOrProvince     fields.KeyWord
+	AlternativeNames          fields.Keyword
+	IssuerCommonName          fields.Keyword
+	IssuerCountry             fields.Keyword
+	IssuerDistinguishedName   fields.Keyword
+	IssuerLocality            fields.Keyword
+	IssuerOrganization        fields.Keyword
+	IssuerOrganizationalUnit  fields.Keyword
+	IssuerStateOrProvince     fields.Keyword
 	NotAfter                  fields.Date
 	NotBefore                 fields.Date
-	PublicKeyAlgorithm        fields.KeyWord
-	PublicKeyCurve            fields.KeyWord
+	PublicKeyAlgorithm        fields.Keyword
+	PublicKeyCurve            fields.Keyword
 	PublicKeyExponent         fields.Long
 	PublicKeySize             fields.Long
-	SerialNumber              fields.KeyWord
-	SignatureAlgorithm        fields.KeyWord
-	SubjectCommonName         fields.KeyWord
-	SubjectCountry            fields.KeyWord
-	SubjectDistinguishedName  fields.KeyWord
-	SubjectLocality           fields.KeyWord
-	SubjectOrganization       fields.KeyWord
-	SubjectOrganizationalUnit fields.KeyWord
-	SubjectStateOrProvince    fields.KeyWord
-	VersionNumber             fields.KeyWord
+	SerialNumber              fields.Keyword
+	SignatureAlgorithm        fields.Keyword
+	SubjectCommonName         fields.Keyword
+	SubjectCountry            fields.Keyword
+	SubjectDistinguishedName  fields.Keyword
+	SubjectLocality           fields.Keyword
+	SubjectOrganization       fields.Keyword
+	SubjectOrganizationalUnit fields.Keyword
+	SubjectStateOrProvince    fields.Keyword
+	VersionNumber             fields.Keyword
 }
 
 var Types TypesType = TypesType{}

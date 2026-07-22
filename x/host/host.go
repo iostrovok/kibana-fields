@@ -115,47 +115,47 @@ var OsTypeExpectedValues OsTypeExpectedType = OsTypeExpectedType{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Architecture            fields.KeyWord
-	BootID                  fields.KeyWord
-	CpuUsage                fields.Float
+	Architecture            fields.Keyword
+	BootID                  fields.Keyword
+	CpuUsage                fields.ScaledFloat
 	DiskReadBytes           fields.Long
 	DiskWriteBytes          fields.Long
-	Domain                  fields.KeyWord
-	GeoCityName             fields.KeyWord
-	GeoContinentCode        fields.KeyWord
-	GeoContinentName        fields.KeyWord
-	GeoCountryIsoCode       fields.KeyWord
-	GeoCountryName          fields.KeyWord
+	Domain                  fields.Keyword
+	GeoCityName             fields.Keyword
+	GeoContinentCode        fields.Keyword
+	GeoContinentName        fields.Keyword
+	GeoCountryIsoCode       fields.Keyword
+	GeoCountryName          fields.Keyword
 	GeoLocation             fields.GeoPoint
-	GeoName                 fields.KeyWord
-	GeoPostalCode           fields.KeyWord
-	GeoRegionIsoCode        fields.KeyWord
-	GeoRegionName           fields.KeyWord
-	GeoTimezone             fields.KeyWord
-	Hostname                fields.KeyWord
-	ID                      fields.KeyWord
+	GeoName                 fields.Keyword
+	GeoPostalCode           fields.Keyword
+	GeoRegionIsoCode        fields.Keyword
+	GeoRegionName           fields.Keyword
+	GeoTimezone             fields.Keyword
+	Hostname                fields.Keyword
+	ID                      fields.Keyword
 	Ip                      fields.IP
-	Mac                     fields.KeyWord
-	Name                    fields.KeyWord
+	Mac                     fields.Keyword
+	Name                    fields.Keyword
 	NetworkEgressBytes      fields.Long
 	NetworkEgressPackets    fields.Long
 	NetworkIngressBytes     fields.Long
 	NetworkIngressPackets   fields.Long
-	OsFamily                fields.KeyWord
-	OsFull                  fields.KeyWord
-	OsKernel                fields.KeyWord
-	OsName                  fields.KeyWord
-	OsPlatform              fields.KeyWord
-	OsType                  fields.KeyWord
-	OsVersion               fields.KeyWord
-	PidNsIno                fields.KeyWord
-	RiskCalculatedLevel     fields.KeyWord
+	OsFamily                fields.Keyword
+	OsFull                  fields.Keyword
+	OsKernel                fields.Keyword
+	OsName                  fields.Keyword
+	OsPlatform              fields.Keyword
+	OsType                  fields.Keyword
+	OsVersion               fields.Keyword
+	PidNsIno                fields.Keyword
+	RiskCalculatedLevel     fields.Keyword
 	RiskCalculatedScore     fields.Float
 	RiskCalculatedScoreNorm fields.Float
-	RiskStaticLevel         fields.KeyWord
+	RiskStaticLevel         fields.Keyword
 	RiskStaticScore         fields.Float
 	RiskStaticScoreNorm     fields.Float
-	Type                    fields.KeyWord
+	Type                    fields.Keyword
 	Uptime                  fields.Long
 }
 

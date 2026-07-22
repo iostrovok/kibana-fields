@@ -53,17 +53,17 @@ var UserAgentOsTypeExpectedValues UserAgentOsTypeExpectedType = UserAgentOsTypeE
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	UserAgentDeviceName fields.KeyWord
-	UserAgentName       fields.KeyWord
-	UserAgentOriginal   fields.KeyWord
-	UserAgentOsFamily   fields.KeyWord
-	UserAgentOsFull     fields.KeyWord
-	UserAgentOsKernel   fields.KeyWord
-	UserAgentOsName     fields.KeyWord
-	UserAgentOsPlatform fields.KeyWord
-	UserAgentOsType     fields.KeyWord
-	UserAgentOsVersion  fields.KeyWord
-	UserAgentVersion    fields.KeyWord
+	UserAgentDeviceName fields.Keyword
+	UserAgentName       fields.Keyword
+	UserAgentOriginal   fields.Keyword
+	UserAgentOsFamily   fields.Keyword
+	UserAgentOsFull     fields.Keyword
+	UserAgentOsKernel   fields.Keyword
+	UserAgentOsName     fields.Keyword
+	UserAgentOsPlatform fields.Keyword
+	UserAgentOsType     fields.Keyword
+	UserAgentOsVersion  fields.Keyword
+	UserAgentVersion    fields.Keyword
 }
 
 var Types TypesType = TypesType{}

@@ -42,16 +42,16 @@ type TypesType struct {
 	RequestBodyBytes    fields.Long
 	RequestBodyContent  fields.Wildcard
 	RequestBytes        fields.Long
-	RequestID           fields.KeyWord
-	RequestMethod       fields.KeyWord
-	RequestMimeType     fields.KeyWord
-	RequestReferrer     fields.KeyWord
+	RequestID           fields.Keyword
+	RequestMethod       fields.Keyword
+	RequestMimeType     fields.Keyword
+	RequestReferrer     fields.Keyword
 	ResponseBodyBytes   fields.Long
 	ResponseBodyContent fields.Wildcard
 	ResponseBytes       fields.Long
-	ResponseMimeType    fields.KeyWord
+	ResponseMimeType    fields.Keyword
 	ResponseStatusCode  fields.Long
-	Version             fields.KeyWord
+	Version             fields.Keyword
 }
 
 var Types TypesType = TypesType{}

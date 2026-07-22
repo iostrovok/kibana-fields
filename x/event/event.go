@@ -189,32 +189,32 @@ var TypeAllowedValues TypeAllowedType = TypeAllowedType{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Action        fields.KeyWord
-	AgentIDStatus fields.KeyWord
-	Category      fields.KeyWord
-	Code          fields.KeyWord
+	Action        fields.Keyword
+	AgentIDStatus fields.Keyword
+	Category      fields.Keyword
+	Code          fields.Keyword
 	Created       fields.Date
-	Dataset       fields.KeyWord
+	Dataset       fields.Keyword
 	Duration      fields.Long
 	End           fields.Date
-	Hash          fields.KeyWord
-	ID            fields.KeyWord
+	Hash          fields.Keyword
+	ID            fields.Keyword
 	Ingested      fields.Date
-	Kind          fields.KeyWord
-	Module        fields.KeyWord
-	Original      fields.KeyWord
-	Outcome       fields.KeyWord
-	Provider      fields.KeyWord
-	Reason        fields.KeyWord
-	Reference     fields.KeyWord
+	Kind          fields.Keyword
+	Module        fields.Keyword
+	Original      fields.Keyword
+	Outcome       fields.Keyword
+	Provider      fields.Keyword
+	Reason        fields.Keyword
+	Reference     fields.Keyword
 	RiskScore     fields.Float
 	RiskScoreNorm fields.Float
 	Sequence      fields.Long
 	Severity      fields.Long
 	Start         fields.Date
-	Timezone      fields.KeyWord
-	Type          fields.KeyWord
-	Url           fields.KeyWord
+	Timezone      fields.Keyword
+	Type          fields.Keyword
+	Url           fields.Keyword
 }
 
 var Types TypesType = TypesType{}

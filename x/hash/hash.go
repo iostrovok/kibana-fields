@@ -29,14 +29,14 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Cdhash fields.KeyWord
-	Md5    fields.KeyWord
-	Sha1   fields.KeyWord
-	Sha256 fields.KeyWord
-	Sha384 fields.KeyWord
-	Sha512 fields.KeyWord
-	Ssdeep fields.KeyWord
-	Tlsh   fields.KeyWord
+	Cdhash fields.Keyword
+	Md5    fields.Keyword
+	Sha1   fields.Keyword
+	Sha256 fields.Keyword
+	Sha384 fields.Keyword
+	Sha512 fields.Keyword
+	Ssdeep fields.Keyword
+	Tlsh   fields.Keyword
 }
 
 var Types TypesType = TypesType{}

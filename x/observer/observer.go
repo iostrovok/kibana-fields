@@ -114,46 +114,46 @@ var OsTypeExpectedValues OsTypeExpectedType = OsTypeExpectedType{
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
 	Egress                fields.Object
-	EgressInterfaceAlias  fields.KeyWord
-	EgressInterfaceID     fields.KeyWord
-	EgressInterfaceName   fields.KeyWord
-	EgressVlanID          fields.KeyWord
-	EgressVlanName        fields.KeyWord
-	EgressZone            fields.KeyWord
-	GeoCityName           fields.KeyWord
-	GeoContinentCode      fields.KeyWord
-	GeoContinentName      fields.KeyWord
-	GeoCountryIsoCode     fields.KeyWord
-	GeoCountryName        fields.KeyWord
+	EgressInterfaceAlias  fields.Keyword
+	EgressInterfaceID     fields.Keyword
+	EgressInterfaceName   fields.Keyword
+	EgressVlanID          fields.Keyword
+	EgressVlanName        fields.Keyword
+	EgressZone            fields.Keyword
+	GeoCityName           fields.Keyword
+	GeoContinentCode      fields.Keyword
+	GeoContinentName      fields.Keyword
+	GeoCountryIsoCode     fields.Keyword
+	GeoCountryName        fields.Keyword
 	GeoLocation           fields.GeoPoint
-	GeoName               fields.KeyWord
-	GeoPostalCode         fields.KeyWord
-	GeoRegionIsoCode      fields.KeyWord
-	GeoRegionName         fields.KeyWord
-	GeoTimezone           fields.KeyWord
-	Hostname              fields.KeyWord
+	GeoName               fields.Keyword
+	GeoPostalCode         fields.Keyword
+	GeoRegionIsoCode      fields.Keyword
+	GeoRegionName         fields.Keyword
+	GeoTimezone           fields.Keyword
+	Hostname              fields.Keyword
 	Ingress               fields.Object
-	IngressInterfaceAlias fields.KeyWord
-	IngressInterfaceID    fields.KeyWord
-	IngressInterfaceName  fields.KeyWord
-	IngressVlanID         fields.KeyWord
-	IngressVlanName       fields.KeyWord
-	IngressZone           fields.KeyWord
+	IngressInterfaceAlias fields.Keyword
+	IngressInterfaceID    fields.Keyword
+	IngressInterfaceName  fields.Keyword
+	IngressVlanID         fields.Keyword
+	IngressVlanName       fields.Keyword
+	IngressZone           fields.Keyword
 	Ip                    fields.IP
-	Mac                   fields.KeyWord
-	Name                  fields.KeyWord
-	OsFamily              fields.KeyWord
-	OsFull                fields.KeyWord
-	OsKernel              fields.KeyWord
-	OsName                fields.KeyWord
-	OsPlatform            fields.KeyWord
-	OsType                fields.KeyWord
-	OsVersion             fields.KeyWord
-	Product               fields.KeyWord
-	SerialNumber          fields.KeyWord
-	Type                  fields.KeyWord
-	Vendor                fields.KeyWord
-	Version               fields.KeyWord
+	Mac                   fields.Keyword
+	Name                  fields.Keyword
+	OsFamily              fields.Keyword
+	OsFull                fields.Keyword
+	OsKernel              fields.Keyword
+	OsName                fields.Keyword
+	OsPlatform            fields.Keyword
+	OsType                fields.Keyword
+	OsVersion             fields.Keyword
+	Product               fields.Keyword
+	SerialNumber          fields.Keyword
+	Type                  fields.Keyword
+	Vendor                fields.Keyword
+	Version               fields.Keyword
 }
 
 var Types TypesType = TypesType{}

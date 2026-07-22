@@ -83,41 +83,41 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Address            fields.KeyWord
+	Address            fields.Keyword
 	AsNumber           fields.Long
-	AsOrganizationName fields.KeyWord
+	AsOrganizationName fields.Keyword
 	Bytes              fields.Long
-	Domain             fields.KeyWord
-	GeoCityName        fields.KeyWord
-	GeoContinentCode   fields.KeyWord
-	GeoContinentName   fields.KeyWord
-	GeoCountryIsoCode  fields.KeyWord
-	GeoCountryName     fields.KeyWord
+	Domain             fields.Keyword
+	GeoCityName        fields.Keyword
+	GeoContinentCode   fields.Keyword
+	GeoContinentName   fields.Keyword
+	GeoCountryIsoCode  fields.Keyword
+	GeoCountryName     fields.Keyword
 	GeoLocation        fields.GeoPoint
-	GeoName            fields.KeyWord
-	GeoPostalCode      fields.KeyWord
-	GeoRegionIsoCode   fields.KeyWord
-	GeoRegionName      fields.KeyWord
-	GeoTimezone        fields.KeyWord
+	GeoName            fields.Keyword
+	GeoPostalCode      fields.Keyword
+	GeoRegionIsoCode   fields.Keyword
+	GeoRegionName      fields.Keyword
+	GeoTimezone        fields.Keyword
 	Ip                 fields.IP
-	Mac                fields.KeyWord
+	Mac                fields.Keyword
 	NatIp              fields.IP
 	NatPort            fields.Long
 	Packets            fields.Long
 	Port               fields.Long
-	RegisteredDomain   fields.KeyWord
-	Subdomain          fields.KeyWord
-	TopLevelDomain     fields.KeyWord
-	UserDomain         fields.KeyWord
-	UserEmail          fields.KeyWord
-	UserFullName       fields.KeyWord
-	UserGroupDomain    fields.KeyWord
-	UserGroupID        fields.KeyWord
-	UserGroupName      fields.KeyWord
-	UserHash           fields.KeyWord
-	UserID             fields.KeyWord
-	UserName           fields.KeyWord
-	UserRoles          fields.KeyWord
+	RegisteredDomain   fields.Keyword
+	Subdomain          fields.Keyword
+	TopLevelDomain     fields.Keyword
+	UserDomain         fields.Keyword
+	UserEmail          fields.Keyword
+	UserFullName       fields.Keyword
+	UserGroupDomain    fields.Keyword
+	UserGroupID        fields.Keyword
+	UserGroupName      fields.Keyword
+	UserHash           fields.Keyword
+	UserID             fields.Keyword
+	UserName           fields.Keyword
+	UserRoles          fields.Keyword
 }
 
 var Types TypesType = TypesType{}

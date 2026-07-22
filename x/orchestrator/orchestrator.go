@@ -43,21 +43,21 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	ApiVersion         fields.KeyWord
-	ClusterID          fields.KeyWord
-	ClusterName        fields.KeyWord
-	ClusterUrl         fields.KeyWord
-	ClusterVersion     fields.KeyWord
-	Namespace          fields.KeyWord
-	Organization       fields.KeyWord
-	ResourceAnnotation fields.KeyWord
-	ResourceID         fields.KeyWord
+	ApiVersion         fields.Keyword
+	ClusterID          fields.Keyword
+	ClusterName        fields.Keyword
+	ClusterUrl         fields.Keyword
+	ClusterVersion     fields.Keyword
+	Namespace          fields.Keyword
+	Organization       fields.Keyword
+	ResourceAnnotation fields.Keyword
+	ResourceID         fields.Keyword
 	ResourceIp         fields.IP
-	ResourceLabel      fields.KeyWord
-	ResourceName       fields.KeyWord
-	ResourceParentType fields.KeyWord
-	ResourceType       fields.KeyWord
-	Type               fields.KeyWord
+	ResourceLabel      fields.Keyword
+	ResourceName       fields.Keyword
+	ResourceParentType fields.Keyword
+	ResourceType       fields.Keyword
+	Type               fields.Keyword
 }
 
 var Types TypesType = TypesType{}

@@ -25,12 +25,12 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	BuildOriginal fields.KeyWord
-	EphemeralID   fields.KeyWord
-	ID            fields.KeyWord
-	Name          fields.KeyWord
-	Type          fields.KeyWord
-	Version       fields.KeyWord
+	BuildOriginal fields.Keyword
+	EphemeralID   fields.Keyword
+	ID            fields.Keyword
+	Name          fields.Keyword
+	Type          fields.Keyword
+	Version       fields.Keyword
 }
 
 var Types TypesType = TypesType{}

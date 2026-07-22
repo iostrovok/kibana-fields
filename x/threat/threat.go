@@ -83,6 +83,8 @@ const (
 	EnrichmentsIndicatorFileMode                          fields.Field = "threat.enrichments.indicator.file.mode"                             // Mode of the file in octal representation.
 	EnrichmentsIndicatorFileMtime                         fields.Field = "threat.enrichments.indicator.file.mtime"                            // Last time the file content was modified.
 	EnrichmentsIndicatorFileName                          fields.Field = "threat.enrichments.indicator.file.name"                             // Name of the file including the extension, without the directory.
+	EnrichmentsIndicatorFileOriginReferrerUrl             fields.Field = "threat.enrichments.indicator.file.origin_referrer_url"              // The URL of the webpage that linked to the file.
+	EnrichmentsIndicatorFileOriginUrl                     fields.Field = "threat.enrichments.indicator.file.origin_url"                       // The URL where the file is hosted.
 	EnrichmentsIndicatorFileOwner                         fields.Field = "threat.enrichments.indicator.file.owner"                            // File owner's username.
 	EnrichmentsIndicatorFilePath                          fields.Field = "threat.enrichments.indicator.file.path"                             // Full path to the file, including the file name.
 	EnrichmentsIndicatorFilePeArchitecture                fields.Field = "threat.enrichments.indicator.file.pe.architecture"                  // CPU architecture target for the file.
@@ -297,6 +299,8 @@ const (
 	IndicatorFileMode                                     fields.Field = "threat.indicator.file.mode"                                         // Mode of the file in octal representation.
 	IndicatorFileMtime                                    fields.Field = "threat.indicator.file.mtime"                                        // Last time the file content was modified.
 	IndicatorFileName                                     fields.Field = "threat.indicator.file.name"                                         // Name of the file including the extension, without the directory.
+	IndicatorFileOriginReferrerUrl                        fields.Field = "threat.indicator.file.origin_referrer_url"                          // The URL of the webpage that linked to the file.
+	IndicatorFileOriginUrl                                fields.Field = "threat.indicator.file.origin_url"                                   // The URL where the file is hosted.
 	IndicatorFileOwner                                    fields.Field = "threat.indicator.file.owner"                                        // File owner's username.
 	IndicatorFilePath                                     fields.Field = "threat.indicator.file.path"                                         // Full path to the file, including the file name.
 	IndicatorFilePeArchitecture                           fields.Field = "threat.indicator.file.pe.architecture"                              // CPU architecture target for the file.
@@ -519,6 +523,8 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFileMode,
 	EnrichmentsIndicatorFileMtime,
 	EnrichmentsIndicatorFileName,
+	EnrichmentsIndicatorFileOriginReferrerUrl,
+	EnrichmentsIndicatorFileOriginUrl,
 	EnrichmentsIndicatorFileOwner,
 	EnrichmentsIndicatorFilePath,
 	EnrichmentsIndicatorFilePeArchitecture,
@@ -733,6 +739,8 @@ var Fields = []fields.Field{
 	IndicatorFileMode,
 	IndicatorFileMtime,
 	IndicatorFileName,
+	IndicatorFileOriginReferrerUrl,
+	IndicatorFileOriginUrl,
 	IndicatorFileOwner,
 	IndicatorFilePath,
 	IndicatorFilePeArchitecture,
@@ -1062,434 +1070,438 @@ type TypesType struct {
 	Enrichments                                           fields.Nested
 	EnrichmentsIndicator                                  fields.Object
 	EnrichmentsIndicatorAsNumber                          fields.Long
-	EnrichmentsIndicatorAsOrganizationName                fields.KeyWord
-	EnrichmentsIndicatorConfidence                        fields.KeyWord
-	EnrichmentsIndicatorDescription                       fields.KeyWord
-	EnrichmentsIndicatorEmailAddress                      fields.KeyWord
+	EnrichmentsIndicatorAsOrganizationName                fields.Keyword
+	EnrichmentsIndicatorConfidence                        fields.Keyword
+	EnrichmentsIndicatorDescription                       fields.Keyword
+	EnrichmentsIndicatorEmailAddress                      fields.Keyword
 	EnrichmentsIndicatorFileAccessed                      fields.Date
-	EnrichmentsIndicatorFileAttributes                    fields.KeyWord
-	EnrichmentsIndicatorFileCodeSignatureDigestAlgorithm  fields.KeyWord
+	EnrichmentsIndicatorFileAttributes                    fields.Keyword
+	EnrichmentsIndicatorFileCodeSignatureDigestAlgorithm  fields.Keyword
 	EnrichmentsIndicatorFileCodeSignatureExists           fields.Boolean
-	EnrichmentsIndicatorFileCodeSignatureFlags            fields.KeyWord
-	EnrichmentsIndicatorFileCodeSignatureSigningID        fields.KeyWord
-	EnrichmentsIndicatorFileCodeSignatureStatus           fields.KeyWord
-	EnrichmentsIndicatorFileCodeSignatureSubjectName      fields.KeyWord
-	EnrichmentsIndicatorFileCodeSignatureTeamID           fields.KeyWord
+	EnrichmentsIndicatorFileCodeSignatureFlags            fields.Keyword
+	EnrichmentsIndicatorFileCodeSignatureSigningID        fields.Keyword
+	EnrichmentsIndicatorFileCodeSignatureStatus           fields.Keyword
+	EnrichmentsIndicatorFileCodeSignatureSubjectName      fields.Keyword
+	EnrichmentsIndicatorFileCodeSignatureTeamID           fields.Keyword
 	EnrichmentsIndicatorFileCodeSignatureTimestamp        fields.Date
 	EnrichmentsIndicatorFileCodeSignatureTrusted          fields.Boolean
 	EnrichmentsIndicatorFileCodeSignatureValid            fields.Boolean
 	EnrichmentsIndicatorFileCreated                       fields.Date
 	EnrichmentsIndicatorFileCtime                         fields.Date
-	EnrichmentsIndicatorFileDevice                        fields.KeyWord
-	EnrichmentsIndicatorFileDirectory                     fields.KeyWord
-	EnrichmentsIndicatorFileDriveLetter                   fields.KeyWord
-	EnrichmentsIndicatorFileElfArchitecture               fields.KeyWord
-	EnrichmentsIndicatorFileElfByteOrder                  fields.KeyWord
-	EnrichmentsIndicatorFileElfCpuType                    fields.KeyWord
+	EnrichmentsIndicatorFileDevice                        fields.Keyword
+	EnrichmentsIndicatorFileDirectory                     fields.Keyword
+	EnrichmentsIndicatorFileDriveLetter                   fields.Keyword
+	EnrichmentsIndicatorFileElfArchitecture               fields.Keyword
+	EnrichmentsIndicatorFileElfByteOrder                  fields.Keyword
+	EnrichmentsIndicatorFileElfCpuType                    fields.Keyword
 	EnrichmentsIndicatorFileElfCreationDate               fields.Date
 	EnrichmentsIndicatorFileElfExports                    fields.Flattened
-	EnrichmentsIndicatorFileElfGoImportHash               fields.KeyWord
+	EnrichmentsIndicatorFileElfGoImportHash               fields.Keyword
 	EnrichmentsIndicatorFileElfGoImports                  fields.Flattened
 	EnrichmentsIndicatorFileElfGoImportsNamesEntropy      fields.Long
 	EnrichmentsIndicatorFileElfGoImportsNamesVarEntropy   fields.Long
 	EnrichmentsIndicatorFileElfGoStripped                 fields.Boolean
-	EnrichmentsIndicatorFileElfHeaderAbiVersion           fields.KeyWord
-	EnrichmentsIndicatorFileElfHeaderClass                fields.KeyWord
-	EnrichmentsIndicatorFileElfHeaderData                 fields.KeyWord
+	EnrichmentsIndicatorFileElfHeaderAbiVersion           fields.Keyword
+	EnrichmentsIndicatorFileElfHeaderClass                fields.Keyword
+	EnrichmentsIndicatorFileElfHeaderData                 fields.Keyword
 	EnrichmentsIndicatorFileElfHeaderEntrypoint           fields.Long
-	EnrichmentsIndicatorFileElfHeaderObjectVersion        fields.KeyWord
-	EnrichmentsIndicatorFileElfHeaderOsAbi                fields.KeyWord
-	EnrichmentsIndicatorFileElfHeaderType                 fields.KeyWord
-	EnrichmentsIndicatorFileElfHeaderVersion              fields.KeyWord
-	EnrichmentsIndicatorFileElfImportHash                 fields.KeyWord
+	EnrichmentsIndicatorFileElfHeaderObjectVersion        fields.Keyword
+	EnrichmentsIndicatorFileElfHeaderOsAbi                fields.Keyword
+	EnrichmentsIndicatorFileElfHeaderType                 fields.Keyword
+	EnrichmentsIndicatorFileElfHeaderVersion              fields.Keyword
+	EnrichmentsIndicatorFileElfImportHash                 fields.Keyword
 	EnrichmentsIndicatorFileElfImports                    fields.Flattened
 	EnrichmentsIndicatorFileElfImportsNamesEntropy        fields.Long
 	EnrichmentsIndicatorFileElfImportsNamesVarEntropy     fields.Long
 	EnrichmentsIndicatorFileElfSections                   fields.Nested
 	EnrichmentsIndicatorFileElfSectionsChi2               fields.Long
 	EnrichmentsIndicatorFileElfSectionsEntropy            fields.Long
-	EnrichmentsIndicatorFileElfSectionsFlags              fields.KeyWord
-	EnrichmentsIndicatorFileElfSectionsName               fields.KeyWord
-	EnrichmentsIndicatorFileElfSectionsPhysicalOffset     fields.KeyWord
+	EnrichmentsIndicatorFileElfSectionsFlags              fields.Keyword
+	EnrichmentsIndicatorFileElfSectionsName               fields.Keyword
+	EnrichmentsIndicatorFileElfSectionsPhysicalOffset     fields.Keyword
 	EnrichmentsIndicatorFileElfSectionsPhysicalSize       fields.Long
-	EnrichmentsIndicatorFileElfSectionsType               fields.KeyWord
+	EnrichmentsIndicatorFileElfSectionsType               fields.Keyword
 	EnrichmentsIndicatorFileElfSectionsVarEntropy         fields.Long
 	EnrichmentsIndicatorFileElfSectionsVirtualAddress     fields.Long
 	EnrichmentsIndicatorFileElfSectionsVirtualSize        fields.Long
 	EnrichmentsIndicatorFileElfSegments                   fields.Nested
-	EnrichmentsIndicatorFileElfSegmentsSections           fields.KeyWord
-	EnrichmentsIndicatorFileElfSegmentsType               fields.KeyWord
-	EnrichmentsIndicatorFileElfSharedLibraries            fields.KeyWord
-	EnrichmentsIndicatorFileElfTelfhash                   fields.KeyWord
-	EnrichmentsIndicatorFileExtension                     fields.KeyWord
-	EnrichmentsIndicatorFileForkName                      fields.KeyWord
-	EnrichmentsIndicatorFileGid                           fields.KeyWord
-	EnrichmentsIndicatorFileGroup                         fields.KeyWord
-	EnrichmentsIndicatorFileHashCdhash                    fields.KeyWord
-	EnrichmentsIndicatorFileHashMd5                       fields.KeyWord
-	EnrichmentsIndicatorFileHashSha1                      fields.KeyWord
-	EnrichmentsIndicatorFileHashSha256                    fields.KeyWord
-	EnrichmentsIndicatorFileHashSha384                    fields.KeyWord
-	EnrichmentsIndicatorFileHashSha512                    fields.KeyWord
-	EnrichmentsIndicatorFileHashSsdeep                    fields.KeyWord
-	EnrichmentsIndicatorFileHashTlsh                      fields.KeyWord
-	EnrichmentsIndicatorFileInode                         fields.KeyWord
-	EnrichmentsIndicatorFileMimeType                      fields.KeyWord
-	EnrichmentsIndicatorFileMode                          fields.KeyWord
+	EnrichmentsIndicatorFileElfSegmentsSections           fields.Keyword
+	EnrichmentsIndicatorFileElfSegmentsType               fields.Keyword
+	EnrichmentsIndicatorFileElfSharedLibraries            fields.Keyword
+	EnrichmentsIndicatorFileElfTelfhash                   fields.Keyword
+	EnrichmentsIndicatorFileExtension                     fields.Keyword
+	EnrichmentsIndicatorFileForkName                      fields.Keyword
+	EnrichmentsIndicatorFileGid                           fields.Keyword
+	EnrichmentsIndicatorFileGroup                         fields.Keyword
+	EnrichmentsIndicatorFileHashCdhash                    fields.Keyword
+	EnrichmentsIndicatorFileHashMd5                       fields.Keyword
+	EnrichmentsIndicatorFileHashSha1                      fields.Keyword
+	EnrichmentsIndicatorFileHashSha256                    fields.Keyword
+	EnrichmentsIndicatorFileHashSha384                    fields.Keyword
+	EnrichmentsIndicatorFileHashSha512                    fields.Keyword
+	EnrichmentsIndicatorFileHashSsdeep                    fields.Keyword
+	EnrichmentsIndicatorFileHashTlsh                      fields.Keyword
+	EnrichmentsIndicatorFileInode                         fields.Keyword
+	EnrichmentsIndicatorFileMimeType                      fields.Keyword
+	EnrichmentsIndicatorFileMode                          fields.Keyword
 	EnrichmentsIndicatorFileMtime                         fields.Date
-	EnrichmentsIndicatorFileName                          fields.KeyWord
-	EnrichmentsIndicatorFileOwner                         fields.KeyWord
-	EnrichmentsIndicatorFilePath                          fields.KeyWord
-	EnrichmentsIndicatorFilePeArchitecture                fields.KeyWord
-	EnrichmentsIndicatorFilePeCompany                     fields.KeyWord
-	EnrichmentsIndicatorFilePeDescription                 fields.KeyWord
-	EnrichmentsIndicatorFilePeFileVersion                 fields.KeyWord
-	EnrichmentsIndicatorFilePeGoImportHash                fields.KeyWord
+	EnrichmentsIndicatorFileName                          fields.Keyword
+	EnrichmentsIndicatorFileOriginReferrerUrl             fields.Keyword
+	EnrichmentsIndicatorFileOriginUrl                     fields.Keyword
+	EnrichmentsIndicatorFileOwner                         fields.Keyword
+	EnrichmentsIndicatorFilePath                          fields.Keyword
+	EnrichmentsIndicatorFilePeArchitecture                fields.Keyword
+	EnrichmentsIndicatorFilePeCompany                     fields.Keyword
+	EnrichmentsIndicatorFilePeDescription                 fields.Keyword
+	EnrichmentsIndicatorFilePeFileVersion                 fields.Keyword
+	EnrichmentsIndicatorFilePeGoImportHash                fields.Keyword
 	EnrichmentsIndicatorFilePeGoImports                   fields.Flattened
 	EnrichmentsIndicatorFilePeGoImportsNamesEntropy       fields.Long
 	EnrichmentsIndicatorFilePeGoImportsNamesVarEntropy    fields.Long
 	EnrichmentsIndicatorFilePeGoStripped                  fields.Boolean
-	EnrichmentsIndicatorFilePeImphash                     fields.KeyWord
-	EnrichmentsIndicatorFilePeImportHash                  fields.KeyWord
+	EnrichmentsIndicatorFilePeImphash                     fields.Keyword
+	EnrichmentsIndicatorFilePeImportHash                  fields.Keyword
 	EnrichmentsIndicatorFilePeImports                     fields.Flattened
 	EnrichmentsIndicatorFilePeImportsNamesEntropy         fields.Long
 	EnrichmentsIndicatorFilePeImportsNamesVarEntropy      fields.Long
-	EnrichmentsIndicatorFilePeOriginalFileName            fields.KeyWord
-	EnrichmentsIndicatorFilePePehash                      fields.KeyWord
-	EnrichmentsIndicatorFilePeProduct                     fields.KeyWord
+	EnrichmentsIndicatorFilePeOriginalFileName            fields.Keyword
+	EnrichmentsIndicatorFilePePehash                      fields.Keyword
+	EnrichmentsIndicatorFilePeProduct                     fields.Keyword
 	EnrichmentsIndicatorFilePeSections                    fields.Nested
 	EnrichmentsIndicatorFilePeSectionsEntropy             fields.Long
-	EnrichmentsIndicatorFilePeSectionsName                fields.KeyWord
+	EnrichmentsIndicatorFilePeSectionsName                fields.Keyword
 	EnrichmentsIndicatorFilePeSectionsPhysicalSize        fields.Long
 	EnrichmentsIndicatorFilePeSectionsVarEntropy          fields.Long
 	EnrichmentsIndicatorFilePeSectionsVirtualSize         fields.Long
 	EnrichmentsIndicatorFileSize                          fields.Long
-	EnrichmentsIndicatorFileTargetPath                    fields.KeyWord
-	EnrichmentsIndicatorFileType                          fields.KeyWord
-	EnrichmentsIndicatorFileUid                           fields.KeyWord
-	EnrichmentsIndicatorFileX509AlternativeNames          fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerCommonName          fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerCountry             fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerDistinguishedName   fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerLocality            fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerOrganization        fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerOrganizationalUnit  fields.KeyWord
-	EnrichmentsIndicatorFileX509IssuerStateOrProvince     fields.KeyWord
+	EnrichmentsIndicatorFileTargetPath                    fields.Keyword
+	EnrichmentsIndicatorFileType                          fields.Keyword
+	EnrichmentsIndicatorFileUid                           fields.Keyword
+	EnrichmentsIndicatorFileX509AlternativeNames          fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerCommonName          fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerCountry             fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerDistinguishedName   fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerLocality            fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerOrganization        fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerOrganizationalUnit  fields.Keyword
+	EnrichmentsIndicatorFileX509IssuerStateOrProvince     fields.Keyword
 	EnrichmentsIndicatorFileX509NotAfter                  fields.Date
 	EnrichmentsIndicatorFileX509NotBefore                 fields.Date
-	EnrichmentsIndicatorFileX509PublicKeyAlgorithm        fields.KeyWord
-	EnrichmentsIndicatorFileX509PublicKeyCurve            fields.KeyWord
+	EnrichmentsIndicatorFileX509PublicKeyAlgorithm        fields.Keyword
+	EnrichmentsIndicatorFileX509PublicKeyCurve            fields.Keyword
 	EnrichmentsIndicatorFileX509PublicKeyExponent         fields.Long
 	EnrichmentsIndicatorFileX509PublicKeySize             fields.Long
-	EnrichmentsIndicatorFileX509SerialNumber              fields.KeyWord
-	EnrichmentsIndicatorFileX509SignatureAlgorithm        fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectCommonName         fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectCountry            fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectDistinguishedName  fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectLocality           fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectOrganization       fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectOrganizationalUnit fields.KeyWord
-	EnrichmentsIndicatorFileX509SubjectStateOrProvince    fields.KeyWord
-	EnrichmentsIndicatorFileX509VersionNumber             fields.KeyWord
+	EnrichmentsIndicatorFileX509SerialNumber              fields.Keyword
+	EnrichmentsIndicatorFileX509SignatureAlgorithm        fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectCommonName         fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectCountry            fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectDistinguishedName  fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectLocality           fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectOrganization       fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectOrganizationalUnit fields.Keyword
+	EnrichmentsIndicatorFileX509SubjectStateOrProvince    fields.Keyword
+	EnrichmentsIndicatorFileX509VersionNumber             fields.Keyword
 	EnrichmentsIndicatorFirstSeen                         fields.Date
-	EnrichmentsIndicatorGeoCityName                       fields.KeyWord
-	EnrichmentsIndicatorGeoContinentCode                  fields.KeyWord
-	EnrichmentsIndicatorGeoContinentName                  fields.KeyWord
-	EnrichmentsIndicatorGeoCountryIsoCode                 fields.KeyWord
-	EnrichmentsIndicatorGeoCountryName                    fields.KeyWord
+	EnrichmentsIndicatorGeoCityName                       fields.Keyword
+	EnrichmentsIndicatorGeoContinentCode                  fields.Keyword
+	EnrichmentsIndicatorGeoContinentName                  fields.Keyword
+	EnrichmentsIndicatorGeoCountryIsoCode                 fields.Keyword
+	EnrichmentsIndicatorGeoCountryName                    fields.Keyword
 	EnrichmentsIndicatorGeoLocation                       fields.GeoPoint
-	EnrichmentsIndicatorGeoName                           fields.KeyWord
-	EnrichmentsIndicatorGeoPostalCode                     fields.KeyWord
-	EnrichmentsIndicatorGeoRegionIsoCode                  fields.KeyWord
-	EnrichmentsIndicatorGeoRegionName                     fields.KeyWord
-	EnrichmentsIndicatorGeoTimezone                       fields.KeyWord
+	EnrichmentsIndicatorGeoName                           fields.Keyword
+	EnrichmentsIndicatorGeoPostalCode                     fields.Keyword
+	EnrichmentsIndicatorGeoRegionIsoCode                  fields.Keyword
+	EnrichmentsIndicatorGeoRegionName                     fields.Keyword
+	EnrichmentsIndicatorGeoTimezone                       fields.Keyword
 	EnrichmentsIndicatorIp                                fields.IP
 	EnrichmentsIndicatorLastSeen                          fields.Date
-	EnrichmentsIndicatorMarkingTlp                        fields.KeyWord
-	EnrichmentsIndicatorMarkingTlpVersion                 fields.KeyWord
+	EnrichmentsIndicatorMarkingTlp                        fields.Keyword
+	EnrichmentsIndicatorMarkingTlpVersion                 fields.Keyword
 	EnrichmentsIndicatorModifiedAt                        fields.Date
-	EnrichmentsIndicatorName                              fields.KeyWord
+	EnrichmentsIndicatorName                              fields.Keyword
 	EnrichmentsIndicatorPort                              fields.Long
-	EnrichmentsIndicatorProvider                          fields.KeyWord
-	EnrichmentsIndicatorReference                         fields.KeyWord
-	EnrichmentsIndicatorRegistryDataBytes                 fields.KeyWord
+	EnrichmentsIndicatorProvider                          fields.Keyword
+	EnrichmentsIndicatorReference                         fields.Keyword
+	EnrichmentsIndicatorRegistryDataBytes                 fields.Keyword
 	EnrichmentsIndicatorRegistryDataStrings               fields.Wildcard
-	EnrichmentsIndicatorRegistryDataType                  fields.KeyWord
-	EnrichmentsIndicatorRegistryHive                      fields.KeyWord
-	EnrichmentsIndicatorRegistryKey                       fields.KeyWord
-	EnrichmentsIndicatorRegistryPath                      fields.KeyWord
-	EnrichmentsIndicatorRegistryValue                     fields.KeyWord
+	EnrichmentsIndicatorRegistryDataType                  fields.Keyword
+	EnrichmentsIndicatorRegistryHive                      fields.Keyword
+	EnrichmentsIndicatorRegistryKey                       fields.Keyword
+	EnrichmentsIndicatorRegistryPath                      fields.Keyword
+	EnrichmentsIndicatorRegistryValue                     fields.Keyword
 	EnrichmentsIndicatorScannerStats                      fields.Long
 	EnrichmentsIndicatorSightings                         fields.Long
-	EnrichmentsIndicatorType                              fields.KeyWord
-	EnrichmentsIndicatorUrlDomain                         fields.KeyWord
-	EnrichmentsIndicatorUrlExtension                      fields.KeyWord
-	EnrichmentsIndicatorUrlFragment                       fields.KeyWord
+	EnrichmentsIndicatorType                              fields.Keyword
+	EnrichmentsIndicatorUrlDomain                         fields.Keyword
+	EnrichmentsIndicatorUrlExtension                      fields.Keyword
+	EnrichmentsIndicatorUrlFragment                       fields.Keyword
 	EnrichmentsIndicatorUrlFull                           fields.Wildcard
 	EnrichmentsIndicatorUrlOriginal                       fields.Wildcard
-	EnrichmentsIndicatorUrlPassword                       fields.KeyWord
+	EnrichmentsIndicatorUrlPassword                       fields.Keyword
 	EnrichmentsIndicatorUrlPath                           fields.Wildcard
 	EnrichmentsIndicatorUrlPort                           fields.Long
-	EnrichmentsIndicatorUrlQuery                          fields.KeyWord
-	EnrichmentsIndicatorUrlRegisteredDomain               fields.KeyWord
-	EnrichmentsIndicatorUrlScheme                         fields.KeyWord
-	EnrichmentsIndicatorUrlSubdomain                      fields.KeyWord
-	EnrichmentsIndicatorUrlTopLevelDomain                 fields.KeyWord
-	EnrichmentsIndicatorUrlUsername                       fields.KeyWord
-	EnrichmentsIndicatorX509AlternativeNames              fields.KeyWord
-	EnrichmentsIndicatorX509IssuerCommonName              fields.KeyWord
-	EnrichmentsIndicatorX509IssuerCountry                 fields.KeyWord
-	EnrichmentsIndicatorX509IssuerDistinguishedName       fields.KeyWord
-	EnrichmentsIndicatorX509IssuerLocality                fields.KeyWord
-	EnrichmentsIndicatorX509IssuerOrganization            fields.KeyWord
-	EnrichmentsIndicatorX509IssuerOrganizationalUnit      fields.KeyWord
-	EnrichmentsIndicatorX509IssuerStateOrProvince         fields.KeyWord
+	EnrichmentsIndicatorUrlQuery                          fields.Keyword
+	EnrichmentsIndicatorUrlRegisteredDomain               fields.Keyword
+	EnrichmentsIndicatorUrlScheme                         fields.Keyword
+	EnrichmentsIndicatorUrlSubdomain                      fields.Keyword
+	EnrichmentsIndicatorUrlTopLevelDomain                 fields.Keyword
+	EnrichmentsIndicatorUrlUsername                       fields.Keyword
+	EnrichmentsIndicatorX509AlternativeNames              fields.Keyword
+	EnrichmentsIndicatorX509IssuerCommonName              fields.Keyword
+	EnrichmentsIndicatorX509IssuerCountry                 fields.Keyword
+	EnrichmentsIndicatorX509IssuerDistinguishedName       fields.Keyword
+	EnrichmentsIndicatorX509IssuerLocality                fields.Keyword
+	EnrichmentsIndicatorX509IssuerOrganization            fields.Keyword
+	EnrichmentsIndicatorX509IssuerOrganizationalUnit      fields.Keyword
+	EnrichmentsIndicatorX509IssuerStateOrProvince         fields.Keyword
 	EnrichmentsIndicatorX509NotAfter                      fields.Date
 	EnrichmentsIndicatorX509NotBefore                     fields.Date
-	EnrichmentsIndicatorX509PublicKeyAlgorithm            fields.KeyWord
-	EnrichmentsIndicatorX509PublicKeyCurve                fields.KeyWord
+	EnrichmentsIndicatorX509PublicKeyAlgorithm            fields.Keyword
+	EnrichmentsIndicatorX509PublicKeyCurve                fields.Keyword
 	EnrichmentsIndicatorX509PublicKeyExponent             fields.Long
 	EnrichmentsIndicatorX509PublicKeySize                 fields.Long
-	EnrichmentsIndicatorX509SerialNumber                  fields.KeyWord
-	EnrichmentsIndicatorX509SignatureAlgorithm            fields.KeyWord
-	EnrichmentsIndicatorX509SubjectCommonName             fields.KeyWord
-	EnrichmentsIndicatorX509SubjectCountry                fields.KeyWord
-	EnrichmentsIndicatorX509SubjectDistinguishedName      fields.KeyWord
-	EnrichmentsIndicatorX509SubjectLocality               fields.KeyWord
-	EnrichmentsIndicatorX509SubjectOrganization           fields.KeyWord
-	EnrichmentsIndicatorX509SubjectOrganizationalUnit     fields.KeyWord
-	EnrichmentsIndicatorX509SubjectStateOrProvince        fields.KeyWord
-	EnrichmentsIndicatorX509VersionNumber                 fields.KeyWord
-	EnrichmentsMatchedAtomic                              fields.KeyWord
-	EnrichmentsMatchedField                               fields.KeyWord
-	EnrichmentsMatchedID                                  fields.KeyWord
-	EnrichmentsMatchedIndex                               fields.KeyWord
+	EnrichmentsIndicatorX509SerialNumber                  fields.Keyword
+	EnrichmentsIndicatorX509SignatureAlgorithm            fields.Keyword
+	EnrichmentsIndicatorX509SubjectCommonName             fields.Keyword
+	EnrichmentsIndicatorX509SubjectCountry                fields.Keyword
+	EnrichmentsIndicatorX509SubjectDistinguishedName      fields.Keyword
+	EnrichmentsIndicatorX509SubjectLocality               fields.Keyword
+	EnrichmentsIndicatorX509SubjectOrganization           fields.Keyword
+	EnrichmentsIndicatorX509SubjectOrganizationalUnit     fields.Keyword
+	EnrichmentsIndicatorX509SubjectStateOrProvince        fields.Keyword
+	EnrichmentsIndicatorX509VersionNumber                 fields.Keyword
+	EnrichmentsMatchedAtomic                              fields.Keyword
+	EnrichmentsMatchedField                               fields.Keyword
+	EnrichmentsMatchedID                                  fields.Keyword
+	EnrichmentsMatchedIndex                               fields.Keyword
 	EnrichmentsMatchedOccurred                            fields.Date
-	EnrichmentsMatchedType                                fields.KeyWord
-	FeedDashboardID                                       fields.KeyWord
-	FeedDescription                                       fields.KeyWord
-	FeedName                                              fields.KeyWord
-	FeedReference                                         fields.KeyWord
-	Framework                                             fields.KeyWord
-	GroupAlias                                            fields.KeyWord
-	GroupID                                               fields.KeyWord
-	GroupName                                             fields.KeyWord
-	GroupReference                                        fields.KeyWord
+	EnrichmentsMatchedType                                fields.Keyword
+	FeedDashboardID                                       fields.Keyword
+	FeedDescription                                       fields.Keyword
+	FeedName                                              fields.Keyword
+	FeedReference                                         fields.Keyword
+	Framework                                             fields.Keyword
+	GroupAlias                                            fields.Keyword
+	GroupID                                               fields.Keyword
+	GroupName                                             fields.Keyword
+	GroupReference                                        fields.Keyword
 	IndicatorAsNumber                                     fields.Long
-	IndicatorAsOrganizationName                           fields.KeyWord
-	IndicatorConfidence                                   fields.KeyWord
-	IndicatorDescription                                  fields.KeyWord
-	IndicatorEmailAddress                                 fields.KeyWord
+	IndicatorAsOrganizationName                           fields.Keyword
+	IndicatorConfidence                                   fields.Keyword
+	IndicatorDescription                                  fields.Keyword
+	IndicatorEmailAddress                                 fields.Keyword
 	IndicatorFileAccessed                                 fields.Date
-	IndicatorFileAttributes                               fields.KeyWord
-	IndicatorFileCodeSignatureDigestAlgorithm             fields.KeyWord
+	IndicatorFileAttributes                               fields.Keyword
+	IndicatorFileCodeSignatureDigestAlgorithm             fields.Keyword
 	IndicatorFileCodeSignatureExists                      fields.Boolean
-	IndicatorFileCodeSignatureFlags                       fields.KeyWord
-	IndicatorFileCodeSignatureSigningID                   fields.KeyWord
-	IndicatorFileCodeSignatureStatus                      fields.KeyWord
-	IndicatorFileCodeSignatureSubjectName                 fields.KeyWord
-	IndicatorFileCodeSignatureTeamID                      fields.KeyWord
+	IndicatorFileCodeSignatureFlags                       fields.Keyword
+	IndicatorFileCodeSignatureSigningID                   fields.Keyword
+	IndicatorFileCodeSignatureStatus                      fields.Keyword
+	IndicatorFileCodeSignatureSubjectName                 fields.Keyword
+	IndicatorFileCodeSignatureTeamID                      fields.Keyword
 	IndicatorFileCodeSignatureTimestamp                   fields.Date
 	IndicatorFileCodeSignatureTrusted                     fields.Boolean
 	IndicatorFileCodeSignatureValid                       fields.Boolean
 	IndicatorFileCreated                                  fields.Date
 	IndicatorFileCtime                                    fields.Date
-	IndicatorFileDevice                                   fields.KeyWord
-	IndicatorFileDirectory                                fields.KeyWord
-	IndicatorFileDriveLetter                              fields.KeyWord
-	IndicatorFileElfArchitecture                          fields.KeyWord
-	IndicatorFileElfByteOrder                             fields.KeyWord
-	IndicatorFileElfCpuType                               fields.KeyWord
+	IndicatorFileDevice                                   fields.Keyword
+	IndicatorFileDirectory                                fields.Keyword
+	IndicatorFileDriveLetter                              fields.Keyword
+	IndicatorFileElfArchitecture                          fields.Keyword
+	IndicatorFileElfByteOrder                             fields.Keyword
+	IndicatorFileElfCpuType                               fields.Keyword
 	IndicatorFileElfCreationDate                          fields.Date
 	IndicatorFileElfExports                               fields.Flattened
-	IndicatorFileElfGoImportHash                          fields.KeyWord
+	IndicatorFileElfGoImportHash                          fields.Keyword
 	IndicatorFileElfGoImports                             fields.Flattened
 	IndicatorFileElfGoImportsNamesEntropy                 fields.Long
 	IndicatorFileElfGoImportsNamesVarEntropy              fields.Long
 	IndicatorFileElfGoStripped                            fields.Boolean
-	IndicatorFileElfHeaderAbiVersion                      fields.KeyWord
-	IndicatorFileElfHeaderClass                           fields.KeyWord
-	IndicatorFileElfHeaderData                            fields.KeyWord
+	IndicatorFileElfHeaderAbiVersion                      fields.Keyword
+	IndicatorFileElfHeaderClass                           fields.Keyword
+	IndicatorFileElfHeaderData                            fields.Keyword
 	IndicatorFileElfHeaderEntrypoint                      fields.Long
-	IndicatorFileElfHeaderObjectVersion                   fields.KeyWord
-	IndicatorFileElfHeaderOsAbi                           fields.KeyWord
-	IndicatorFileElfHeaderType                            fields.KeyWord
-	IndicatorFileElfHeaderVersion                         fields.KeyWord
-	IndicatorFileElfImportHash                            fields.KeyWord
+	IndicatorFileElfHeaderObjectVersion                   fields.Keyword
+	IndicatorFileElfHeaderOsAbi                           fields.Keyword
+	IndicatorFileElfHeaderType                            fields.Keyword
+	IndicatorFileElfHeaderVersion                         fields.Keyword
+	IndicatorFileElfImportHash                            fields.Keyword
 	IndicatorFileElfImports                               fields.Flattened
 	IndicatorFileElfImportsNamesEntropy                   fields.Long
 	IndicatorFileElfImportsNamesVarEntropy                fields.Long
 	IndicatorFileElfSections                              fields.Nested
 	IndicatorFileElfSectionsChi2                          fields.Long
 	IndicatorFileElfSectionsEntropy                       fields.Long
-	IndicatorFileElfSectionsFlags                         fields.KeyWord
-	IndicatorFileElfSectionsName                          fields.KeyWord
-	IndicatorFileElfSectionsPhysicalOffset                fields.KeyWord
+	IndicatorFileElfSectionsFlags                         fields.Keyword
+	IndicatorFileElfSectionsName                          fields.Keyword
+	IndicatorFileElfSectionsPhysicalOffset                fields.Keyword
 	IndicatorFileElfSectionsPhysicalSize                  fields.Long
-	IndicatorFileElfSectionsType                          fields.KeyWord
+	IndicatorFileElfSectionsType                          fields.Keyword
 	IndicatorFileElfSectionsVarEntropy                    fields.Long
 	IndicatorFileElfSectionsVirtualAddress                fields.Long
 	IndicatorFileElfSectionsVirtualSize                   fields.Long
 	IndicatorFileElfSegments                              fields.Nested
-	IndicatorFileElfSegmentsSections                      fields.KeyWord
-	IndicatorFileElfSegmentsType                          fields.KeyWord
-	IndicatorFileElfSharedLibraries                       fields.KeyWord
-	IndicatorFileElfTelfhash                              fields.KeyWord
-	IndicatorFileExtension                                fields.KeyWord
-	IndicatorFileForkName                                 fields.KeyWord
-	IndicatorFileGid                                      fields.KeyWord
-	IndicatorFileGroup                                    fields.KeyWord
-	IndicatorFileHashCdhash                               fields.KeyWord
-	IndicatorFileHashMd5                                  fields.KeyWord
-	IndicatorFileHashSha1                                 fields.KeyWord
-	IndicatorFileHashSha256                               fields.KeyWord
-	IndicatorFileHashSha384                               fields.KeyWord
-	IndicatorFileHashSha512                               fields.KeyWord
-	IndicatorFileHashSsdeep                               fields.KeyWord
-	IndicatorFileHashTlsh                                 fields.KeyWord
-	IndicatorFileInode                                    fields.KeyWord
-	IndicatorFileMimeType                                 fields.KeyWord
-	IndicatorFileMode                                     fields.KeyWord
+	IndicatorFileElfSegmentsSections                      fields.Keyword
+	IndicatorFileElfSegmentsType                          fields.Keyword
+	IndicatorFileElfSharedLibraries                       fields.Keyword
+	IndicatorFileElfTelfhash                              fields.Keyword
+	IndicatorFileExtension                                fields.Keyword
+	IndicatorFileForkName                                 fields.Keyword
+	IndicatorFileGid                                      fields.Keyword
+	IndicatorFileGroup                                    fields.Keyword
+	IndicatorFileHashCdhash                               fields.Keyword
+	IndicatorFileHashMd5                                  fields.Keyword
+	IndicatorFileHashSha1                                 fields.Keyword
+	IndicatorFileHashSha256                               fields.Keyword
+	IndicatorFileHashSha384                               fields.Keyword
+	IndicatorFileHashSha512                               fields.Keyword
+	IndicatorFileHashSsdeep                               fields.Keyword
+	IndicatorFileHashTlsh                                 fields.Keyword
+	IndicatorFileInode                                    fields.Keyword
+	IndicatorFileMimeType                                 fields.Keyword
+	IndicatorFileMode                                     fields.Keyword
 	IndicatorFileMtime                                    fields.Date
-	IndicatorFileName                                     fields.KeyWord
-	IndicatorFileOwner                                    fields.KeyWord
-	IndicatorFilePath                                     fields.KeyWord
-	IndicatorFilePeArchitecture                           fields.KeyWord
-	IndicatorFilePeCompany                                fields.KeyWord
-	IndicatorFilePeDescription                            fields.KeyWord
-	IndicatorFilePeFileVersion                            fields.KeyWord
-	IndicatorFilePeGoImportHash                           fields.KeyWord
+	IndicatorFileName                                     fields.Keyword
+	IndicatorFileOriginReferrerUrl                        fields.Keyword
+	IndicatorFileOriginUrl                                fields.Keyword
+	IndicatorFileOwner                                    fields.Keyword
+	IndicatorFilePath                                     fields.Keyword
+	IndicatorFilePeArchitecture                           fields.Keyword
+	IndicatorFilePeCompany                                fields.Keyword
+	IndicatorFilePeDescription                            fields.Keyword
+	IndicatorFilePeFileVersion                            fields.Keyword
+	IndicatorFilePeGoImportHash                           fields.Keyword
 	IndicatorFilePeGoImports                              fields.Flattened
 	IndicatorFilePeGoImportsNamesEntropy                  fields.Long
 	IndicatorFilePeGoImportsNamesVarEntropy               fields.Long
 	IndicatorFilePeGoStripped                             fields.Boolean
-	IndicatorFilePeImphash                                fields.KeyWord
-	IndicatorFilePeImportHash                             fields.KeyWord
+	IndicatorFilePeImphash                                fields.Keyword
+	IndicatorFilePeImportHash                             fields.Keyword
 	IndicatorFilePeImports                                fields.Flattened
 	IndicatorFilePeImportsNamesEntropy                    fields.Long
 	IndicatorFilePeImportsNamesVarEntropy                 fields.Long
-	IndicatorFilePeOriginalFileName                       fields.KeyWord
-	IndicatorFilePePehash                                 fields.KeyWord
-	IndicatorFilePeProduct                                fields.KeyWord
+	IndicatorFilePeOriginalFileName                       fields.Keyword
+	IndicatorFilePePehash                                 fields.Keyword
+	IndicatorFilePeProduct                                fields.Keyword
 	IndicatorFilePeSections                               fields.Nested
 	IndicatorFilePeSectionsEntropy                        fields.Long
-	IndicatorFilePeSectionsName                           fields.KeyWord
+	IndicatorFilePeSectionsName                           fields.Keyword
 	IndicatorFilePeSectionsPhysicalSize                   fields.Long
 	IndicatorFilePeSectionsVarEntropy                     fields.Long
 	IndicatorFilePeSectionsVirtualSize                    fields.Long
 	IndicatorFileSize                                     fields.Long
-	IndicatorFileTargetPath                               fields.KeyWord
-	IndicatorFileType                                     fields.KeyWord
-	IndicatorFileUid                                      fields.KeyWord
-	IndicatorFileX509AlternativeNames                     fields.KeyWord
-	IndicatorFileX509IssuerCommonName                     fields.KeyWord
-	IndicatorFileX509IssuerCountry                        fields.KeyWord
-	IndicatorFileX509IssuerDistinguishedName              fields.KeyWord
-	IndicatorFileX509IssuerLocality                       fields.KeyWord
-	IndicatorFileX509IssuerOrganization                   fields.KeyWord
-	IndicatorFileX509IssuerOrganizationalUnit             fields.KeyWord
-	IndicatorFileX509IssuerStateOrProvince                fields.KeyWord
+	IndicatorFileTargetPath                               fields.Keyword
+	IndicatorFileType                                     fields.Keyword
+	IndicatorFileUid                                      fields.Keyword
+	IndicatorFileX509AlternativeNames                     fields.Keyword
+	IndicatorFileX509IssuerCommonName                     fields.Keyword
+	IndicatorFileX509IssuerCountry                        fields.Keyword
+	IndicatorFileX509IssuerDistinguishedName              fields.Keyword
+	IndicatorFileX509IssuerLocality                       fields.Keyword
+	IndicatorFileX509IssuerOrganization                   fields.Keyword
+	IndicatorFileX509IssuerOrganizationalUnit             fields.Keyword
+	IndicatorFileX509IssuerStateOrProvince                fields.Keyword
 	IndicatorFileX509NotAfter                             fields.Date
 	IndicatorFileX509NotBefore                            fields.Date
-	IndicatorFileX509PublicKeyAlgorithm                   fields.KeyWord
-	IndicatorFileX509PublicKeyCurve                       fields.KeyWord
+	IndicatorFileX509PublicKeyAlgorithm                   fields.Keyword
+	IndicatorFileX509PublicKeyCurve                       fields.Keyword
 	IndicatorFileX509PublicKeyExponent                    fields.Long
 	IndicatorFileX509PublicKeySize                        fields.Long
-	IndicatorFileX509SerialNumber                         fields.KeyWord
-	IndicatorFileX509SignatureAlgorithm                   fields.KeyWord
-	IndicatorFileX509SubjectCommonName                    fields.KeyWord
-	IndicatorFileX509SubjectCountry                       fields.KeyWord
-	IndicatorFileX509SubjectDistinguishedName             fields.KeyWord
-	IndicatorFileX509SubjectLocality                      fields.KeyWord
-	IndicatorFileX509SubjectOrganization                  fields.KeyWord
-	IndicatorFileX509SubjectOrganizationalUnit            fields.KeyWord
-	IndicatorFileX509SubjectStateOrProvince               fields.KeyWord
-	IndicatorFileX509VersionNumber                        fields.KeyWord
+	IndicatorFileX509SerialNumber                         fields.Keyword
+	IndicatorFileX509SignatureAlgorithm                   fields.Keyword
+	IndicatorFileX509SubjectCommonName                    fields.Keyword
+	IndicatorFileX509SubjectCountry                       fields.Keyword
+	IndicatorFileX509SubjectDistinguishedName             fields.Keyword
+	IndicatorFileX509SubjectLocality                      fields.Keyword
+	IndicatorFileX509SubjectOrganization                  fields.Keyword
+	IndicatorFileX509SubjectOrganizationalUnit            fields.Keyword
+	IndicatorFileX509SubjectStateOrProvince               fields.Keyword
+	IndicatorFileX509VersionNumber                        fields.Keyword
 	IndicatorFirstSeen                                    fields.Date
-	IndicatorGeoCityName                                  fields.KeyWord
-	IndicatorGeoContinentCode                             fields.KeyWord
-	IndicatorGeoContinentName                             fields.KeyWord
-	IndicatorGeoCountryIsoCode                            fields.KeyWord
-	IndicatorGeoCountryName                               fields.KeyWord
+	IndicatorGeoCityName                                  fields.Keyword
+	IndicatorGeoContinentCode                             fields.Keyword
+	IndicatorGeoContinentName                             fields.Keyword
+	IndicatorGeoCountryIsoCode                            fields.Keyword
+	IndicatorGeoCountryName                               fields.Keyword
 	IndicatorGeoLocation                                  fields.GeoPoint
-	IndicatorGeoName                                      fields.KeyWord
-	IndicatorGeoPostalCode                                fields.KeyWord
-	IndicatorGeoRegionIsoCode                             fields.KeyWord
-	IndicatorGeoRegionName                                fields.KeyWord
-	IndicatorGeoTimezone                                  fields.KeyWord
-	IndicatorID                                           fields.KeyWord
+	IndicatorGeoName                                      fields.Keyword
+	IndicatorGeoPostalCode                                fields.Keyword
+	IndicatorGeoRegionIsoCode                             fields.Keyword
+	IndicatorGeoRegionName                                fields.Keyword
+	IndicatorGeoTimezone                                  fields.Keyword
+	IndicatorID                                           fields.Keyword
 	IndicatorIp                                           fields.IP
 	IndicatorLastSeen                                     fields.Date
-	IndicatorMarkingTlp                                   fields.KeyWord
-	IndicatorMarkingTlpVersion                            fields.KeyWord
+	IndicatorMarkingTlp                                   fields.Keyword
+	IndicatorMarkingTlpVersion                            fields.Keyword
 	IndicatorModifiedAt                                   fields.Date
-	IndicatorName                                         fields.KeyWord
+	IndicatorName                                         fields.Keyword
 	IndicatorPort                                         fields.Long
-	IndicatorProvider                                     fields.KeyWord
-	IndicatorReference                                    fields.KeyWord
-	IndicatorRegistryDataBytes                            fields.KeyWord
+	IndicatorProvider                                     fields.Keyword
+	IndicatorReference                                    fields.Keyword
+	IndicatorRegistryDataBytes                            fields.Keyword
 	IndicatorRegistryDataStrings                          fields.Wildcard
-	IndicatorRegistryDataType                             fields.KeyWord
-	IndicatorRegistryHive                                 fields.KeyWord
-	IndicatorRegistryKey                                  fields.KeyWord
-	IndicatorRegistryPath                                 fields.KeyWord
-	IndicatorRegistryValue                                fields.KeyWord
+	IndicatorRegistryDataType                             fields.Keyword
+	IndicatorRegistryHive                                 fields.Keyword
+	IndicatorRegistryKey                                  fields.Keyword
+	IndicatorRegistryPath                                 fields.Keyword
+	IndicatorRegistryValue                                fields.Keyword
 	IndicatorScannerStats                                 fields.Long
 	IndicatorSightings                                    fields.Long
-	IndicatorType                                         fields.KeyWord
-	IndicatorUrlDomain                                    fields.KeyWord
-	IndicatorUrlExtension                                 fields.KeyWord
-	IndicatorUrlFragment                                  fields.KeyWord
+	IndicatorType                                         fields.Keyword
+	IndicatorUrlDomain                                    fields.Keyword
+	IndicatorUrlExtension                                 fields.Keyword
+	IndicatorUrlFragment                                  fields.Keyword
 	IndicatorUrlFull                                      fields.Wildcard
 	IndicatorUrlOriginal                                  fields.Wildcard
-	IndicatorUrlPassword                                  fields.KeyWord
+	IndicatorUrlPassword                                  fields.Keyword
 	IndicatorUrlPath                                      fields.Wildcard
 	IndicatorUrlPort                                      fields.Long
-	IndicatorUrlQuery                                     fields.KeyWord
-	IndicatorUrlRegisteredDomain                          fields.KeyWord
-	IndicatorUrlScheme                                    fields.KeyWord
-	IndicatorUrlSubdomain                                 fields.KeyWord
-	IndicatorUrlTopLevelDomain                            fields.KeyWord
-	IndicatorUrlUsername                                  fields.KeyWord
-	IndicatorX509AlternativeNames                         fields.KeyWord
-	IndicatorX509IssuerCommonName                         fields.KeyWord
-	IndicatorX509IssuerCountry                            fields.KeyWord
-	IndicatorX509IssuerDistinguishedName                  fields.KeyWord
-	IndicatorX509IssuerLocality                           fields.KeyWord
-	IndicatorX509IssuerOrganization                       fields.KeyWord
-	IndicatorX509IssuerOrganizationalUnit                 fields.KeyWord
-	IndicatorX509IssuerStateOrProvince                    fields.KeyWord
+	IndicatorUrlQuery                                     fields.Keyword
+	IndicatorUrlRegisteredDomain                          fields.Keyword
+	IndicatorUrlScheme                                    fields.Keyword
+	IndicatorUrlSubdomain                                 fields.Keyword
+	IndicatorUrlTopLevelDomain                            fields.Keyword
+	IndicatorUrlUsername                                  fields.Keyword
+	IndicatorX509AlternativeNames                         fields.Keyword
+	IndicatorX509IssuerCommonName                         fields.Keyword
+	IndicatorX509IssuerCountry                            fields.Keyword
+	IndicatorX509IssuerDistinguishedName                  fields.Keyword
+	IndicatorX509IssuerLocality                           fields.Keyword
+	IndicatorX509IssuerOrganization                       fields.Keyword
+	IndicatorX509IssuerOrganizationalUnit                 fields.Keyword
+	IndicatorX509IssuerStateOrProvince                    fields.Keyword
 	IndicatorX509NotAfter                                 fields.Date
 	IndicatorX509NotBefore                                fields.Date
-	IndicatorX509PublicKeyAlgorithm                       fields.KeyWord
-	IndicatorX509PublicKeyCurve                           fields.KeyWord
+	IndicatorX509PublicKeyAlgorithm                       fields.Keyword
+	IndicatorX509PublicKeyCurve                           fields.Keyword
 	IndicatorX509PublicKeyExponent                        fields.Long
 	IndicatorX509PublicKeySize                            fields.Long
-	IndicatorX509SerialNumber                             fields.KeyWord
-	IndicatorX509SignatureAlgorithm                       fields.KeyWord
-	IndicatorX509SubjectCommonName                        fields.KeyWord
-	IndicatorX509SubjectCountry                           fields.KeyWord
-	IndicatorX509SubjectDistinguishedName                 fields.KeyWord
-	IndicatorX509SubjectLocality                          fields.KeyWord
-	IndicatorX509SubjectOrganization                      fields.KeyWord
-	IndicatorX509SubjectOrganizationalUnit                fields.KeyWord
-	IndicatorX509SubjectStateOrProvince                   fields.KeyWord
-	IndicatorX509VersionNumber                            fields.KeyWord
-	SoftwareAlias                                         fields.KeyWord
-	SoftwareID                                            fields.KeyWord
-	SoftwareName                                          fields.KeyWord
-	SoftwarePlatforms                                     fields.KeyWord
-	SoftwareReference                                     fields.KeyWord
-	SoftwareType                                          fields.KeyWord
-	TacticID                                              fields.KeyWord
-	TacticName                                            fields.KeyWord
-	TacticReference                                       fields.KeyWord
-	TechniqueID                                           fields.KeyWord
-	TechniqueName                                         fields.KeyWord
-	TechniqueReference                                    fields.KeyWord
-	TechniqueSubtechniqueID                               fields.KeyWord
-	TechniqueSubtechniqueName                             fields.KeyWord
-	TechniqueSubtechniqueReference                        fields.KeyWord
+	IndicatorX509SerialNumber                             fields.Keyword
+	IndicatorX509SignatureAlgorithm                       fields.Keyword
+	IndicatorX509SubjectCommonName                        fields.Keyword
+	IndicatorX509SubjectCountry                           fields.Keyword
+	IndicatorX509SubjectDistinguishedName                 fields.Keyword
+	IndicatorX509SubjectLocality                          fields.Keyword
+	IndicatorX509SubjectOrganization                      fields.Keyword
+	IndicatorX509SubjectOrganizationalUnit                fields.Keyword
+	IndicatorX509SubjectStateOrProvince                   fields.Keyword
+	IndicatorX509VersionNumber                            fields.Keyword
+	SoftwareAlias                                         fields.Keyword
+	SoftwareID                                            fields.Keyword
+	SoftwareName                                          fields.Keyword
+	SoftwarePlatforms                                     fields.Keyword
+	SoftwareReference                                     fields.Keyword
+	SoftwareType                                          fields.Keyword
+	TacticID                                              fields.Keyword
+	TacticName                                            fields.Keyword
+	TacticReference                                       fields.Keyword
+	TechniqueID                                           fields.Keyword
+	TechniqueName                                         fields.Keyword
+	TechniqueReference                                    fields.Keyword
+	TechniqueSubtechniqueID                               fields.Keyword
+	TechniqueSubtechniqueName                             fields.Keyword
+	TechniqueSubtechniqueReference                        fields.Keyword
 }
 
 var Types TypesType = TypesType{}

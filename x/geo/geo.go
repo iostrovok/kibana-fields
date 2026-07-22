@@ -35,17 +35,17 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	CityName       fields.KeyWord
-	ContinentCode  fields.KeyWord
-	ContinentName  fields.KeyWord
-	CountryIsoCode fields.KeyWord
-	CountryName    fields.KeyWord
+	CityName       fields.Keyword
+	ContinentCode  fields.Keyword
+	ContinentName  fields.Keyword
+	CountryIsoCode fields.Keyword
+	CountryName    fields.Keyword
 	Location       fields.GeoPoint
-	Name           fields.KeyWord
-	PostalCode     fields.KeyWord
-	RegionIsoCode  fields.KeyWord
-	RegionName     fields.KeyWord
-	Timezone       fields.KeyWord
+	Name           fields.Keyword
+	PostalCode     fields.Keyword
+	RegionIsoCode  fields.Keyword
+	RegionName     fields.Keyword
+	Timezone       fields.Keyword
 }
 
 var Types TypesType = TypesType{}

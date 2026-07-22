@@ -23,6 +23,8 @@ const (
 	HashSsdeep                   fields.Field = "dll.hash.ssdeep"                     // SSDEEP hash.
 	HashTlsh                     fields.Field = "dll.hash.tlsh"                       // TLSH hash.
 	Name                         fields.Field = "dll.name"                            // Name of the library.
+	OriginReferrerUrl            fields.Field = "dll.origin_referrer_url"             // The URL of the webpage that linked to the dll file.
+	OriginUrl                    fields.Field = "dll.origin_url"                      // The URL where the dll file is hosted.
 	Path                         fields.Field = "dll.path"                            // Full file path of the library.
 	PeArchitecture               fields.Field = "dll.pe.architecture"                 // CPU architecture target for the file.
 	PeCompany                    fields.Field = "dll.pe.company"                      // Internal company name of the file, provided at compile-time.
@@ -71,6 +73,8 @@ var Fields = []fields.Field{
 	HashSsdeep,
 	HashTlsh,
 	Name,
+	OriginReferrerUrl,
+	OriginUrl,
 	Path,
 	PeArchitecture,
 	PeCompany,
@@ -99,46 +103,48 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	CodeSignatureDigestAlgorithm fields.KeyWord
+	CodeSignatureDigestAlgorithm fields.Keyword
 	CodeSignatureExists          fields.Boolean
-	CodeSignatureFlags           fields.KeyWord
-	CodeSignatureSigningID       fields.KeyWord
-	CodeSignatureStatus          fields.KeyWord
-	CodeSignatureSubjectName     fields.KeyWord
-	CodeSignatureTeamID          fields.KeyWord
+	CodeSignatureFlags           fields.Keyword
+	CodeSignatureSigningID       fields.Keyword
+	CodeSignatureStatus          fields.Keyword
+	CodeSignatureSubjectName     fields.Keyword
+	CodeSignatureTeamID          fields.Keyword
 	CodeSignatureTimestamp       fields.Date
 	CodeSignatureTrusted         fields.Boolean
 	CodeSignatureValid           fields.Boolean
-	HashCdhash                   fields.KeyWord
-	HashMd5                      fields.KeyWord
-	HashSha1                     fields.KeyWord
-	HashSha256                   fields.KeyWord
-	HashSha384                   fields.KeyWord
-	HashSha512                   fields.KeyWord
-	HashSsdeep                   fields.KeyWord
-	HashTlsh                     fields.KeyWord
-	Name                         fields.KeyWord
-	Path                         fields.KeyWord
-	PeArchitecture               fields.KeyWord
-	PeCompany                    fields.KeyWord
-	PeDescription                fields.KeyWord
-	PeFileVersion                fields.KeyWord
-	PeGoImportHash               fields.KeyWord
+	HashCdhash                   fields.Keyword
+	HashMd5                      fields.Keyword
+	HashSha1                     fields.Keyword
+	HashSha256                   fields.Keyword
+	HashSha384                   fields.Keyword
+	HashSha512                   fields.Keyword
+	HashSsdeep                   fields.Keyword
+	HashTlsh                     fields.Keyword
+	Name                         fields.Keyword
+	OriginReferrerUrl            fields.Keyword
+	OriginUrl                    fields.Keyword
+	Path                         fields.Keyword
+	PeArchitecture               fields.Keyword
+	PeCompany                    fields.Keyword
+	PeDescription                fields.Keyword
+	PeFileVersion                fields.Keyword
+	PeGoImportHash               fields.Keyword
 	PeGoImports                  fields.Flattened
 	PeGoImportsNamesEntropy      fields.Long
 	PeGoImportsNamesVarEntropy   fields.Long
 	PeGoStripped                 fields.Boolean
-	PeImphash                    fields.KeyWord
-	PeImportHash                 fields.KeyWord
+	PeImphash                    fields.Keyword
+	PeImportHash                 fields.Keyword
 	PeImports                    fields.Flattened
 	PeImportsNamesEntropy        fields.Long
 	PeImportsNamesVarEntropy     fields.Long
-	PeOriginalFileName           fields.KeyWord
-	PePehash                     fields.KeyWord
-	PeProduct                    fields.KeyWord
+	PeOriginalFileName           fields.Keyword
+	PePehash                     fields.Keyword
+	PeProduct                    fields.Keyword
 	PeSections                   fields.Nested
 	PeSectionsEntropy            fields.Long
-	PeSectionsName               fields.KeyWord
+	PeSectionsName               fields.Keyword
 	PeSectionsPhysicalSize       fields.Long
 	PeSectionsVarEntropy         fields.Long
 	PeSectionsVirtualSize        fields.Long

@@ -45,21 +45,21 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	BusType        fields.KeyWord
-	DefaultAccess  fields.KeyWord
-	DeviceName     fields.KeyWord
-	DeviceType     fields.KeyWord
-	DosName        fields.KeyWord
-	FileSystemType fields.KeyWord
-	MountName      fields.KeyWord
-	NtName         fields.KeyWord
-	ProductID      fields.KeyWord
-	ProductName    fields.KeyWord
+	BusType        fields.Keyword
+	DefaultAccess  fields.Keyword
+	DeviceName     fields.Keyword
+	DeviceType     fields.Keyword
+	DosName        fields.Keyword
+	FileSystemType fields.Keyword
+	MountName      fields.Keyword
+	NtName         fields.Keyword
+	ProductID      fields.Keyword
+	ProductName    fields.Keyword
 	Removable      fields.Boolean
-	SerialNumber   fields.KeyWord
+	SerialNumber   fields.Keyword
 	Size           fields.Long
-	VendorID       fields.KeyWord
-	VendorName     fields.KeyWord
+	VendorID       fields.Keyword
+	VendorName     fields.Keyword
 	Writable       fields.Boolean
 }
 

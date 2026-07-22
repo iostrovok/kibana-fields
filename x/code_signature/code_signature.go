@@ -33,13 +33,13 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	CodeSignatureDigestAlgorithm fields.KeyWord
+	CodeSignatureDigestAlgorithm fields.Keyword
 	CodeSignatureExists          fields.Boolean
-	CodeSignatureFlags           fields.KeyWord
-	CodeSignatureSigningID       fields.KeyWord
-	CodeSignatureStatus          fields.KeyWord
-	CodeSignatureSubjectName     fields.KeyWord
-	CodeSignatureTeamID          fields.KeyWord
+	CodeSignatureFlags           fields.Keyword
+	CodeSignatureSigningID       fields.Keyword
+	CodeSignatureStatus          fields.Keyword
+	CodeSignatureSubjectName     fields.Keyword
+	CodeSignatureTeamID          fields.Keyword
 	CodeSignatureTimestamp       fields.Date
 	CodeSignatureTrusted         fields.Boolean
 	CodeSignatureValid           fields.Boolean

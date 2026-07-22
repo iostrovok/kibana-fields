@@ -19,9 +19,9 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	DataStreamDataset   fields.ConstantKeyWord
-	DataStreamNamespace fields.ConstantKeyWord
-	DataStreamType      fields.ConstantKeyWord
+	DataStreamDataset   fields.ConstantKeyword
+	DataStreamNamespace fields.ConstantKeyword
+	DataStreamType      fields.ConstantKeyword
 }
 
 var Types TypesType = TypesType{}

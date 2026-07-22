@@ -33,16 +33,16 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Author      fields.KeyWord
-	Category    fields.KeyWord
-	Description fields.KeyWord
-	ID          fields.KeyWord
-	License     fields.KeyWord
-	Name        fields.KeyWord
-	Reference   fields.KeyWord
-	Ruleset     fields.KeyWord
-	Uuid        fields.KeyWord
-	Version     fields.KeyWord
+	Author      fields.Keyword
+	Category    fields.Keyword
+	Description fields.Keyword
+	ID          fields.Keyword
+	License     fields.Keyword
+	Name        fields.Keyword
+	Reference   fields.Keyword
+	Ruleset     fields.Keyword
+	Uuid        fields.Keyword
+	Version     fields.Keyword
 }
 
 var Types TypesType = TypesType{}

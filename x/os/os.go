@@ -45,13 +45,13 @@ var TypeExpectedValues TypeExpectedType = TypeExpectedType{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Family   fields.KeyWord
-	Full     fields.KeyWord
-	Kernel   fields.KeyWord
-	Name     fields.KeyWord
-	Platform fields.KeyWord
-	Type     fields.KeyWord
-	Version  fields.KeyWord
+	Family   fields.Keyword
+	Full     fields.Keyword
+	Kernel   fields.Keyword
+	Name     fields.Keyword
+	Platform fields.Keyword
+	Type     fields.Keyword
+	Version  fields.Keyword
 }
 
 var Types TypesType = TypesType{}

@@ -39,19 +39,19 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Architecture fields.KeyWord
-	BuildVersion fields.KeyWord
-	Checksum     fields.KeyWord
-	Description  fields.KeyWord
-	InstallScope fields.KeyWord
+	Architecture fields.Keyword
+	BuildVersion fields.Keyword
+	Checksum     fields.Keyword
+	Description  fields.Keyword
+	InstallScope fields.Keyword
 	Installed    fields.Date
-	License      fields.KeyWord
-	Name         fields.KeyWord
-	Path         fields.KeyWord
-	Reference    fields.KeyWord
+	License      fields.Keyword
+	Name         fields.Keyword
+	Path         fields.Keyword
+	Reference    fields.Keyword
 	Size         fields.Long
-	Type         fields.KeyWord
-	Version      fields.KeyWord
+	Type         fields.Keyword
+	Version      fields.Keyword
 }
 
 var Types TypesType = TypesType{}

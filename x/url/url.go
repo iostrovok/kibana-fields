@@ -41,20 +41,20 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	Domain           fields.KeyWord
-	Extension        fields.KeyWord
-	Fragment         fields.KeyWord
+	Domain           fields.Keyword
+	Extension        fields.Keyword
+	Fragment         fields.Keyword
 	Full             fields.Wildcard
 	Original         fields.Wildcard
-	Password         fields.KeyWord
+	Password         fields.Keyword
 	Path             fields.Wildcard
 	Port             fields.Long
-	Query            fields.KeyWord
-	RegisteredDomain fields.KeyWord
-	Scheme           fields.KeyWord
-	Subdomain        fields.KeyWord
-	TopLevelDomain   fields.KeyWord
-	Username         fields.KeyWord
+	Query            fields.Keyword
+	RegisteredDomain fields.Keyword
+	Scheme           fields.Keyword
+	Subdomain        fields.Keyword
+	TopLevelDomain   fields.Keyword
+	Username         fields.Keyword
 }
 
 var Types TypesType = TypesType{}

@@ -25,10 +25,10 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	CalculatedLevel     fields.KeyWord
+	CalculatedLevel     fields.Keyword
 	CalculatedScore     fields.Float
 	CalculatedScoreNorm fields.Float
-	StaticLevel         fields.KeyWord
+	StaticLevel         fields.Keyword
 	StaticScore         fields.Float
 	StaticScoreNorm     fields.Float
 }
