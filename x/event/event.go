@@ -155,6 +155,7 @@ type TypeAllowedType struct {
 	Creation     string // The "creation" event type is used for the subset of events within a category that indicate that something was created. A common example is `event.category:file AND event.type:creation`.
 	Deletion     string // The deletion event type is used for the subset of events within a category that indicate that something was deleted. A common example is `event.category:file AND event.type:deletion` to indicate that a file has been deleted.
 	Denied       string // The denied event type is used for the subset of events within a category that indicate that something was denied. Common examples include `event.category:network AND event.type:denied` (to indicate a network firewall event for which the firewall disposition was to deny the connection) and `event.category:intrusion_detection AND event.type:denied` (to indicate a network intrusion prevention system event for which the IPS disposition was to deny the connection to complete). You can further distinguish denied operations using the ECS `event.action` field, populating with values of your choosing, such as "blocked", "dropped", or "quarantined".
+	Device       string // The device event type is used for the subset of events within a category that are related to device objects. Common example: `event.category:host AND event.type:change AND event.type:device`. You can further distinguish device operations using the ECS `event.action` field.
 	End          string // The end event type is used for the subset of events within a category that indicate something has ended. A common example is `event.category:process AND event.type:end`.
 	Error        string // The error event type is used for the subset of events within a category that indicate or describe an error. A common example is `event.category:database AND event.type:error`. Note that pipeline errors that occur during the event ingestion process should not use this `event.type` value. Instead, they should use `event.kind:pipeline_error`.
 	Group        string // The group event type is used for the subset of events within a category that are related to group objects. Common example: `event.category:iam AND event.type:creation AND event.type:group`. You can further distinguish group operations using the ECS `event.action` field.
@@ -176,6 +177,7 @@ var TypeAllowedValues TypeAllowedType = TypeAllowedType{
 	Creation:     `creation`,
 	Deletion:     `deletion`,
 	Denied:       `denied`,
+	Device:       `device`,
 	End:          `end`,
 	Error:        `error`,
 	Group:        `group`,

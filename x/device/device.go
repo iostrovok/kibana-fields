@@ -8,7 +8,12 @@ const (
 	Manufacturer    fields.Field = "device.manufacturer"     // The vendor name of the device manufacturer.
 	ModelIdentifier fields.Field = "device.model.identifier" // The machine readable identifier of the device model.
 	ModelName       fields.Field = "device.model.name"       // The human readable marketing name of the device model.
+	ProductID       fields.Field = "device.product.id"       // ProductID of the device
+	ProductName     fields.Field = "device.product.name"     // Product name of the device
 	SerialNumber    fields.Field = "device.serial_number"    // Serial Number of the device
+	Type            fields.Field = "device.type"             // Device type classification
+	VendorID        fields.Field = "device.vendor.id"        // VendorID of the device
+	VendorName      fields.Field = "device.vendor.name"      // Vendor name of the device
 
 )
 
@@ -18,7 +23,12 @@ var Fields = []fields.Field{
 	Manufacturer,
 	ModelIdentifier,
 	ModelName,
+	ProductID,
+	ProductName,
 	SerialNumber,
+	Type,
+	VendorID,
+	VendorName,
 }
 
 // TypesType describes kibana types of fields to check values
@@ -27,7 +37,12 @@ type TypesType struct {
 	Manufacturer    fields.Keyword
 	ModelIdentifier fields.Keyword
 	ModelName       fields.Keyword
+	ProductID       fields.Keyword
+	ProductName     fields.Keyword
 	SerialNumber    fields.Keyword
+	Type            fields.Keyword
+	VendorID        fields.Keyword
+	VendorName      fields.Keyword
 }
 
 var Types TypesType = TypesType{}

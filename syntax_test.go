@@ -18,6 +18,8 @@ import (
 	_ "github.com/iostrovok/kibana-fields/x/ecs"
 	_ "github.com/iostrovok/kibana-fields/x/elf"
 	_ "github.com/iostrovok/kibana-fields/x/email"
+	_ "github.com/iostrovok/kibana-fields/x/entity"
+	_ "github.com/iostrovok/kibana-fields/x/entity_reference"
 	_ "github.com/iostrovok/kibana-fields/x/error"
 	_ "github.com/iostrovok/kibana-fields/x/event"
 	_ "github.com/iostrovok/kibana-fields/x/faas"

@@ -22,6 +22,8 @@ import (
 	"github.com/iostrovok/kibana-fields/x/ecs"
 	"github.com/iostrovok/kibana-fields/x/elf"
 	"github.com/iostrovok/kibana-fields/x/email"
+	"github.com/iostrovok/kibana-fields/x/entity"
+	"github.com/iostrovok/kibana-fields/x/entity_reference"
 	"github.com/iostrovok/kibana-fields/x/error"
 	"github.com/iostrovok/kibana-fields/x/event"
 	"github.com/iostrovok/kibana-fields/x/faas"
@@ -86,6 +88,8 @@ func init() {
 	AllFields = append(AllFields, ecs.Fields...)
 	AllFields = append(AllFields, elf.Fields...)
 	AllFields = append(AllFields, email.Fields...)
+	AllFields = append(AllFields, entity.Fields...)
+	AllFields = append(AllFields, entity_reference.Fields...)
 	AllFields = append(AllFields, error.Fields...)
 	AllFields = append(AllFields, event.Fields...)
 	AllFields = append(AllFields, faas.Fields...)
