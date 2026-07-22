@@ -26,6 +26,7 @@ import (
 	"github.com/iostrovok/kibana-fields/x/event"
 	"github.com/iostrovok/kibana-fields/x/faas"
 	"github.com/iostrovok/kibana-fields/x/file"
+	"github.com/iostrovok/kibana-fields/x/gen_ai"
 	"github.com/iostrovok/kibana-fields/x/geo"
 	"github.com/iostrovok/kibana-fields/x/group"
 	"github.com/iostrovok/kibana-fields/x/hash"
@@ -89,6 +90,7 @@ func init() {
 	AllFields = append(AllFields, event.Fields...)
 	AllFields = append(AllFields, faas.Fields...)
 	AllFields = append(AllFields, file.Fields...)
+	AllFields = append(AllFields, gen_ai.Fields...)
 	AllFields = append(AllFields, geo.Fields...)
 	AllFields = append(AllFields, group.Fields...)
 	AllFields = append(AllFields, hash.Fields...)

@@ -20,6 +20,7 @@ const (
 	EnrichmentsIndicatorFileCodeSignatureStatus           fields.Field = "threat.enrichments.indicator.file.code_signature.status"            // Additional information about the certificate status.
 	EnrichmentsIndicatorFileCodeSignatureSubjectName      fields.Field = "threat.enrichments.indicator.file.code_signature.subject_name"      // Subject name of the code signer
 	EnrichmentsIndicatorFileCodeSignatureTeamID           fields.Field = "threat.enrichments.indicator.file.code_signature.team_id"           // The team identifier used to sign the process.
+	EnrichmentsIndicatorFileCodeSignatureThumbprintSha256 fields.Field = "threat.enrichments.indicator.file.code_signature.thumbprint_sha256" // SHA256 hash of the certificate.
 	EnrichmentsIndicatorFileCodeSignatureTimestamp        fields.Field = "threat.enrichments.indicator.file.code_signature.timestamp"         // When the signature was generated and signed.
 	EnrichmentsIndicatorFileCodeSignatureTrusted          fields.Field = "threat.enrichments.indicator.file.code_signature.trusted"           // Stores the trust status of the certificate chain.
 	EnrichmentsIndicatorFileCodeSignatureValid            fields.Field = "threat.enrichments.indicator.file.code_signature.valid"             // Boolean to capture if the digital signature is verified against the binary content.
@@ -236,6 +237,7 @@ const (
 	IndicatorFileCodeSignatureStatus                      fields.Field = "threat.indicator.file.code_signature.status"                        // Additional information about the certificate status.
 	IndicatorFileCodeSignatureSubjectName                 fields.Field = "threat.indicator.file.code_signature.subject_name"                  // Subject name of the code signer
 	IndicatorFileCodeSignatureTeamID                      fields.Field = "threat.indicator.file.code_signature.team_id"                       // The team identifier used to sign the process.
+	IndicatorFileCodeSignatureThumbprintSha256            fields.Field = "threat.indicator.file.code_signature.thumbprint_sha256"             // SHA256 hash of the certificate.
 	IndicatorFileCodeSignatureTimestamp                   fields.Field = "threat.indicator.file.code_signature.timestamp"                     // When the signature was generated and signed.
 	IndicatorFileCodeSignatureTrusted                     fields.Field = "threat.indicator.file.code_signature.trusted"                       // Stores the trust status of the certificate chain.
 	IndicatorFileCodeSignatureValid                       fields.Field = "threat.indicator.file.code_signature.valid"                         // Boolean to capture if the digital signature is verified against the binary content.
@@ -460,6 +462,7 @@ var Fields = []fields.Field{
 	EnrichmentsIndicatorFileCodeSignatureStatus,
 	EnrichmentsIndicatorFileCodeSignatureSubjectName,
 	EnrichmentsIndicatorFileCodeSignatureTeamID,
+	EnrichmentsIndicatorFileCodeSignatureThumbprintSha256,
 	EnrichmentsIndicatorFileCodeSignatureTimestamp,
 	EnrichmentsIndicatorFileCodeSignatureTrusted,
 	EnrichmentsIndicatorFileCodeSignatureValid,
@@ -676,6 +679,7 @@ var Fields = []fields.Field{
 	IndicatorFileCodeSignatureStatus,
 	IndicatorFileCodeSignatureSubjectName,
 	IndicatorFileCodeSignatureTeamID,
+	IndicatorFileCodeSignatureThumbprintSha256,
 	IndicatorFileCodeSignatureTimestamp,
 	IndicatorFileCodeSignatureTrusted,
 	IndicatorFileCodeSignatureValid,
@@ -1083,6 +1087,7 @@ type TypesType struct {
 	EnrichmentsIndicatorFileCodeSignatureStatus           fields.Keyword
 	EnrichmentsIndicatorFileCodeSignatureSubjectName      fields.Keyword
 	EnrichmentsIndicatorFileCodeSignatureTeamID           fields.Keyword
+	EnrichmentsIndicatorFileCodeSignatureThumbprintSha256 fields.Keyword
 	EnrichmentsIndicatorFileCodeSignatureTimestamp        fields.Date
 	EnrichmentsIndicatorFileCodeSignatureTrusted          fields.Boolean
 	EnrichmentsIndicatorFileCodeSignatureValid            fields.Boolean
@@ -1299,6 +1304,7 @@ type TypesType struct {
 	IndicatorFileCodeSignatureStatus                      fields.Keyword
 	IndicatorFileCodeSignatureSubjectName                 fields.Keyword
 	IndicatorFileCodeSignatureTeamID                      fields.Keyword
+	IndicatorFileCodeSignatureThumbprintSha256            fields.Keyword
 	IndicatorFileCodeSignatureTimestamp                   fields.Date
 	IndicatorFileCodeSignatureTrusted                     fields.Boolean
 	IndicatorFileCodeSignatureValid                       fields.Boolean

@@ -13,6 +13,7 @@ const (
 	CodeSignatureStatus                      fields.Field = "process.code_signature.status"                          // Additional information about the certificate status.
 	CodeSignatureSubjectName                 fields.Field = "process.code_signature.subject_name"                    // Subject name of the code signer
 	CodeSignatureTeamID                      fields.Field = "process.code_signature.team_id"                         // The team identifier used to sign the process.
+	CodeSignatureThumbprintSha256            fields.Field = "process.code_signature.thumbprint_sha256"               // SHA256 hash of the certificate.
 	CodeSignatureTimestamp                   fields.Field = "process.code_signature.timestamp"                       // When the signature was generated and signed.
 	CodeSignatureTrusted                     fields.Field = "process.code_signature.trusted"                         // Stores the trust status of the certificate chain.
 	CodeSignatureValid                       fields.Field = "process.code_signature.valid"                           // Boolean to capture if the digital signature is verified against the binary content.
@@ -177,6 +178,7 @@ const (
 	ParentCodeSignatureStatus                fields.Field = "process.parent.code_signature.status"                   // Additional information about the certificate status.
 	ParentCodeSignatureSubjectName           fields.Field = "process.parent.code_signature.subject_name"             // Subject name of the code signer
 	ParentCodeSignatureTeamID                fields.Field = "process.parent.code_signature.team_id"                  // The team identifier used to sign the process.
+	ParentCodeSignatureThumbprintSha256      fields.Field = "process.parent.code_signature.thumbprint_sha256"        // SHA256 hash of the certificate.
 	ParentCodeSignatureTimestamp             fields.Field = "process.parent.code_signature.timestamp"                // When the signature was generated and signed.
 	ParentCodeSignatureTrusted               fields.Field = "process.parent.code_signature.trusted"                  // Stores the trust status of the certificate chain.
 	ParentCodeSignatureValid                 fields.Field = "process.parent.code_signature.valid"                    // Boolean to capture if the digital signature is verified against the binary content.
@@ -407,6 +409,7 @@ var Fields = []fields.Field{
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
 	CodeSignatureTeamID,
+	CodeSignatureThumbprintSha256,
 	CodeSignatureTimestamp,
 	CodeSignatureTrusted,
 	CodeSignatureValid,
@@ -571,6 +574,7 @@ var Fields = []fields.Field{
 	ParentCodeSignatureStatus,
 	ParentCodeSignatureSubjectName,
 	ParentCodeSignatureTeamID,
+	ParentCodeSignatureThumbprintSha256,
 	ParentCodeSignatureTimestamp,
 	ParentCodeSignatureTrusted,
 	ParentCodeSignatureValid,
@@ -800,6 +804,7 @@ type TypesType struct {
 	CodeSignatureStatus                      fields.Keyword
 	CodeSignatureSubjectName                 fields.Keyword
 	CodeSignatureTeamID                      fields.Keyword
+	CodeSignatureThumbprintSha256            fields.Keyword
 	CodeSignatureTimestamp                   fields.Date
 	CodeSignatureTrusted                     fields.Boolean
 	CodeSignatureValid                       fields.Boolean
@@ -964,6 +969,7 @@ type TypesType struct {
 	ParentCodeSignatureStatus                fields.Keyword
 	ParentCodeSignatureSubjectName           fields.Keyword
 	ParentCodeSignatureTeamID                fields.Keyword
+	ParentCodeSignatureThumbprintSha256      fields.Keyword
 	ParentCodeSignatureTimestamp             fields.Date
 	ParentCodeSignatureTrusted               fields.Boolean
 	ParentCodeSignatureValid                 fields.Boolean

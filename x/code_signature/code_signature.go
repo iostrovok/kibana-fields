@@ -4,16 +4,17 @@ import "github.com/iostrovok/kibana-fields"
 
 // All available fields as constants
 const (
-	CodeSignatureDigestAlgorithm fields.Field = "code_signature.digest_algorithm" // Hashing algorithm used to sign the process.
-	CodeSignatureExists          fields.Field = "code_signature.exists"           // Boolean to capture if a signature is present.
-	CodeSignatureFlags           fields.Field = "code_signature.flags"            // Code signing flags of the process
-	CodeSignatureSigningID       fields.Field = "code_signature.signing_id"       // The identifier used to sign the process.
-	CodeSignatureStatus          fields.Field = "code_signature.status"           // Additional information about the certificate status.
-	CodeSignatureSubjectName     fields.Field = "code_signature.subject_name"     // Subject name of the code signer
-	CodeSignatureTeamID          fields.Field = "code_signature.team_id"          // The team identifier used to sign the process.
-	CodeSignatureTimestamp       fields.Field = "code_signature.timestamp"        // When the signature was generated and signed.
-	CodeSignatureTrusted         fields.Field = "code_signature.trusted"          // Stores the trust status of the certificate chain.
-	CodeSignatureValid           fields.Field = "code_signature.valid"            // Boolean to capture if the digital signature is verified against the binary content.
+	CodeSignatureDigestAlgorithm  fields.Field = "code_signature.digest_algorithm"  // Hashing algorithm used to sign the process.
+	CodeSignatureExists           fields.Field = "code_signature.exists"            // Boolean to capture if a signature is present.
+	CodeSignatureFlags            fields.Field = "code_signature.flags"             // Code signing flags of the process
+	CodeSignatureSigningID        fields.Field = "code_signature.signing_id"        // The identifier used to sign the process.
+	CodeSignatureStatus           fields.Field = "code_signature.status"            // Additional information about the certificate status.
+	CodeSignatureSubjectName      fields.Field = "code_signature.subject_name"      // Subject name of the code signer
+	CodeSignatureTeamID           fields.Field = "code_signature.team_id"           // The team identifier used to sign the process.
+	CodeSignatureThumbprintSha256 fields.Field = "code_signature.thumbprint_sha256" // SHA256 hash of the certificate.
+	CodeSignatureTimestamp        fields.Field = "code_signature.timestamp"         // When the signature was generated and signed.
+	CodeSignatureTrusted          fields.Field = "code_signature.trusted"           // Stores the trust status of the certificate chain.
+	CodeSignatureValid            fields.Field = "code_signature.valid"             // Boolean to capture if the digital signature is verified against the binary content.
 
 )
 
@@ -26,6 +27,7 @@ var Fields = []fields.Field{
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
 	CodeSignatureTeamID,
+	CodeSignatureThumbprintSha256,
 	CodeSignatureTimestamp,
 	CodeSignatureTrusted,
 	CodeSignatureValid,
@@ -33,16 +35,17 @@ var Fields = []fields.Field{
 
 // TypesType describes kibana types of fields to check values
 type TypesType struct {
-	CodeSignatureDigestAlgorithm fields.Keyword
-	CodeSignatureExists          fields.Boolean
-	CodeSignatureFlags           fields.Keyword
-	CodeSignatureSigningID       fields.Keyword
-	CodeSignatureStatus          fields.Keyword
-	CodeSignatureSubjectName     fields.Keyword
-	CodeSignatureTeamID          fields.Keyword
-	CodeSignatureTimestamp       fields.Date
-	CodeSignatureTrusted         fields.Boolean
-	CodeSignatureValid           fields.Boolean
+	CodeSignatureDigestAlgorithm  fields.Keyword
+	CodeSignatureExists           fields.Boolean
+	CodeSignatureFlags            fields.Keyword
+	CodeSignatureSigningID        fields.Keyword
+	CodeSignatureStatus           fields.Keyword
+	CodeSignatureSubjectName      fields.Keyword
+	CodeSignatureTeamID           fields.Keyword
+	CodeSignatureThumbprintSha256 fields.Keyword
+	CodeSignatureTimestamp        fields.Date
+	CodeSignatureTrusted          fields.Boolean
+	CodeSignatureValid            fields.Boolean
 }
 
 var Types TypesType = TypesType{}

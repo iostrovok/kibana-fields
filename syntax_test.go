@@ -22,6 +22,7 @@ import (
 	_ "github.com/iostrovok/kibana-fields/x/event"
 	_ "github.com/iostrovok/kibana-fields/x/faas"
 	_ "github.com/iostrovok/kibana-fields/x/file"
+	_ "github.com/iostrovok/kibana-fields/x/gen_ai"
 	_ "github.com/iostrovok/kibana-fields/x/geo"
 	_ "github.com/iostrovok/kibana-fields/x/group"
 	_ "github.com/iostrovok/kibana-fields/x/hash"

@@ -6,7 +6,7 @@ https://www.elastic.co/guide/en/ecs/current/ecs-field-reference.html
 
 By https://github.com/iostrovok/kibana-fields-generator
 
-from https://github.com/elastic/ecs/blob/9.0/generated/ecs/ecs_nested.yml
+from https://github.com/elastic/ecs/blob/9.1/generated/ecs/ecs_nested.yml
 
 ## TODO:
 

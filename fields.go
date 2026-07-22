@@ -21,10 +21,12 @@ func (f Field) Label() string {
 type Boolean string
 type ConstantKeyword string
 type Date string
+type Double string
 type Flattened string
 type Float string
 type GeoPoint string
 type IP string
+type Integer string
 type Keyword string
 type Long string
 type MatchOnlyText string

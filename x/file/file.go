@@ -13,6 +13,7 @@ const (
 	CodeSignatureStatus           fields.Field = "file.code_signature.status"              // Additional information about the certificate status.
 	CodeSignatureSubjectName      fields.Field = "file.code_signature.subject_name"        // Subject name of the code signer
 	CodeSignatureTeamID           fields.Field = "file.code_signature.team_id"             // The team identifier used to sign the process.
+	CodeSignatureThumbprintSha256 fields.Field = "file.code_signature.thumbprint_sha256"   // SHA256 hash of the certificate.
 	CodeSignatureTimestamp        fields.Field = "file.code_signature.timestamp"           // When the signature was generated and signed.
 	CodeSignatureTrusted          fields.Field = "file.code_signature.trusted"             // Stores the trust status of the certificate chain.
 	CodeSignatureValid            fields.Field = "file.code_signature.valid"               // Boolean to capture if the digital signature is verified against the binary content.
@@ -161,6 +162,7 @@ var Fields = []fields.Field{
 	CodeSignatureStatus,
 	CodeSignatureSubjectName,
 	CodeSignatureTeamID,
+	CodeSignatureThumbprintSha256,
 	CodeSignatureTimestamp,
 	CodeSignatureTrusted,
 	CodeSignatureValid,
@@ -308,6 +310,7 @@ type TypesType struct {
 	CodeSignatureStatus           fields.Keyword
 	CodeSignatureSubjectName      fields.Keyword
 	CodeSignatureTeamID           fields.Keyword
+	CodeSignatureThumbprintSha256 fields.Keyword
 	CodeSignatureTimestamp        fields.Date
 	CodeSignatureTrusted          fields.Boolean
 	CodeSignatureValid            fields.Boolean
